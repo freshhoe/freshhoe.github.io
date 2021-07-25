@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Fresh day by Hoe`,
+    title: `Dev. blog by Hoe`,
     description: `Front-end Dev. blog`,
     author: `Hoe`,
-    siteUrl: '<https://my-website-link.com>',
+    siteUrl: 'https://freshhoe.github.io/',
   },
   plugins: [
     {
@@ -73,7 +73,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://my-website.com/',
+        siteUrl: 'https://freshhoe.github.io/',
         stripQueryString: true,
       },
     },
