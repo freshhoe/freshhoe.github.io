@@ -1,6 +1,6 @@
 ---
 date: '2021-07-26'
-title: '[JS Alog] K번째 큰 수'
+title: '[JS Algo] K번째 큰 수'
 categories: ['Algorithm', 'JavaScript']
 summary: 'N장의 카드 중 3장을 뽑아 합을 기록하고, 기록한 값 중 K번째로 큰 수를 출력하는 프로그램을 작성합니다.'
 thumbnail: './Algorithm.png'
