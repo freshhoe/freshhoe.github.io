@@ -1,16 +1,19 @@
-// # 6
-// let s = 'BACBACCACCBDEDE';
-// let answer;
+// 학급회장
+function solution (s) {
+    let answer;
+    let sh = new Map ();
+    let max = Number.MIN_SAFE_INTEGER;
 
-// let sh = new Map();
-// for (let char of s) {
-//     sh.set(char, sh.get(char)+1 || 1);
-// }
-// let max = Number.MIN_SAFE_INTEGER;
-// for (let [key, val] of sh) {
-//     if (val > max) {
-//         max = val;
-//         answer = key;
-//     }
-// }
-// console.log(answer);
+    for (let char of s) {
+        sh.set(char, sh.get(char) + 1 || 1);
+    }
+    
+    for (let [key, val] of sh) {
+        if (max > val) {
+            max = val;
+            answer = key;
+        }
+    }
+    return answer;
+}
+console.log(solution('BACBACCACCBDEDE'));

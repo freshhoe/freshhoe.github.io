@@ -1,4 +1,4 @@
-// # 2
+// 상태변화
 function solution (s1, s2) {
     let answer;
     let one = zero = 0;

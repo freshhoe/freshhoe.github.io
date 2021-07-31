@@ -1,10 +1,10 @@
-// #3
-// let answer = [];
-// let s = 'kseaedu';
-// // let s2 = '11100110';
-// // let sArr = s.split('')
-// for (i = 0; i < s.length; i++) {
-//     answer.push(s.substring(i, s.length));
-// }
-// answer.sort();
-// console.log(answer);
+// 접미사 정렬
+function solution(s) {
+    let answer = [];
+    for (i = 0; i < s.length; i++) {
+        answer.push(s.substring(i, s.length));
+    }
+    answer.sort();
+    return answer;
+}
+console.log('kseaedu');
