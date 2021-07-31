@@ -5,8 +5,12 @@ function solution (s) {
     let num = [];
     
     for (let i = 0; i < s.length; i++) {
-        if (Number(s[i])) { // 별도의 스택에 따로 반복횟수 push
-            if (Number(s[i+1])) num.push(Number(s[i] + s[i+1])); // 두 자리 숫자면 합쳐서 push
+        if (!isNaN(Number(s[i]))) { // 별도의 스택에 따로 반복횟수 push
+            if (!isNaN(Number(s[i+1]))) {
+                num.push(Number(s[i] + s[i+1])); // 두 자리 숫자면 합쳐서 push 후 다음 인덱스는 조회 안하고 건너뜀
+                i++;
+                continue; 
+            }
             num.push(s[i]);
             continue;
         } else if (s[i] !== ')') {
@@ -25,4 +29,3 @@ function solution (s) {
 }
 console.log(solution('2(ab)k3(bc)')); // ababkbcbcbc
 console.log(solution('3(a2(b))ef')); // abbabbabbef
-
