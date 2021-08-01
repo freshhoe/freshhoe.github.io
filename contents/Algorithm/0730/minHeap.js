@@ -1,4 +1,4 @@
-// for 문 안에서 sort 하면 타임 리밋에 걸림
+// for 문 안에 sort 하면 타임 리밋에 걸림
 // logN * 2 과 NlogN 은 큰 차이
 // 따라서 Max heap 사용 (부모 노드의 값이 항상 자식보다 크거나 같음)
 // insert 후 upheap 으로 maxheap 되는데 logN 
@@ -8,21 +8,21 @@
 // right child: parent node * 2 + 1
 // parent node: child node / 2
 
-class maxHeap {
+class minHeap {
     constructor () { // class 생성하면 빈 배열(heap)에 맨 앞자리에 큰 수 넣은 상태
         this.heap = [];
-        this.heap.push(Number.MAX_SAFE_INTEGER);
+        this.heap.push(Number.MIN_SAFE_INTEGER);
     }
 
     insert (val) {
-        this.heap.push(val);
-        this.upheap(this.heap.length - 1);
+        this.heap.push(val); // val 을 heap 의 가장 마지막에 push
+        this.upheap(this.heap.length - 1); // heap 마지막 값의 인덱스를 인수로 할당
     }
 
     upheap (pos) {
         let tmp = this.heap[pos];
-        while (tmp > this.heap[parseInt(pos/2)]) {
-            this.heap[pos] = this.heap[parseInt(pos/2)];
+        while (tmp < this.heap[parseInt(pos/2)]) { // heap 마지막 값과 그 부모 노드의 크기 비교
+            this.heap[pos] = this.heap[parseInt(pos/2)]; 
             pos = parseInt(pos/2);
         }
         this.heap[pos] = tmp;
@@ -45,8 +45,8 @@ class maxHeap {
             child = pos * 2;
             // len: 마지막 노드의 인덱스. 마지막 자료의 앞자료까지만 down을 해야함.
             // child < len 을 해줘서 indexOutOfRange가 일어나지 않도록 방지.
-            if (child < len && this.heap[child] < this.heap[child+1]) child++;
-            if(tmp >= this.heap[child]) break;
+            if (child < len && this.heap[child] > this.heap[child+1]) child++;
+            if(tmp <= this.heap[child]) break;
             this.heap[pos] = this.heap[child];
             pos = child;
         }
@@ -64,39 +64,14 @@ class maxHeap {
         return true;
     }
 }
-// class 사용해 주어진 배열을 maxheap으로 만드는 함수
-// function maxHeapTest (nums) {
-//     let maxH = new maxHeap ();
-//     for (let x of nums) {
-//         maxH.insert(x);
-//     }
-//     console.log(`poped: ${maxH.get()}`);
-//     maxH.show();
-//     return;
-// }
-// console.log(maxHeapTest([5,4,3,6,7,2,9]))
-
-
-// 마지막 남은 수
-function solution (nums) {
-    let answer;
-    let maxH = new maxHeap ();
+// class 사용해 주어진 배열을 minheap으로 만드는 함수
+function minHeapTest (nums) {
+    let minH = new minHeap ();
     for (let x of nums) {
-        maxH.insert(x);
+        minH.insert(x);
     }
-    while (maxH.size() > 1) {
-        let a = maxH.get();
-        let b = maxH.get();
-        if (a != b) {
-            maxH.insert(a-b);
-        }
-    }
-    if (maxH.size() === 0) {
-        answer = 0;
-    } else {
-        answer = maxH.get();
-    }
-    return answer;
+    // console.log(`poped: ${minH.get()}`);
+    minH.show();
+    return;
 }
-console.log(solution([5, 2, 4, 3, 1])) // 1
-console.log(solution([7, 6, 3, 2, 4, 5, 1])) // 0
+console.log(minHeapTest([5,4,3,6,7,2,9]))

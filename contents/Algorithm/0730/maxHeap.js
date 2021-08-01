@@ -15,37 +15,37 @@ class maxHeap {
     }
 
     insert (val) {
-        this.heap.push(val);
-        this.upheap(this.heap.length - 1);
+        this.heap.push(val); // val 을 heap 의 가장 마지막에 push
+        this.upheap(this.heap.length - 1); // heap 마지막 값의 인덱스를 인수로 할당
     }
 
     upheap (pos) {
         let tmp = this.heap[pos];
-        while (tmp > this.heap[parseInt(pos/2)]) {
-            this.heap[pos] = this.heap[parseInt(pos/2)];
-            pos = parseInt(pos/2);
+        while (tmp > this.heap[parseInt(pos/2)]) { // heap 마지막 값과 그 부모 노드의 크기 비교
+            this.heap[pos] = this.heap[parseInt(pos/2)]; // 마지막 값이 크다면 부모 노드와 자리 교체
+            pos = parseInt(pos/2); 
         }
-        this.heap[pos] = tmp;
+        this.heap[pos] = tmp; 
     }
 
     get () {
-        if (this.heap.length === 2) {
+        if (this.heap.length === 2) { // heap 에 자료가 하나만 있을 경우 pop
             return this.heap.pop();
         }
-        let res = this.heap[1];
-        this.heap[1] = this.heap.pop(); // get 호출시 heap(배열) 크기는 줄어야 함.
-        this.downheap(1, this.heap.length - 1); // 현재 루트 노드 인덱스와 마지막 인덱스를 인수로 할당
+        let res = this.heap[1]; 
+        this.heap[1] = this.heap.pop(); // get 호출시 heap(배열) 크기는 줄어야 함. 마지막 노드 값을 루트에 할당
+        this.downheap(1, this.heap.length - 1); // 현재 루트 노드 인덱스와 끝 노드 인덱스를 인수로 할당
         return res;
     }
     // downheap 코드 리뷰 필요
     downheap (pos, len) {
         let tmp = this.heap[pos];
         let child;
+        // len: 마지막 노드의 인덱스. 마지막 자료의 앞자료(부모)까지만 down을 해야함.
         while (pos <= parseInt(len/2)) {
-            child = pos * 2;
-            // len: 마지막 노드의 인덱스. 마지막 자료의 앞자료까지만 down을 해야함.
+            child = pos * 2;  // 왼쪽 자식 노드
             // child < len 을 해줘서 indexOutOfRange가 일어나지 않도록 방지.
-            if (child < len && this.heap[child] < this.heap[child+1]) child++;
+            if (child < len && this.heap[child] < this.heap[child+1]) child++; // 비교할 자식노드 선택
             if(tmp >= this.heap[child]) break;
             this.heap[pos] = this.heap[child];
             pos = child;

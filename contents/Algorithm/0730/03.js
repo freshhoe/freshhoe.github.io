@@ -14,6 +14,7 @@ function solution (meeting) {
             return a[1] - b[1];
         }
     });
+
     let et = 0;
     for (let x of meeting) {
         if (x[0] >= et) {
