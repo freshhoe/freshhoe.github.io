@@ -3,9 +3,9 @@ function solution (s) {
     let answer;
     let stack = [];
     for (let i = 0; i < s.length; i++) {
-        if (Number(s[i])) {
+        if (!isNaN(Number(s[i]))) {
             stack.push(Number(s[i]));
-        } else if (isNaN(Number(s[i]))) {
+        } else {
             let right = stack.pop();
             let left = stack.pop();
             if (s[i] === '+') stack.push(left + right);
@@ -23,9 +23,9 @@ function solution (s) {
     let answer;
     let stack = [];
     for (let i = 0; i < s.length; i++) {
-        if (Number(s[i])) {
+        if (!isNaN(Number(s[i]))) {
             stack.push(Number(s[i]));
-        } else if (isNaN(Number(s[i]))) {
+        } else {
             let right = stack.pop();
             let left = stack.pop();
             stack.push(Function('"use strict";return (' + left + s[i] + right + ');')());

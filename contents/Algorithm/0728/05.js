@@ -3,7 +3,7 @@ function solution (n, k) {
     let answer;
     let queue = Array.from({length: n}, (v, i) => i + 1);
     while (queue.length) {
-        for (i = 0; i < k-1; i++) {
+        for (let i = 0; i < k-1; i++) {
             queue.push(queue.shift());
         }
         
