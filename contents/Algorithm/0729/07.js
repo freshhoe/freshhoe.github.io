@@ -38,6 +38,5 @@ function solution (s, t) {
     }
     return answer;
 }
-console.log(solution("bacacbcba", "abc"));
 console.log(solution('bacacbcba', 'abc')); //3
 console.log(solution('bacaAacba', 'abc')); //3
