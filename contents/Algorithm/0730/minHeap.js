@@ -74,4 +74,4 @@ function minHeapTest (nums) {
     minH.show();
     return;
 }
-console.log(minHeapTest([5,4,3,6,7,2,9]))
+console.log(minHeapTest([3,2,4,6,7,2,9]))
