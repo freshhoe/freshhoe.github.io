@@ -7,7 +7,7 @@ function solution (n, m) {
     let tmp = [];
 
     function DFS (L) {
-        if (L === m) { // 
+        if (L === m) {
             answer.push(tmp.slice());
         } else {
             for (let i = 1; i <= n; i++) {
@@ -30,7 +30,7 @@ function solution2 (n, m) {
     let check = Array.from({length: n+1}, () => 0); // 0으로 초기화한 배열
 
     function DFS (L) {
-        if (L === m) { // 
+        if (L === m) {
             answer.push(tmp.slice());
         } else {
             for (let i = 1; i <= n; i++) {
