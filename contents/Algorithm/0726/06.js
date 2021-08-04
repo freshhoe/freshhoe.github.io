@@ -16,4 +16,4 @@ function solution (s) {
     }
     return answer;
 }
-console.log(solution('BACBACCACCBDEDE'));
+console.log(solution('BACBACCACCBDEDE')); // C

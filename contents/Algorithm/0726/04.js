@@ -22,5 +22,5 @@ function solution(words) {
     }
     return answer;
 }
-console.log(solution(['skudy', 'kstue', 'time', 'back', 'good']));
-console.log(solution(['kk', 'k', 'kkk', 'kkkkk', 'kkkk']));
+console.log(solution(['skudy', 'kstue', 'time', 'back', 'good'])); // 20
+console.log(solution(['kk', 'k', 'kkk', 'kkkkk', 'kkkk'])); // 0

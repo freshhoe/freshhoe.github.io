@@ -16,5 +16,5 @@ function solution(s1, s2) {
     }
     return answer;
 }
-console.log(solution('AbaAeCe', 'baeeACA'));
-console.log(solution('abaCC', 'Caaab'));
+console.log(solution('AbaAeCe', 'baeeACA')); // YES
+console.log(solution('abaCC', 'Caaab')); // NO

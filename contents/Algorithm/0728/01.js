@@ -30,5 +30,5 @@ function solution2 (s) {
     if (stack.length !== 0) return answer = "NO";
     return answer;
 }
-console.log(solution('(()(()))(()'));
-console.log(solution2('(()(()))(()'));
+console.log(solution('(()(()))(()')); // NO
+console.log(solution2('(()(()))(()')); // NO

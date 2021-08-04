@@ -7,4 +7,4 @@ function solution(s) {
     answer.sort();
     return answer;
 }
-console.log('kseaedu');
+console.log(solution('kseaedu')); // ["aedu", "du", "eaedu", "edu", "kseaedu", "seaedu", "u"]

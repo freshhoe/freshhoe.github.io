@@ -20,5 +20,5 @@ function solution2 (s) {
     }
     return answer = stack.join('');
 }
-console.log(solution('(A(BC)D)EF(G(H)(IJ)K)LM(N)'));
-console.log(solution2('(A(BC)D)EF(G(H)(IJ)K)LM(N)'));
+console.log(solution('(A(BC)D)EF(G(H)(IJ)K)LM(N)')); // EFLM
+console.log(solution2('(A(BC)D)EF(G(H)(IJ)K)LM(N)')); // EFLM
