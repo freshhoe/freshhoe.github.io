@@ -10,7 +10,8 @@
 function solution (N, edges, s, e) {
     let answer;
     let n = edges.length;
-    let graph = Array.from(Array(n + 1), () => Array());
+    let graph = Array.from(Array(n), () => Array());
+    console.log(graph);
     let lt = 1;
     let rt = 0;
 
@@ -19,6 +20,7 @@ function solution (N, edges, s, e) {
         graph[b].push([a, c]);
         rt = Math.max(rt, c);
     }
+    console.log(graph);
     
     function BFS(w) {
         let check = Array.from({length: n + 1}, () => 0);
@@ -29,7 +31,7 @@ function solution (N, edges, s, e) {
         while (queue.length) {
             let curr = queue.shift();
             for (let [b, c] of graph[curr]) {
-                if (c >= w && check[b] == 0) {
+                if (c >= w && check[b] === 0) {
                     check[b] = 1;
                     queue.push(b);
                 }
