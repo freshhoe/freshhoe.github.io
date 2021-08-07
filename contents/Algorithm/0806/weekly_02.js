@@ -1,13 +1,13 @@
 //
-function solution (nums) {
+function solution(nums) {
     let answer = [];
     answer.push(nums[0]);
 
     for (let i = 1; i < nums.length; i++) {
         if (answer[answer.length - 1] > 0 && nums[i] < 0) {
             while (answer[answer.length - 1] < Math.abs(nums[i]) &&
-                   answer[answer.length - 1] !== Math.abs(nums[i]) && 
-                   answer[answer.length - 1] > 0 && nums[i] < 0) {
+                answer[answer.length - 1] !== Math.abs(nums[i]) &&
+                answer[answer.length - 1] > 0 && nums[i] < 0) {
                 answer.pop();
             }
             if (answer[answer.length - 1] === Math.abs(nums[i])) {
