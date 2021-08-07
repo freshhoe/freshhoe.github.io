@@ -6,23 +6,23 @@
 <summary></summary>
 <div markdown="1">
 <p>학급 회장을 후보로 기호 A, B, C, D, E 후보가 등록을 했습니다.
-어떤 기호의 후보가 학급 회장이 되었는지 출력하는 프로그램을 작성하세요. 반드시 한 명의 학급회장이 선출되도록 투표결과가 나왔다고 가정합니다.</p>
+어떤 기호의 후보가 학급 회장이 되었는지를 반환해야 합니다. 반드시 한 명의 학급회장이 선출되도록 투표결과가 나왔다고 가정합니다.</p>
 </div>
 </details>
 <h2>A. 풀이</h2>
-<p><code class="language-text">Map()</code> 객체와 관련 메서드의 사용법을 아는 게 문제풀이에 도움이 됩니다. 문자열 내의 개별 문자값을 <code class="language-text">key</code> 로, 문자열 내에 존재하는 개별 문자값의 갯수를 <code class="language-text">value</code> 로 가지는 <code class="language-text">Map</code> 객체를 만들어야 합니다. <code class="language-text">set</code> 메서드를 사용하고 메서드 내의 <code class="language-text">value</code> 값 부여에는 <code class="language-text">||</code> 연산자를 사용합니다. <code class="language-text">for of</code> 를 사용해 순회하며 <code class="language-text">Map</code> 객체의 <code class="language-text">key</code> 와 <code class="language-text">value</code> 를 부여합니다. <br>
-이렇게 만든 <code class="language-text">Map</code> 객체를 구조 분해 할당을 통해 <code class="language-text">key</code>를 <code class="language-text">key</code> 변수에, <code class="language-text">value</code>를 <code class="language-text">val</code> 변수에 할당하고 <code class="language-text">max</code> 값을 갱신해 반복문이 끝났을 때 <code class="language-text">max</code> 이 최대값이므로 해당 값을 가진 <code class="language-text">key</code> 를 결과로 반환합니다.</p>
+<p><code class="language-text">Map()</code> 객체와 관련 메서드의 사용법을 아는 게 문제풀이에 도움이 됩니다. 문자열 내의 개별 문자값을 <code class="language-text">key</code> 로, 문자열 내에 존재하는 개별 문자값의 갯수를 <code class="language-text">value</code> 로 가지는 Map객체를 만들어야 합니다. <code class="language-text">set</code> 메서드를 사용하고 메서드 내의 value 값 부여에는 <code class="language-text">||</code> 연산자를 사용합니다. 반복문을 사용해 순회하며 Map객체의 key와 value를 할당 및 갱신합니다. <br>
+이렇게 만든 Map객체를 구조 분해 할당을 통해 key를 <code class="language-text">key</code> 변수에, value를 <code class="language-text">val</code> 변수에 할당하고 <code class="language-text">max</code> 값을 갱신해 반복문이 끝났을 때 <code class="language-text">max</code> 이 최대값이므로 해당 값을 가진 <code class="language-text">key</code> 를 결과로 반환합니다.</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">solution</span><span class="token punctuation">(</span><span class="token parameter">s</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">let</span> answer<span class="token punctuation">;</span>
-  <span class="token keyword">let</span> sh <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> answer <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> sH <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">let</span> max <span class="token operator">=</span> Number<span class="token punctuation">.</span><span class="token constant">MIN_SAFE_INTEGER</span><span class="token punctuation">;</span>
 
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> char <span class="token keyword">of</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    sh<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>char<span class="token punctuation">,</span> sh<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>char<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">||</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> x <span class="token keyword">of</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    sH<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> sH<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">||</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> val<span class="token punctuation">]</span> <span class="token keyword">of</span> sh<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>max <span class="token operator">></span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>key<span class="token punctuation">,</span> val<span class="token punctuation">]</span> <span class="token keyword">of</span> sH<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>max <span class="token operator">&lt;</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
       max <span class="token operator">=</span> val<span class="token punctuation">;</span>
       answer <span class="token operator">=</span> key<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>

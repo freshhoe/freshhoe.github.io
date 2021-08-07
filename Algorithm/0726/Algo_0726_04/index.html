@@ -6,24 +6,25 @@
 <summary></summary>
 <div markdown="1">
 <p>N개의 문자열이 주어지면 서로 공통문자가 없는 두 문자열을 선택해 두 문자열의 길이를 곱했
-을 때 최댓값을 출력하는 프로그램을 작성하세요.</p>
+을 때 최댓값을 반환해야 합니다. 주어진 배열 모두가 서로 공통문자를 가지고 있다면 0을 반환합니다.</p>
 </div>
 </details>
 <h2>A. 풀이</h2>
-<p>흐름은 다음과 같습니다. 배열 내 각 문자열을 비교해 공통문자 여부를 판별하고, 서로 공통문자가 없는 경우 두 문자열의 길이를 곱합니다. 이 값 중 가장 큰 값을 출력합니다. <br>
-세부적인 흐름은 다음과 같습니다. 짧은 문자열을 먼저 비교 기준으로 사용하여 반복비교 횟수를 조금이라도 줄이기 위해 배열 내 문자열 길이를 내림차순 정렬합니다. <br>
-배열 내에서 앞 문자열과 그 다음 문자열을 조회합니다. 공통문자 여부를 반환하는 함수를 선언하는데, 선택된 두 문자열 중 짧은 문자열의 개별 문자값이 긴 문자열에 포함되어 있지 않으면 <code class="language-text">true</code> 를 반환하도록 합니다. <br>
-함수 값이 <code class="language-text">true</code> 인 경우 두 문자열은 공통 문자가 없는 문자열이므로, 두 문자열의 길이를 곱해 임시 변수에 저장합니다. 길이의 곱 중 최대값을 찾아야 하므로 <code class="language-text">for</code>문 반복시 최대값으로 갱신해줍니다.</p>
+<p>배열 내 각 문자열을 비교해 공통문자 여부를 판별하고, 서로 공통문자가 없는 경우 두 문자열의 길이를 곱합니다. 이 값 중 가장 큰 값을 출력합니다. <br>
+세부적인 로직은 다음과 같습니다. 짧은 문자열을 비교 기준으로 사용하여 반복되는 비교 횟수를 조금이라도 줄이기 위해 배열 내 문자열 길이를 내림차순 정렬합니다. 배열 내에서 앞 문자열과 그 다음 문자열을 조회합니다. 공통문자 여부를 반환하는 함수를 선언하는데, 선택된 두 문자열 중 짧은 문자열의 개별 문자값이 긴 문자열에 포함되어 있지 않으면 <code class="language-text">true</code> 를 반환하도록 합니다. 함수 값이 <code class="language-text">true</code> 인 경우 두 문자열은 공통 문자가 없는 문자열이므로, 두 문자열의 길이를 곱해 임시 변수에 저장합니다. 길이의 곱 중 최대값을 찾아야 하므로 반복문 안에서 최대값으로 계속 갱신해줍니다.</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">solution</span><span class="token punctuation">(</span><span class="token parameter">words</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">let</span> answer <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
   <span class="token keyword">let</span> len <span class="token operator">=</span> words<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-  words<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=></span> a<span class="token punctuation">.</span>length <span class="token operator">-</span> b<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 짧은 것을 기준으로 비교해 반복비교 횟수 줄임</span>
+  words<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=></span> a<span class="token punctuation">.</span>length <span class="token operator">-</span> b<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token keyword">function</span> <span class="token function">isUnique</span><span class="token punctuation">(</span><span class="token parameter">short<span class="token punctuation">,</span> long</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> x <span class="token keyword">of</span> short<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>long<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>long<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
