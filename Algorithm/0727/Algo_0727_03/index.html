@@ -5,29 +5,31 @@
 <details>
 <summary></summary>
 <div markdown="1">
-<p>길이가 N인 수열이 주어지면 이 수열에서 연속으로 증가하거나, 또는 연속으로 작아지는 부분수열 중 가장 길이가 긴 수열을 찾는 프로그램을 작성하세요.
+<p>길이가 N인 수열이 주어지면 이 수열에서 연속으로 증가하거나, 또는 연속으로 작아지는 부분수열 중 가장 길이가 긴 수열을 찾는 프로그램을 작성하세요. <br>
 ex) [5, 3, 6, 7, 9, 8, 5, 3, 1, 2] 이 주어지면 우리가 찾는 가장 긴 수열은 [9, 8, 5, 3, 1] 입니다.
 수열 [1, 2, 3, 3, 4, 5, 6] 과 같이 같은 값이 연속으로 있는 것은 증가 또는 감소로 보지 않습니다.</p>
 </div>
 </details>
 <h2>A. 풀이</h2>
-<p>값이 연속적으로 증가하거나 감소하는 수열 중 길이가 더 큰 것을 반환하면 됩니다. 수열을 순회하며 증가하거나 감소하는 수열 길이의 누적합이 할당되는 변수를 생성합니다. 연속적인 값의 증가 또는 감소가 끝났을 때, 누적된 길이의 최대값이 할당되는 변수를 생성합니다. <code class="language-text">for</code> 반복문을 통해 조회하고, 반복문이 끝났을 때, 증가수열의 최대값과 감소수열의 최대값 중 더 큰 길이의 값을 반환합니다. <br>
-추가로 고려할 사항은 수열 전체가 증가수열이거나 감소수열일 경우, 조건문에서 최대값 갱신이 되지 않고 반복문을 빠져나오므로 반복문 바깥에서 최대값 갱신해주는 구간을 한 번 더 지나도록 합니다.</p>
+<p>값이 연속적으로 증가하거나 감소하는 수열 중 길이가 더 큰 것을 반환하면 됩니다. 수열을 순회하며 증가하거나 감소하는 수열 길이의 누적합이 할당되는 변수를 생성합니다. 연속적인 값의 증가 또는 감소가 끝났을 때, 누적된 길이의 최대값이 할당되는 변수를 생성합니다. 반복문을 통해 조회하고, 반복문이 끝났을 때 증가수열의 최대값과 감소수열의 최대값 중 더 큰 길이의 값을 반환합니다. <br>
+추가로 고려할 사항은 수열 전체가 증가수열이거나 감소수열일 경우, 조건문에서 최대값 갱신이 되지 않은채 반복문을 빠져나오므로, 반복문 바깥에서 최대값 갱신해주도록 합니다.</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">solution</span><span class="token punctuation">(</span><span class="token parameter">nums</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">let</span> answer<span class="token punctuation">;</span>
-  <span class="token keyword">let</span> up <span class="token operator">=</span> <span class="token punctuation">(</span>down <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 수열의 길이 누적 변수</span>
-  <span class="token keyword">let</span> maxup <span class="token operator">=</span> <span class="token punctuation">(</span>maxdown <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 수열의 길이 누적 최대값 변수</span>
+  <span class="token keyword">let</span> up <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    down <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 수열의 길이 누적 변수</span>
+  <span class="token keyword">let</span> maxup <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    maxdown <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// 수열의 길이 누적 최대값 변수</span>
 
   <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 증가수열 판별</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token comment">// 증가수열 판별</span>
       up<span class="token operator">++</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
       maxup <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>maxup<span class="token punctuation">,</span> up<span class="token punctuation">)</span><span class="token punctuation">;</span>
       up <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
+    <span class="token comment">// 감소수열 판별</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">></span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token comment">// 감소수열 판별</span>
       down<span class="token operator">++</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
       maxdown <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>maxdown<span class="token punctuation">,</span> down<span class="token punctuation">)</span><span class="token punctuation">;</span>
