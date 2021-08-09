@@ -2,7 +2,7 @@
 function solution (s) {
     let answer;
     let stack = [];
-    for (i = 0; i < s.length; i++) {
+    for (let i = 0; i < s.length; i++) {
         stack.push(s[i]);
         if (s[i] === ')') stack.splice(stack.lastIndexOf('('));
     }
@@ -11,7 +11,7 @@ function solution (s) {
 function solution2 (s) {
     let answer;
     let stack = [];
-    for (i = 0; i < s.length; i++) {
+    for (let i = 0; i < s.length; i++) {
         if (s[i] === ')') {
             while (stack.pop() !== '(');
         } else {

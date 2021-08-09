@@ -2,7 +2,7 @@
 function solution (s) {
     let answer;
     let stack = [];
-    for (i = 0; i < s.length; i++) {
+    for (let i = 0; i < s.length; i++) {
         if (stack.length > 0 && stack[stack.length - 1] === s[i]) {
             stack.pop();
         } else {
