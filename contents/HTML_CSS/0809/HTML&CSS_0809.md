@@ -1,6 +1,6 @@
 ---
 date: '2021-08-09'
-title: '# 01 HTML&CSS'
+title: '01. HTML&CSS TIL'
 categories: ['HTML', 'CSS']
 summary: ''
 thumbnail: './HTMLCSS.jpg'
