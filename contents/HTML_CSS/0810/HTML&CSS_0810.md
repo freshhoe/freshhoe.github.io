@@ -1,0 +1,126 @@
+---
+date: '2021-08-10'
+title: '02. HTML&CSS TIL'
+categories: ['HTML', 'CSS']
+summary: ''
+thumbnail: './HTMLCSS.jpg'
+---
+## 첫 번째 시간
+## CSS3 Design
+- W3C의 표준. 스타일을 지정하기 위한 언어로, 스타일은 웹의 독창적인 개념이 아닌 웹 이전부터 워드프로세스 등에 사용했던 개념.
+- living standard html : WHATWG 에서 제정하는 HTML 표준 스펙에 관련된 공식 문서.
+https://html.spec.whatwg.org/multipage/
+
+- CSS 는 w3.org 에서 css 검색을 통해 관련 스펙과 표준 제정 단계를 확인할 수 있음. 
+https://www.w3.org/Style/CSS/Overview.en.html
+
+- css3test.com : 세부적으로 어떤 property의 어떤 값이 내가 사용하는 브라우저에서 사용 가능한지 여부를 알려줌. caniuse.com 보다 좀 더 세부적임.
+https://css3test.com/#css-flexbox-1
+
+
+- atomic css : css class를 극도로 utility 또는 functional 하게 만드는 방법
+**tailwind css** : Utility-First 컨셉을 가진 CSS 프레임워크. 미리 세팅된 유틸리티 클래스를 활용하는 방식으로 HTML 코드 내에서 스타일링 할 수 있다. 또한 래핑하는 태그의 클래스명을 사용할 일이 거의 없으므로 클래스명을 고민할 필요가 없다.
+- utility css : Atomic css의 개념을 완전히 수용하지는 않는다.
+ex) `.clearfix`, `.hidden` 
+
+
+- CSS ZEN GARDEN : 마크업은 주어지고 CSS만 바뀐 디자인을 볼 수 있음.
+좋은 코드들을 벤치마킹 해볼 수 있음.
+http://www.csszengarden.com/
+- abbr tag : 약어를 나타내는 태그. 줄임말의 전체 뜻이나 설명을 제공할 수 있음.
+
+### **브라우저 렌더링 엔진**
+렌더링 엔진은 요청한 콘텐츠를 화면에 표시하는 역할을 담당.
+#### 렌더링 엔진의 동작
+- DOM 트리 구축을 위한 HTML 파싱 (DOM)
+- CSS와 같은 스타일 요소 파싱 (CSSOM)
+- DOM 트리와 파싱한 스타일 요소를 합쳐 렌더 트리 구축 (DOM + CSSOM)
+- 렌더 트리 배치
+- 렌더 트리 그리기
+#### 브라우저별 렌더링 엔진
+- 파이어폭스 : Gecko
+- Safari : Webkit
+- Chrome, Opera : Blink
+
+
+#### CSS 단위
+- 현업에서는 rem 단위를 많이 쓰는듯. em 단위는 컨트롤하기 어려운데, **왜?**
+- 둘의 공통점은 font-size의 속성값에 비례해서 결정되는 상대 단위.
+- 차이점은 rem 은 루트요소, 즉, html 요소의 font-size 속성 값이 기준이 됨.
+- em 은 해당 단위가 사용된 요소의 font-size 가 기준이 되고, 만약 지정된 값이 없다면 부모요소로부터 상속받은 값이 기준이 됨. 부모요소가 가진 속성값이 없다면 속성값을 가진 곳으로부터 상속받아 기준으로 사용. 따라서 여러 상위 요소들을 거치며 상속받을 수도 있기 때문에 실제 어떤 값이 사용될지 파악하기 힘들 수가 있다.
+
+- CSS 는 단일 파일로 다루는 것이 좋다.
+link는 병렬로 다운. import 는 직렬도 다운. 직렬 다운 방식의 문제를 해결하기 위해 SASS를 고려해 볼 수 있음.
+- inline style 방식은 권장하는 방식은 아니다. 유지보수가 힘듦. 
+
+
+## 두 번째 시간
+- developer extension 을 활용해 html과 css의 syntax validation 가능.
+- margin 과 flex를 활용해 로고를 가운데 왼쪽, 오른쪽에 링크모음을 나눠 배치할 수 있다. (질문에 의한 막간 실습)
+
+- **MDN: 컨테이닝 블록이란?**
+https://developer.mozilla.org/ko/docs/Web/CSS/Containing_block
+
+#### float
+- 문서에서 마크업 순서대로 표시되는 흐름을 **normal flow** 라고 한다. 그 **noraml flow** 를 벗어나 부유하게 만드는 것이 `float` 다.
+- `float` 는 부모 컨테이너를 벗어나 가장 왼쪽(`float: left;` 의 경우)부터 새로운 라인박스를 생성하며 배치된다. 부모 컨테이너는 요소가 부유하게 될때마다 벗어난 요소의 높이만큼 높이를 잃어버린다.
+- 어떤 요소를 float 했을 때, 따로 너비를 지정해주지 않았다면 내부의 컨텐츠만큼의 크기를 차지하고 float 된다.
+- 따라서 원하는 높이를 주기 위해 height를 고려해 볼 수 있는데, 이러한 고정값을 주는 것은 좋지 않다. 따라서 컨텐츠에 높이를 줄 때 자동으로 늘어나게 하기 위해 auto를 주는게 좋다. 만약 컨텐츠가 작아 원하는 높이가 아닐 경우 최소 높이를 부여해 이를 방지할 수 있다.
+- `overflow: hidden;` float로 인해 사라진 자식의 높이를 부모요소가 읽어들일 수 있도록 함. (float로 인한 부작용을 해결하기 위한 hack)
+비슷한 방식으로 `zoom`을 사용한 방식이 있음.
+
+- **bfc(block formatting context)**
+https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Block_formatting_context
+
+- `overflow: hidden;` 를 사용하면 어떤 요소를 컨테이너에 걸쳐서 보이게 할 수 없다. 넘어간만큼 사라지기(hidden) 때문.
+- 이를 해결 하기위해 float를 사용하게 되는데 UI가 망가짐. 이를 해결하기 위해 이중 float를 사용해 볼 수 있음.
+
+## 세 번째 시간
+- 참고: coolors.co 에서 추천색상 확인 해볼 수 있음.
+- float의 부작용을 마크업으로 해결 시도. class로 clearfix를 줌.
+- clearfix 에 clear를 주면 float의 높이만큼 늘어나고 clearfix에 지정한 height만큼 추가로 하단에 높이를 가지게 됨. (마크업을 지저분하게 함.)
+- 그럼 마크업을 지저분하게 만들지 않으면서 해결할 수 있는 방법은 없을까?
+- 가상요소 선택자를 고려해볼 수 있다. before(first child), after(last child) 단, 이 가상요소 선택자는 인라인 박스다. 그러나 clear 속성은 블록요소에만 적용 가능하다. 따라서 가상요소 선택자의 display를 블록 성격을 가진 것으로 값을 할당하면 된다.
+- 여기까지가 크로스 브라우징을 위한 float 사용법이다. 모던 환경에서도 float를 사용할 수 있으나 위와 같은 옛날 방식을 고집할 필요가 없다.
+- 이 경우 `display: flow-root;` 를 사용해 볼 수 있다. 플로트된 요소의 부모요소에게 적용. 부모요소가 루트가 되어 플로트된 요소를 정렬시키는 방법이다. (IE는 지원하지 않을 수 있음. 호환성 고려해야함)
+- 여기까지 된 후 float가 적용된 요소들을 어제 flex와 padding을 사용한 것과 같이 등간격으로 정렬하려면 어떻게 해야 할까?
+- 그룹에 margin을 주고 부모요소인 main에 padding을 준다. 개별 요소에 left, right 에 고정 px을 주는 것보다 좀 더 유연하게 적용가능하다.
+
+#### header 영역 세부적인 마크업
+![header](./01_header_nav.png)
+1. 제목
+2. 항목들(1 depth)
+3. 항목들의 항목(2 depth)
+- 1 depth를 어떤 태그로 만들어야 할까? 링크를 통한 이동이 아니기 때문에 a가 아니다. span 도 아니다. button이다.
+- 2 depth 는 다른 페이지로 이동하므로 li 태그에 a 태그로 생성한다.
+
+- 디자인상 보이지 않으나 어떤 개념(아웃라인 알고리즘 관점)인지를 명시(메인메뉴)하는 것이 좋다. 제목 태그(heading)를 사용해 아웃라인 알고리즘을 고려하고, CSS를 사용해 해당 요소를 숨김 컨텐츠화하면 된다. 해당 요소의 클래스에 `a11y-hidden`과 같이 accesiblility(11) 로 접근성(스크린 리더)을 고려한 요소이고 hidden 숨겨진 컨텐츠다 라는 의미의 클래스 네이밍을 한다.
+
+**<클래스 네이밍>**
+- `menu__item` : 메뉴에 포함되어 있는 아이템이라는 의미(스네이크 방식)
+의미를 온전히 나타내기 위해 위와 같은 방식의 네이밍을 고려해볼 수 있다.
+- `is-active` : 활성화되어 있고 어떤 상황이 발생했을 때 동적으로 동작할 것이다라는 의미
+
+## 네 번째 시간
+#### header 영역 스타일링
+- 네비게이션 안에 로고와 다른 요소들이 겹쳐서 보임.
+- 그리디, 포지션 등의 방법을 고려해 볼 수 있음. 여기선 포지션 사용
+
+- 아웃라인 알고리즘에 입각해 로고를 h1 태그로 감쌌을 경우 예상치 못한 여백이 발생할 수 있다. h1 의 기본 폰트 사이즈가 있을 수 있고 여기에 더해 line-height가 발생할 수 있기 때문.
+
+- **렌더링 엔진이 CSS 특정 속성을 어떻게 해석하는가?** 
+`border-radius: 500px` 은 `border-radius: 50px` 과 똑같은 결과를 나타냄. 렌더링 방식을 알면 왜 그렇게 되는지 알 수 있음.
+
+- modern css reset 으로 최소한의 reset 만을 적용해 렌더링 속도 최적화에 초점을 맞춘 방식도 있다. css reset 이 전체 css 스타일링을 감싸게 되는데 감싸면 감쌀수록(레이어층이 여러개) 속도 저하가 발생하기 때문.
+
+- 글꼴의 색상 통일을 위해 `color: inherit;` 속성을 사용.
+
+## 다섯 번째 시간
+- 44px 규칙. 성인 남자의 손으로 모바일 기기를 터치했을 때, 원하는 액션이 발생할 수 있도록 하는 것. 디자인은 비슷해질 수 있으나 사용성을 향상시키기 위함.
+
+- `<span aria-hidden = "true">:</span>` : 화면에 표시는 되지만 스크린 리더가 태그 내의 컨텐츠를 읽지 않도록 하는 것.
+https://www.youtube.com/watch?v=hvEfSbHJAfU&list=PLtaz5vK7MbK3EAPhmB2gFnCU9qU72YMq3&index=4
+
+- `li:nth-child(n+2)::before` : 첫번째를 제외하고 두번째부터 before 요소를 적용하겠다는 의미. 그런데 이렇게 할 경우 위에서와 같이 스크린 리더가 읽지 않게 할 수 없음. 따라서 첫 번째 방법을 추천.
+
+- 과제: way aria 에 대해 공부하고 정리해서 제출. ARIA 폴더를 만들어서 프론트엔드2기에 업로드. 형식은 자유. 노션이든, 마크다운이든. 내일 오전 9시까지. 시간을 오버할 경우 무조건 -1점.
