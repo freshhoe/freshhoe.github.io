@@ -83,32 +83,31 @@ thumbnail: './HTMLCSS.jpg'
 - 페이지 구분 3단, 4단 : 자유도는 4단이 더 높을 수 있음.
 - 물론 3단에서도 헤더에 nav를 포함시키거나 비주얼 영역을 메인 컨텐츠 위에 추가할 수도 있음. 3단을 베리에이션해서 5단으로 구성.
 - 컨텐츠 관점으로 구분을 시도해보면서 이후에 디자인 관점도 도입하는 것을 권장. 반복연습하며 두 가지의 장단을 느껴보면 좋을듯.
-![markup_1](./01_markup_1.png
-)
+![markup_1](./01_markup_1.png)
 
 ### Structure
-![markup_2](./02_markup_2.png
-)
+![markup_2](./02_markup_2.png)
+
 - 페이지 전체를 하나의 컨테이너로 감싸면 flex 를 사용하거나 전체적인 페이지 여백 등을 조절하기 용이하다.
 - 가급적 id 속성을 사용하지 않는 것이 좋다. 특정도가 높아져 재정의나 유지보수가 힘듦. 따라서 class 추천.
 - id 는 form 태그나 WAI-ARIA(접근성 관련 스택) 를 사용할 때 꼭 필요한 속성이다.
 - main 태그와 달리 header 태그는 여러번 사용할 수 있다. 메인 섹션에서 사용하면 메인 섹션의 header가 된다. class를 통한 적절한 네이밍을 하면 된다.
 - 현업에서는 header 의 사용보다 div를 많이 사용하나, WAI-ARIA 관점에서는 header를 사용하는 것이 보조기기 사용시 탐색이 용이하다는 장점이 있다.
 - `div` 를 사용할 경우  `role = "banner"`를 사용해야만 header의 역할할 수 있게 된다. (추가 작업이 필요하게 된다.)
-- 우리의 예제에서는 navigation을 헤더에 포함시킴. 이럴 때 아래와 같은 클래스를 활용한 네이밍을 고려해 볼 수 있다.
+- 우리의 예제에서는 navigation을 헤더에 포함시킴. 이럴 때 아래와 같은 클래스 네이밍을 고려해 볼 수 있다.
 - gnb : global navigation bar
 - lnb : local navigation bar
 - section 과 article 의 사용에 대해 의견이 분분함. 
-- 브라우저가 제공하는 기본적인 스타일 규칙을 agent style이라고 함.
+- 브라우저가 제공하는 기본적인 스타일 규칙을 **agent style**이라고 함.
 
 ### Header
-![nav](./03_nav_noti.png
-)
+![nav](./03_nav_noti.png)
+
 - 헤더에 로고가 가운데 있고, 양쪽으로 네비게이션이 나눠져 있는 경우, 디자인 베이스로 구조를 설계하면 nav 태그를 두 개 사용하게 될 수도 있다. 그럴 필요없이 css를 이용해 하나의 nav를 나눠서 배치하면 된다.
 - 로고 -> 링크모음 -> 메뉴 순으로 배치하는 것에도 이유가 있음.
 로그인을 해야 다른 링크로 접근할 수 있다면 로그인을 먼저 마크업 해야 함.
-![header](./04_header.png
-)
+![header](./04_header.png)
+
 - 점진적인 향상(progressive enhancement) : 필수적인 콘텐츠와 기능과 같이 베이스가 되는 것부터 만들고, 필요한 기능들을 추가하는 것.
 https://developer.mozilla.org/ko/docs/Glossary/Progressive_Enhancement
 이것을 확인해볼 수 있는 것은 지메일로 들어가 Web developer 익스텐션에서 JS를 disable 해도 기본적인 기능인 메일 보내기 받기와 같은 필수적인 기능은 잘 작동한다.
@@ -123,21 +122,21 @@ http://tcpschool.com/css/css_basic_imageSprites
 - 로고에 heading 태그를 사용하지 않는다면 main 태그에서 heading을 사용해도 된다. 꼭 로고에 heading 태그를 사용할 필요는 없다. 다른 태그가 선행되어야 할 경우에는 로고에 heading 태그를 사용할 수 없는 경우도 있기 때문.
 - 대체텍스트는 놓치기 쉬우나, 한 번 놓치면 치명적임.
 - 단순히 '로고'라는 단어를 대체텍스트로 사용하면 아무 의미가 없음. 어떤 페이지의 로고인지를 알 수 있게 작성해야한다.
-![main](./05_main.png
-)
+![main](./05_main.png)
+
 ### CSS
 - css 를 잘하려면 처음 짠 마크업을 건드리지 않는 조건으로 계속 사용해보는 것을 추천.
 - css basic box model
 https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model
 - margin 은 보이지 않을뿐 박스의 사이즈에 포함된다고 이해해야 한다. 개발자 도구의 basic box model을 보면 알 수 있음. (margin의 특성)
-margin-inline: 글자가 흘러가는 방향축의 개념을 사용. 기본적인 텍스트는 좌우이므로 margin도 좌우로. 축이 바뀌면 세로로 바뀐다. padding 도 이러한 개념이 적용되는 방법이 있다. 이와 관련한 내용을 스스로 찾아서 공부해야 함.
+margin-inline: 글자가 흘러가는 방향축의 개념을 사용. 기본적인 텍스트는 좌우이므로 margin도 좌우로. 축이 바뀌면 위아래로 바뀐다. padding 도 이러한 개념이 적용되는 속성이 있다. 이와 관련한 내용을 스스로 찾아서 공부해야 함.
 https://css-tricks.com/almanac/properties/m/margin-inline/
 - box-sizing : border-box 에는 margin은 포함되지 않는다.
 - CSS2에서는 가상요소 선택자와 가상 클래스 선택자가 `:`로 동일하게 사용. CSS3에 와서 `::`로 구분지어 사용.
 - 사실 CSS 버전은 마케팅적인 요소다. selector 등이 모듈 단위로 개발되기 때문에 아직 모듈 1도 있을 수 있다.
 - 'flexbox css tricks' 로 구글 검색했을 때 최상단 페이지 레퍼런스로 보면 좋음.
 https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-- flex item이 되는 요소에 flex-basis(%)로 크기를 나눠 배분할 수 있으나, 현업에서는 직관적으로 width 사용하는듯.
+- flex item이 되는 요소에 flex-basis(%단위)로 크기를 나눠 배분할 수 있으나, 현업에서는 직관적으로 width 사용하는듯.
 - `justify-content: space-evenly` 는 IE11 에서 호환 불가. 따라서 space-between과 padding을 섞어 사용하면 크로스 브라우징이 가능하다.
 - 모든 flex item의 order는 0이다. 같을 경우 먼저 마크업이 된게 선 순서를 갖는다.
 유저의 커스텀 배치를 가능하게 하려면 CSS order의 속성을 잘 이해하고 있어야 한다.
