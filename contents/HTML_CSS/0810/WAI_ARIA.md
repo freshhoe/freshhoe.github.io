@@ -208,8 +208,8 @@ WEB Accessibility Initiative – Accessible Rich Internet Applications 의 약�
 
 <br>
 
-본 내용은 아래 링크를 참고하여 작성했습니다.
+본 내용은 아래 링크를 참고하여 작성했습니다. <br>
 **[W3C Editor's Draft]** https://rawgit.com/w3c/aria-practices/apg-1.2/aria-practices.html <br>
 **[W3C Candidate Recommendation Draft]** https://www.w3.org/TR/html-aria/ <br>
-**[NIA WAI-ARIA 사례집]** https://www.wah.or.kr:444/_Upload/pds2/WAI-ARIA%20%EC%82%AC%EB%A1%80%EC%A7%91(%EC%98%A8%EB%9D%BC%EC%9D%B8%ED%8C%90).pdf <br>
 **[NULI]** https://nuli.navercorp.com/community/article/1132889?email=true <br>
+**[NIA WAI-ARIA 사례집]** https://www.wah.or.kr:444/_Upload/pds2/WAI-ARIA%20%EC%82%AC%EB%A1%80%EC%A7%91(%EC%98%A8%EB%9D%BC%EC%9D%B8%ED%8C%90).pdf <br>
