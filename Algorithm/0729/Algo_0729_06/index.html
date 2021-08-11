@@ -5,11 +5,11 @@
 <details>
 <summary></summary>
 <div markdown="1">       
-양의 정수 N이 입력되면 2개 이상의 연속된 자연수의 합으로 정수 N을 표현하는 방법의 가짓수를 반환해야합니다.
+양의 정수 N이 입력되면 2개 이상의 연속된 자연수의 합으로 정수 N을 표현하는 방법의 가짓수를 반환해야 합니다.
 </div>
 </details>
 <h2>A. 풀이</h2>
-<p><code class="language-text">two pointers</code> 알고리즘을 활용합니다. 다만 부분수열의 조회 범위는 입력된 정수 <code class="language-text">N / 2 + 1</code> 까지입니다. 그 이상의 연속된 값들의 합은 입력된 정수 <code class="language-text">N</code> 을 넘어버리기 때문입니다.</p>
+<p><strong>two pointers</strong> 알고리즘을 활용합니다. 다만 부분수열의 조회 범위는 입력된 정수 <code class="language-text">N / 2 + 1</code> 까지입니다. 그 이상의 연속된 값들의 합은 입력된 정수 <code class="language-text">N</code> 을 넘어버리기 때문입니다.</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">solution</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">let</span> answer <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
   <span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>

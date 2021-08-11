@@ -5,11 +5,11 @@
 <details>
 <summary></summary>
 <div markdown="1">
-주어진 배열은 연속된 N 일 간의 매출을 나타냅니다. 이 때 연속된 K 일 간 매출액의 합계 중 최대값은 얼마일까요?
+매개변수 nums는 연속된 N 일 간의 매출을 나타냅니다. 이 때 연속된 K 일 간 매출액의 합계 중 최대값을 반환해야 합니다.
 </div>
 </details>
 <h2>A. 풀이</h2>
-<p>슬라이딩 윈도우 알고리즘을 활용합니다. 윈도우의 크기는 <code class="language-text">k</code> 입니다. <code class="language-text">start</code> 포인트와 <code class="language-text">end</code> 포인트가 같은 위치에서 출발하고 <code class="language-text">k</code> 이후부터는 조건문으로 나눠서 알고리즘을 전개하는 방법이 있습니다. 또 다른 방법으로는 두 개의 <code class="language-text">for</code> 문을 활용해 <code class="language-text">k</code> 이전과 이후를 구분하는 방법이 있습니다. 어느 방법이든 주어진 배열에서 <code class="language-text">k</code> 길이 만큼만 합을 구하고 최대값을 계속해서 갱신해 나가면 됩니다. 이때 <code class="language-text">end</code> 포인트 인덱스가 하나 증가하면, <code class="language-text">start</code> 포인트의 인덱스도 하나 증가해야 하고, 합계에서는 <code class="language-text">end</code> 값은 새로 더하고 <code class="language-text">start</code> 값은 빼주면서 갱신해 나가야 합니다. 이렇게 하면 기존 <code class="language-text">k</code> 길이의 값 중 <code class="language-text">k-2</code> 길이의 값의 합을 다음 <code class="language-text">k</code> 길이의 값의 합에 재사용이 가능합니다.</p>
+<p>슬라이딩 윈도우 알고리즘을 활용합니다. 윈도우의 크기는 <code class="language-text">k</code> 입니다. <strong>start</strong> 포인트와 <strong>end</strong> 포인트가 같은 위치에서 출발하고 <code class="language-text">k</code> 이후부터는 조건문으로 나눠서 알고리즘을 전개하는 방법이 있습니다. 또 다른 방법으로는 두 개의 반복문을 활용해 <code class="language-text">k</code> 이전과 이후를 구분하는 방법이 있습니다. 어느 방법이든 주어진 배열에서 <code class="language-text">k</code> 길이 만큼만 합을 구하고 최대값을 계속해서 갱신해 나가면 됩니다. 이때 <strong>end</strong> 포인트 인덱스가 하나 증가하면 <strong>start</strong> 포인트의 인덱스도 하나 증가해야 하고, 합계에서는 <strong>end</strong> 값은 새로 더하고 <strong>start</strong> 값은 빼주면서 갱신해 나가야 합니다. 이렇게 하면 기존 <code class="language-text">k</code> 길이의 값 중 <code class="language-text">k-2</code> 길이의 값의 합을 다음 <code class="language-text">k</code> 길이의 값의 합에 재사용이 가능합니다.</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">solution</span><span class="token punctuation">(</span><span class="token parameter">nums<span class="token punctuation">,</span> k</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">let</span> answer <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
     sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
