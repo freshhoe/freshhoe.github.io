@@ -31,7 +31,7 @@ WEB Accessibility Initiative – Accessible Rich Internet Applications 의 약�
 추가된 정보는 웹 브라우저에 의해 해석되어 OS의 접근성 API로 변환됩니다. 보조기기는 OS에서 제공하는 접근성 API를 통해 데스크탑 애플리케이션과 동일한 방법으로 자바스크립트 컨트롤을 인식하고 상호 작용하게 됩니다. 이로 인해 향상된 UX를 제공할 수 있게 되는 것입니다. 즉, 누락된 의미 구조 등을 요소나 컴포넌트에 적절하게 제공하여, 개발자의 의도가 보조 기술에도 잘 전달될 수 있도록 하는 것이 목적입니다.
 
 <figure style = "display: block; text-align: center;">
-  <img src = "./images/relation.png">
+  <img src = "./images/relation.PNG">
   <figcaption style = "text-align: center; font-size: 12px; color: #808080">
   (출처 : WAI-ARIA 사례집(온라인판).pdf)
   </figcaption>
@@ -65,7 +65,7 @@ WEB Accessibility Initiative – Accessible Rich Internet Applications 의 약�
 #### 1-2. Landmark Role 종류
 
 <figure style = "display: block; text-align: center;">
-  <img src = "./images/landmark_role.png">
+  <img src = "./images/landmark_role.PNG">
   <figcaption style = "text-align: center; font-size: 12px; color: #808080">
   (출처 : WAI-ARIA 사례집(온라인판).pdf)
   </figcaption>
