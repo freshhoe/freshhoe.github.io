@@ -6,10 +6,6 @@ summary: "WAI-ARIA의 출현배경, 사용목적을 알아보고, 간단한 사�
 thumbnail: "./Accessibility.jpg"
 ---
 
-# <목차>
-
-[TOC]
-
 # WAI-ARIA?
 
 ## 의미와 출현 배경
@@ -24,6 +20,7 @@ WEB Accessibility Initiative – Accessible Rich Internet Applications 의 약�
 따라서 해당 명세는 웹 애플리케이션 개발자들 뿐만아니라 유저 에이전트와 보조 기술 개발자에게도 접근성과 관련된 처리에 있어 유용할 수 있습니다.
 
 <hr>
+
 ## 사용 목적
 
 **WAI-ARIA** 는 마크업에 Role, Property, State 기능을 통해 정보를 추가할 수 있도록 지원합니다.<br>
@@ -32,10 +29,14 @@ WEB Accessibility Initiative – Accessible Rich Internet Applications 의 약�
 - **Property** : 컴포넌트의 특징이나 상황을 정의하며 속성명으로 **"aria-"** prefix를 사용
 - **State** : 컴포넌트의 상태 정보 정의 <br>
 추가된 정보는 웹 브라우저에 의해 해석되어 OS의 접근성 API로 변환됩니다. 보조기기는 OS에서 제공하는 접근성 API를 통해 데스크탑 애플리케이션과 동일한 방법으로 자바스크립트 컨트롤을 인식하고 상호 작용하게 됩니다. 이로 인해 향상된 UX를 제공할 수 있게 되는 것입니다. 즉, 누락된 의미 구조 등을 요소나 컴포넌트에 적절하게 제공하여, 개발자의 의도가 보조 기술에도 잘 전달될 수 있도록 하는 것이 목적입니다.
-<figure>
-    <img src="./relation.png" title="관계">    
-    <figcaption>  (출처 : WAI-ARIA 사례집(온라인판).pdf ) </figcaption>
+
+<figure style = "display: block; text-align: center;">
+  <img src = "./relation.png">
+  <figcaption style = "text-align: center; font-size: 12px; color: #808080">
+  (출처 : WAI-ARIA 사례집(온라인판).pdf)
+  </figcaption>
 </figure>
+
 <hr>
 
 ## 3 가지 기능 설명
@@ -63,9 +64,11 @@ WEB Accessibility Initiative – Accessible Rich Internet Applications 의 약�
 
 #### 1-2. Landmark Role 종류
 
-<figure>
-    <img src="./landmark_role.png" title="landmark role">    
-    <figcaption>  (출처 : WAI-ARIA 사례집(온라인판).pdf ) </figcaption>
+<figure style = "display: block; text-align: center;">
+  <img src = "./landmark_role.png">
+  <figcaption style = "text-align: center; font-size: 12px; color: #808080">
+  (출처 : WAI-ARIA 사례집(온라인판).pdf)
+  </figcaption>
 </figure>
 
 - **application**
@@ -137,6 +140,7 @@ WEB Accessibility Initiative – Accessible Rich Internet Applications 의 약�
 입력 폼에서 아이디를 필수로 입력받아야 하는 항목일 경우 `<input>` 에 `aria-required="true"`를 지정해주면 보조기기에서도 해당 항목이 필수항목임을 알 수 있습니다.
 
 <hr>
+
 ### 3. State
 
 요소의 현재 상태를 의미하며 상황의 변화에 따라 다른 값을 가집니다. 메뉴가 펼쳐진 상태(**expanded**)인지, 적절하지 못한(**invalid**) 값이 입력되었는지, 콘텐츠가 숨김 상태(**hidden**)인지 등을 나타낼 수 있습니다.
