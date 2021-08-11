@@ -31,7 +31,7 @@ WEB Accessibility Initiative – Accessible Rich Internet Applications 의 약�
 추가된 정보는 웹 브라우저에 의해 해석되어 OS의 접근성 API로 변환됩니다. 보조기기는 OS에서 제공하는 접근성 API를 통해 데스크탑 애플리케이션과 동일한 방법으로 자바스크립트 컨트롤을 인식하고 상호 작용하게 됩니다. 이로 인해 향상된 UX를 제공할 수 있게 되는 것입니다. 즉, 누락된 의미 구조 등을 요소나 컴포넌트에 적절하게 제공하여, 개발자의 의도가 보조 기술에도 잘 전달될 수 있도록 하는 것이 목적입니다.
 
 <figure style = "display: block; text-align: center;">
-  <img src = "./relation.png">
+  <img src = "./MD/relation.png">
   <figcaption style = "text-align: center; font-size: 12px; color: #808080">
   (출처 : WAI-ARIA 사례집(온라인판).pdf)
   </figcaption>
@@ -53,10 +53,10 @@ WEB Accessibility Initiative – Accessible Rich Internet Applications 의 약�
 #### 예시
 
 ```html
-<a href=“/” onclick=“playApp()” role=“button”>재생</a>
+<a href = "/" onclick = "playApp()" role = "button">재생</a>
 ```
 
-버튼 컴포넌트 구현을 위해 `<a>` 태그를 사용하는 경우 스크린리더는 링크로 인식하기 때문에 사용자에게 혼선을 줄 수 있습니다. 위와 같이 `<a>` 태그에 `role="button"`을 지정하면 스크린리더는 버튼으로 인식하고 사용자에게 정확한 용도를 전달할 수 있습니다.
+버튼 컴포넌트 구현을 위해 `<a>` 태그를 사용하는 경우 스크린리더는 링크로 인식하기 때문에 사용자에게 혼선을 줄 수 있습니다. 위와 같이 `<a>` 태그에 `role = "button"`을 지정하면 스크린리더는 버튼으로 인식하고 사용자에게 정확한 용도를 전달할 수 있습니다.
 
 #### 1-1. Landmark Role
 
@@ -65,7 +65,7 @@ WEB Accessibility Initiative – Accessible Rich Internet Applications 의 약�
 #### 1-2. Landmark Role 종류
 
 <figure style = "display: block; text-align: center;">
-  <img src = "./landmark_role.png">
+  <img src = "./MD/landmark_role.png">
   <figcaption style = "text-align: center; font-size: 12px; color: #808080">
   (출처 : WAI-ARIA 사례집(온라인판).pdf)
   </figcaption>
@@ -105,19 +105,19 @@ WEB Accessibility Initiative – Accessible Rich Internet Applications 의 약�
 
 #### 주의사항
 
-- Semantic HTML 요소를 우선 고려합니다. 예를 들어, `<button>` 요소를 사용할 수 있음에도 불구하고 특정 태그에 `role="button"`을 붙여 사용하는 것은 지양합니다. Semantic HTML 요소들이 ARIA에 비해 훨씬 넓은 보조 기술 지원을 받기 때문입니다.<br>또한, 대화형 UI의 경우 반드시 레이블을 제공해야 하는데, 이 레이블 제공을 위해 `<label>` 요소 사용을 먼저 고려하는 것과 같은 상황도 포함됩니다.
+- Semantic HTML 요소를 우선 고려합니다. 예를 들어, `<button>` 요소를 사용할 수 있음에도 불구하고 특정 태그에 `role = "button"`을 붙여 사용하는 것은 지양합니다. Semantic HTML 요소들이 ARIA에 비해 훨씬 넓은 보조 기술 지원을 받기 때문입니다.<br>또한, 대화형 UI의 경우 반드시 레이블을 제공해야 하는데, 이 레이블 제공을 위해 `<label>` 요소 사용을 먼저 고려하는 것과 같은 상황도 포함됩니다.
   <br>
 - 아래와 같은 **override**를 피합니다. `<button>` 요소에는 `heading` role과 충돌하는 기본 특성이 있기 때문입니다. 이렇게 요소의 native 의미를 변경하는 것은 권장사항이 아닙니다.
 
   ```html
-  <button role="heading">search</button>
+  <button role = "heading">search</button>
   ```
 
   <br>
 
 - 아래와 같은 중복된 적용은 피합니다. 요소에 이미 `<button>` 의 역할이 정의되어 있기 때문에 role 의 기능은 불필요합니다.
   ```html
-  <button role="button">...</button>
+  <button role = "button">...</button>
   ```
   <br>
 - Landmark role 의 경우 HTML 섹션 관련 요소와 중복되어 사용할 경우 기능이 무효화 되거나 충돌이 발생할 수 있습니다.
@@ -131,13 +131,13 @@ WEB Accessibility Initiative – Accessible Rich Internet Applications 의 약�
 #### 예시
 
 ```html
-<div class="“id-area”">
-  <label for="“user-email”">아이디</label>
-  <input type="“email”" id="“user-email”" aria-required="“true”" />
+<div class = "id-area">
+  <label for = "user-email">아이디</label>
+  <input type = "email" id = "user-email" aria-required = "true" />
 </div>
 ```
 
-입력 폼에서 아이디를 필수로 입력받아야 하는 항목일 경우 `<input>` 에 `aria-required="true"`를 지정해주면 보조기기에서도 해당 항목이 필수항목임을 알 수 있습니다.
+입력 폼에서 아이디를 필수로 입력받아야 하는 항목일 경우 `<input>` 에 `aria-required = "true"`를 지정해주면 보조기기에서도 해당 항목이 필수항목임을 알 수 있습니다.
 
 <hr>
 
@@ -148,16 +148,16 @@ WEB Accessibility Initiative – Accessible Rich Internet Applications 의 약�
 #### 예시
 
 ```html
-<ul id="“menu”" role="“tree”">
-  <li id="“menu”" role="“treeitem”" aria-expanded="“true”">
+<ul id = "menu" role = "tree">
+  <li id = "menu" role = "treeitem" aria-expanded = "true">
     <a>...</a>
-    <ul id="“sub-menu”" role="“group”">
-      <li id="“menu”" role="“treeitem”" aria-expanded="“false”">
+    <ul id = "sub-menu" role = "group">
+      <li id = "menu" role = "treeitem" aria-expanded = "false">
         <a>...</a>
       </li>
     </ul>
   </li>
-  <li id="“menu”" role="“treeitem”" aria-expanded="“false”">
+  <li id = "menu" role = "treeitem" aria-expanded = "false">
     <a>...</a>
   </li>
 </ul>
@@ -188,16 +188,16 @@ WEB Accessibility Initiative – Accessible Rich Internet Applications 의 약�
 
 #### 주의사항
 
-- 정보는 전달하되 화면에서만 숨김 처리한 콘텐츠에 `aria-hidden="true"`를 지정하면 안 됩니다. 보조기기에서는 해당 요소를 의미적으로도 숨겨진 콘텐츠로 인식하기 때문입니다.
+- 정보는 전달하되 화면에서만 숨김 처리한 콘텐츠에 `aria-hidden = "true"`를 지정하면 안 됩니다. 보조기기에서는 해당 요소를 의미적으로도 숨겨진 콘텐츠로 인식하기 때문입니다.
   <br>
 
-- 비슷한 맥락으로 의미를 전달해야 하는 요소에 role 기능을 활용해 `role="presentation"` 지정해서는 안 됩니다. 보조기기에서는 해당 요소를 의미 없이 단순히 가시적 목적의 요소로 인식하기 때문입니다.
+- 비슷한 맥락으로 의미를 전달해야 하는 요소에 role 기능을 활용해 `role = "presentation"` 지정해서는 안 됩니다. 보조기기에서는 해당 요소를 의미 없이 단순히 가시적 목적의 요소로 인식하기 때문입니다.
   <br>
 
-- 사용자의 접근을 완전히 차단하고자 할 경우에는 CSS `display: none;` 으로 지정한 뒤 해당 요소에도 `aria-hidden="true"`을 지정해주면 됩니다.
+- 사용자의 접근을 완전히 차단하고자 할 경우에는 CSS `display: none;` 으로 지정한 뒤 해당 요소에도 `aria-hidden = "true"`을 지정해주면 됩니다.
+<hr>
 
 ## 참고사항
-
 ### 실무 사례
 
 **레진의 WAI-ARIA 명세 도입 배경 사례**
@@ -209,7 +209,7 @@ WEB Accessibility Initiative – Accessible Rich Internet Applications 의 약�
 <br>
 
 본 내용은 아래 링크를 참고하여 작성했습니다.
-**[W3C Editor's Draft]** https://rawgit.com/w3c/aria-practices/apg-1.2/aria-practices.html
-**[W3C Candidate Recommendation Draft]** https://www.w3.org/TR/html-aria/
-**[NIA WAI-ARIA 사례집]** https://www.wah.or.kr:444/_Upload/pds2/WAI-ARIA%20%EC%82%AC%EB%A1%80%EC%A7%91(%EC%98%A8%EB%9D%BC%EC%9D%B8%ED%8C%90).pdf
-**[NULI]** https://nuli.navercorp.com/community/article/1132889?email=true
+**[W3C Editor's Draft]** https://rawgit.com/w3c/aria-practices/apg-1.2/aria-practices.html <br>
+**[W3C Candidate Recommendation Draft]** https://www.w3.org/TR/html-aria/ <br>
+**[NIA WAI-ARIA 사례집]** https://www.wah.or.kr:444/_Upload/pds2/WAI-ARIA%20%EC%82%AC%EB%A1%80%EC%A7%91(%EC%98%A8%EB%9D%BC%EC%9D%B8%ED%8C%90).pdf <br>
+**[NULI]** https://nuli.navercorp.com/community/article/1132889?email=true <br>

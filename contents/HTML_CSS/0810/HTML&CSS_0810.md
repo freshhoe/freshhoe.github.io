@@ -87,7 +87,7 @@ https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Block_formatting_context
 - 그룹에 margin을 주고 부모요소인 main에 padding을 준다. 개별 요소에 left, right 에 고정 px을 주는 것보다 좀 더 유연하게 적용가능하다.
 
 #### header 영역 세부적인 마크업
-![header](./01_header_nav.png)
+![header](./MD/01_header_nav.png)
 1. 제목
 2. 항목들(1 depth)
 3. 항목들의 항목(2 depth)
