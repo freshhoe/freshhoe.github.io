@@ -20,9 +20,22 @@
 <li><strong>State</strong> : 컴포넌트의 상태 정보 정의 <br></li>
 </ul>
 <p>추가된 정보는 웹 브라우저에 의해 해석되어 OS의 접근성 API로 변환됩니다. 보조기기는 OS에서 제공하는 접근성 API를 통해 데스크탑 애플리케이션과 동일한 방법으로 자바스크립트 컨트롤을 인식하고 상호 작용하게 됩니다. 이로 인해 향상된 UX를 제공할 수 있게 되는 것입니다. 즉, 누락된 의미 구조 등을 요소나 컴포넌트에 적절하게 제공하여, 개발자의 의도가 보조 기술에도 잘 전달될 수 있도록 하는 것이 목적입니다.</p>
-<figure style = "display: block; text-align: center;">
-  <img src = "./images/relation.png">
-  <figcaption style = "text-align: center; font-size: 12px; color: #808080">
+<figure style="display: block; text-align: center;">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 548px; ">
+      <a class="gatsby-resp-image-link" href="/static/ce3e6bb50d4dc8da3ff2043a5103647d/9079b/relation.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 64.0625%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACaklEQVQ4y22TDWvbRhyH/f2/yLaywbYyCoPRbm3HCtkSp6ndRnFiyZYlS/Lp3iVZ0j3DclsS6B8ejnt7uNNPN9vkmm1hiHPNrjQTaWnJSsteuDMHR36wZJWlHwbGcfwmYQzMtDZo7VDaYV2Dc83Ul8qijcMah7F+mju1XdtMNM1T2rbFWsvMNQ1rBzd7wzytmW8FS3GkbAb6AHc6sKw8V6fx0vNRjlS+51SBp3WSzpRr+E8EXtxs+PHtNc9ez3kZG1Z1h+8D/2Qtv12u+O7Vv/z8bskfq5pEdZNuDIEQzu1XYW0bVA9CCNIsJ9sX2KZjpzzNCA95RbS6R1pPPwZU05Mp//lM4RHQnYTat8S65yqpOJiGRSb5sLdshJ2ERa2JVyuyNMUoifEthfa0Q5iuH+nArRonhHZn4VoPXGWG0vS8uFzxy0VEIhyuhyQvSeKYw0FgtOa0fq8c5gi/zhN+eveJ5/OY36OKvDbMtGuIZM910RDXLYvCM88tt7mmMD1pKVhFtzjn8c7huiNJqcn1kVf3gu9fXvDDX5e8jjWFcudQlvXArey52FoWVcdC9DwITztCqRybeI2o6+k7+X6cNro+8DbreLOx/Bkr/s469tKcQ3EjeKNYvL8mWa8ZhpFd7XADZEJNQqn0WXgcyJWfkhW+R7bDV6zzzITxuACHIufmes7DXUTTduykww/wsN3x8cMNn5ZL0mRNre0kfJpwePwftlQtFEJyF2+536TspSWVnjZAtKuI1huiz3P3+YGd9Hyruq5jJpUiF3q6Wl7ribSSVFJjnSMTekrvC+lBcZCaxnv8I07PTynF/2OM2RCMY/mWAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
+  <picture>
+          <source srcset="/static/ce3e6bb50d4dc8da3ff2043a5103647d/a59e9/relation.webp 192w,
+/static/ce3e6bb50d4dc8da3ff2043a5103647d/0ca9f/relation.webp 384w,
+/static/ce3e6bb50d4dc8da3ff2043a5103647d/61816/relation.webp 548w" sizes="(max-width: 548px) 100vw, 548px" type="image/webp">
+          <source srcset="/static/ce3e6bb50d4dc8da3ff2043a5103647d/3b721/relation.png 192w,
+/static/ce3e6bb50d4dc8da3ff2043a5103647d/66595/relation.png 384w,
+/static/ce3e6bb50d4dc8da3ff2043a5103647d/9079b/relation.png 548w" sizes="(max-width: 548px) 100vw, 548px" type="image/png">
+          <img class="gatsby-resp-image-image" src="/static/ce3e6bb50d4dc8da3ff2043a5103647d/9079b/relation.png" alt="relation" title="relation" loading="lazy" decoding="async" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;">
+        </picture>
+  </a>
+    </span>
+  <figcaption style="text-align: center; font-size: 12px; color: #808080">
   (출처 : WAI-ARIA 사례집(온라인판).pdf)
   </figcaption>
 </figure>
@@ -42,9 +55,22 @@
 <h4>1-1. Landmark Role</h4>
 <p>웹 페이지의 구성과 구조를 식별하는 방법을 제공합니다. 페이지의 섹션을 분류하고 레이블을 지정함으로써, 레이아웃을 통해 시각적으로 전달되는 구조 정보를 프로그래밍 방식으로 나타낼 수 있습니다.</p>
 <h4>1-2. Landmark Role 종류</h4>
-<figure style = "display: block; text-align: center;">
-  <img src = "./images/landmark_role.png">
-  <figcaption style = "text-align: center; font-size: 12px; color: #808080">
+<figure style="display: block; text-align: center;">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 547px; ">
+      <a class="gatsby-resp-image-link" href="/static/e0e92d541e4fdc641da0561b193edb90/25257/landmark_role.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 48.4375%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABr0lEQVQoz22R2VLjMBBF8/+fxRRbCGECWRhCCHts2UaWLW9afKasMDUV4OFUl1pXt1q3R1GqSWVNKit676H/Afqf+594v6fve0ZSaeKs4DFWCFWRFPUBItfssvz73XD+RFc1bdNQliUjgMbDbQkrBQvp9nw4lrlnJmpONzGzpGUhPfMPx1w6lgpWBSwUaNsPNv8Ni9Zy9Oed4/WO59IxyyxXqWWWOSa7ivFLzlx6rlPDSjqeCsvJ+p1fty+cPQgq4w8N89Zz9Fxy/Kq5V447aXktDG/aMhc1R8+ac2E5jQyTxLItHJso4+b+iXUkUY05NFSdZ5w4pqkLhrKxmFJCWxGXLce7jgthOY8N08TyVDqSvKDuDHljUHX3ZcLOcxobLoQJhsu05SGr2H7UXEeak13HeWyD5jKxbJRjHlcskzr8YIjsMMPOMxEm5DZkeBEbzqIuMBGW35nnKnVBc5NZHgvHWNgw9RBB9XUplSVscCk9a+XDdleBnpuk5fKt4Fq0+7703Km99h+VC35orRk1dU2mNMuoCCw+68AqLpluI07m96GuhP6mGRjeDz5pmvIXvGb1DLyYZrIAAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
+  <picture>
+          <source srcset="/static/e0e92d541e4fdc641da0561b193edb90/a59e9/landmark_role.webp 192w,
+/static/e0e92d541e4fdc641da0561b193edb90/0ca9f/landmark_role.webp 384w,
+/static/e0e92d541e4fdc641da0561b193edb90/98f86/landmark_role.webp 547w" sizes="(max-width: 547px) 100vw, 547px" type="image/webp">
+          <source srcset="/static/e0e92d541e4fdc641da0561b193edb90/3b721/landmark_role.png 192w,
+/static/e0e92d541e4fdc641da0561b193edb90/66595/landmark_role.png 384w,
+/static/e0e92d541e4fdc641da0561b193edb90/25257/landmark_role.png 547w" sizes="(max-width: 547px) 100vw, 547px" type="image/png">
+          <img class="gatsby-resp-image-image" src="/static/e0e92d541e4fdc641da0561b193edb90/25257/landmark_role.png" alt="landmark role" title="landmark role" loading="lazy" decoding="async" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;">
+        </picture>
+  </a>
+    </span>
+  <figcaption style="text-align: center; font-size: 12px; color: #808080">
   (출처 : WAI-ARIA 사례집(온라인판).pdf)
   </figcaption>
 </figure>
