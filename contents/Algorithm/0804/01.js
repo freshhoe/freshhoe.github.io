@@ -1,5 +1,4 @@
 // 친구인가? (Disjoint-Set : Union & Find)
-// 리뷰 필요
 // union & find (unf) 자료구조 활용
 // unf 를 위한 배열 생성
 // 인덱스는 학생 번호
