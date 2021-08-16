@@ -6,10 +6,6 @@ summary: 'noopener 와 noreferrer 에 대해 알아보고 정리한 글입니다
 thumbnail: './HTMLCSS.jpg'
 ---
 
-**사용 예제**
-```html
-<a href="[연결할 페이지의 URL]" target="_blank" rel="noopener noreferrer nofollow">
-```
 ## noopenner
 
 - `<a>` 뿐만 아니라 `<area>` 및 `<form>` 요소의 `rel` 속성에 대한 값으로 부여할 수 있습니다. `noopener` 키워드는 브라우저가 열려 있는 창에서 `Window.opener` 속성을 설정하지 않게 합니다(null을 반환함).
@@ -42,6 +38,11 @@ thumbnail: './HTMLCSS.jpg'
 **참고사항**
 - 역시 IE에서 지원되지 않습니다.
 - `noopener` 가 이미 지정되어 있는 것처럼 동작합니다.
+
+**사용 예제**
+```html
+<a href="[연결할 페이지의 URL]" target="_blank" rel="noopener noreferrer nofollow">
+```
 
 <hr>
 
