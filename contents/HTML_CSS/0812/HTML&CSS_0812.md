@@ -169,10 +169,14 @@ https://nuli.navercorp.com/data/convention/NHN_Coding_Conventions_for_Markup_Lan
 ### 웹 관련 용어
 - 제목 레벨을 6번까지 가는 것은 정보 단계를 너무 깊이 구분한 것.
 ![web_term](./images/web_related_term.PNG)
+
 - img를 넣더라도 의미있는 태그 내부에 넣어주는 것이 좋을 수 있다. 해당 실습에서는 p 태그 안에 img 삽입.
 ![web_term](./images/web_term_dd.PNG)
+
 - dt 와 dd는 1 : 1, 1 : many, many : 1 대응이 가능하다. 문법적으로는 허용하지만 웹 접근성 측면에서는 하나의 dd에 몇개의 dt가 대응되는지 알 수 없으므로, 1 : 1 대응을 하는 것이 좋다.
-- dl 내부에 자식요소 div를 쓸 수 없었지만 리빙 스탠다드에 허용하게 되었다. 다만 주의사항이 있는데, div 안에 dt 와 dd가 세트로 자식요소로 들어가 있어야 한다. div 바깥에 dd만 나와있다면 syntax error다.
+
+- dl 내부에 자식요소로 div를 쓸 수 없었지만 리빙 스탠다드에 허용하게 되었다. 다만 주의사항이 있는데, div 안에 dt 와 dd가 세트로 자식요소로 들어가 있어야 한다. div 바깥에 dd만 나와있다면 syntax error다.
+
 - 위와 관련해서 HTML 5.2 변경점에 대한 이해를 도울 아래 링크 포스트 참조.
 https://mulder21c.github.io/2017/12/26/understanding-html-52-changes/
 
