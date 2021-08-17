@@ -1,8 +1,8 @@
 ---
 date: '2021-08-16'
-title: '06. HTML&CSS TIL'
+title: 'HTML CSS 영상강의 노트'
 categories: ['HTML', 'CSS']
-summary: ''
+summary: '영상 강의를 보고 필기한 내용입니다.'
 thumbnail: './HTMLCSS.jpg'
 ---
 ### float
