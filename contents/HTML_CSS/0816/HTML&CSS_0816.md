@@ -86,10 +86,11 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
 
 ## 세 번째 시간
 - github.com/NIAWA 에 ARIA repo.에 정보접근성(WAI-ARIA) 사례집 내부 코드들 있음.
+- 사례집에 mega-navigation 관련 내용 있나 확인 필요
 
 - WAI-ARIA best practices 구글링해보면 W3.org 에 참고할만한 자료 있음.
-https://www.w3.org/TR/wai-aria-practices-1.1/
-- 키보드 인터랙션 관련 조건들도 명시되어 있음.
+    https://www.w3.org/TR/wai-aria-practices-1.1/
+    - 키보드 인터랙션 관련 조건들도 명시되어 있음.
 
 <hr>
 
