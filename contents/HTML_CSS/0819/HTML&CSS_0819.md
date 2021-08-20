@@ -34,6 +34,7 @@ thumbnail: './HTMLCSS.jpg'
 - 비트맵은 원본 크기보다 커지면 화질이 깨지므로 max-width를 걸어준다. svg는 width 100% 걸어줘도 됨.
 
 -.webp는 IE에서 지원 안하는 이미지 확장자. img 태그의 소스 속성 srcset에는 지원하는 브라우저에서 보여줄 이미지, src는 그렇지 않은 브라우저에서 보여줄 이미지. 반응형 이미지 제공의 기본이다. 마크업에 모든 이미지 소스를 직접 입력하지 않아도 된다. 모아서 컴포넌트 형태로 뿌려주면 됨.??
+- 반응형 이미지 관련 MDN : https://developer.mozilla.org/ko/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 
 **mobile first 관련 mailing post**
 - mobile first 관련 메일링 : https://ishadeed.com/article/the-state-of-mobile-first-and-desktop-first/
@@ -43,9 +44,10 @@ thumbnail: './HTMLCSS.jpg'
 ## 두 번째 시간
 
 **picture 요소**
-- picture의 자식요소로 img를 사용해야 함. 지원하지 않는 경우 img 태그에 지정된 이미지를. source는 figure 안에서? 사용해야 함.
-picture 내에서 source의 사용 가능 갯수?
-- 이미지 소스 뒤에는 배율.
+- picture는 자식요소로 0개 이상의 source 태그를 포함하고 있고, 여러가지 디스플레이/디바이스 시나리오에서 대체적인 이미지를 제공하기 위해 img를 사용해야 함. source에 지정한 이미지들을 디스플레이 할 수 없는 경우(브라우저가 picture요소를 지원하지 않는다던지.. IE지원 안함) img 태그에 지정된 이미지를 보여주도록. 즉, img 태그가 제공하는 이미지는 fallback이다.
+- svg, png 둘 다 export해서, picture요소 사용시 svg를 지원하지 않는다면 png를 노출시키는 등의 유연한 방식을 사용해볼 수 있다.
+- 위와 관련된 내용 MDN : https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
+- 이미지 소스 뒤에는 이미지의 디스플레이 배율을 의미.
 ```css
     <figure>
         <picture>
@@ -56,10 +58,9 @@ picture 내에서 source의 사용 가능 갯수?
     </figure>
 ```
 **mydevice.io : 사용자의 디바이스 화면 px을 알려줌**
-- mydevice.io
+- https://www.mydevice.io/
 
-- picture 요소는 IE11을 지원하지 않음
-- svg, png 둘 다 export해서, picture요소 사용시 svg를 지원하지 않는다면 png를 노출시키는 등의 유연한 방식을 사용해볼 수 있다.
+
 
 **picture polyfill**
 https://github.com/scottjehl/picturefill 
@@ -68,9 +69,9 @@ https://github.com/scottjehl/picturefill
 - figure 요소의 크기에 따라 반응형 이미지를 제공해야 한다면 picture 요소에 클래스를 주는게 아니라 img 요소에 줘야한다. 그리고 이것을 css에서 사용해야 한다.
 
 **video 요소**
-- 브라우저마다 지원하는 비디오 확장자가 다름. 크로스 브라우징 이슈가 있었다. 현재 대부분의 모던 브라우저는 mp4를 공통적으로 지원함.
+- 브라우저마다 지원하는 비디오 확장자가 다름. 크로스 브라우징 이슈가 있었다. 현재 대부분의 모던 브라우저는 .mp4를 공통적으로 지원함.
 - 비디오 파일 제공시 접근성 관점에서 자막을 제공해줘야함.
-- 비디오는 소스를 감싸고 있고 클래스는 여기에 줄 수 있다. picture와 다른 점.
+- 비디오 태그는 소스를 감싸고 있고 클래스는 여기에 줄 수 있다. picture와 다른 점.
 
 **iframe 요소**
 - iframe 은 figure 요소 안에 바로 삽입하면 안된다. div로 감싸서
@@ -109,6 +110,8 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
 <hr>
 
 ## 세 번째 시간
+![RWD markup](./images/desktop_mobile_markup.PNG)
+
 - X-UA-Compatible : 비표준(X)-useragent-호환성. IE 호환성을 위한 메타 태그
 
 - `shortcut`은 옛날의 파비콘 제공 방식. 요즘은 icon만 사용. 기타 ios를 위한 rel 속성 값도 있음.
@@ -133,20 +136,22 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
 <hr>
 
 ## 네 번째 시간
-- `outline-offset: -2px;` padding만으로 header의 면적을 차지하게 하기 위해 마지막에 추가해 주는 속성.인데 뭔지 모르겠음.
+![RWD header markup](./images/ediya_header_markup.PNG)
+
+- `outline-offset: -2px;` padding만으로 header의 면적을 차지하게 하기 위해 마지막에 추가해 주는 속성. border와 마진 사이에 있는 여백을 의미함.
 
 - `user-select: none;` 버튼 드래그 방지. 렌더 prefix를 붙여 사용하기도 함.
 포스트 css같은 것을 사용하면 자동으로 붙여줌.
 
 **bem class naming pattern**
-- bem 같은 네이밍 패턴.
+- block, element, modifier naming convention : https://webflow.com/blog/class-naming-101-bem
 
 - em, 백분율을 반응형 웹 디자인 작업에 많이 사용. 
 
 - 시안의 이미지를 export 할 경우 여백을 포함해서 하면 경우에 따라 레이아웃이 편해질 수도 있다. 여백을 포함하지 않을 경우 아래와 같은 코드를 고려해 볼 수 있다.
 ```css
 background-position: 50% 50%;
-background: cover;
+background-size: cover;
 ```
 - 네비게이션 메뉴의 각 요소를 좌우는 마진을 주고, 상하만 패딩을 주는게 개발할 때도 사용성 측면에서도 좋다. margin은 패딩과 달리 클릭이 되지 않으므로.
 
@@ -158,6 +163,3 @@ background: cover;
 - font는 다운로드 받아서 렌더링을 하기 때문에 먼저 임포트 하는게 좋음.
 
 - form 관련 요소 (ex.button)를 작업할 때 글자 속성(color 등) 은 inherit 처리하고 진행하는 것이 좋다.
-
-**과제**
-- 패스트캠퍼스 시안 레이아웃 탭 중 모달 창. 화면 전체를 비활성하고 모달을 뜨게 함. 이 역시 반응형으로(정가운데 오도록). 모달이니까 접근성 관련 이슈가 있으니 이것도 고려해서 만들것. 아리아 베스트 프랙티스 참고해서 마크업.
