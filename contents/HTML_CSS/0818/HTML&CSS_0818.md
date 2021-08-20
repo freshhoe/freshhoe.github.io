@@ -3,7 +3,7 @@ date: '2021-08-18'
 title: '08. HTML&CSS TIL'
 categories: ['HTML', 'CSS']
 summary: ''
-thumbnail: './HTMLCSS.jpg'
+thumbnail: './HTMLCSS.jpg' 
 ---
 <!-- ![](./images/.PNG) -->
 
@@ -129,7 +129,7 @@ https://github.com/yamoo9/cj-olive-networks/wiki
 - desktop first가 아닌 mobile first로 개발해야 함.
 
     **웹사이트 속도 향상**
-    - lcp등 과 같은 corw web vitals 지표 측정항목을 고려해야 함. 프로젝트시 반응형 페이지에 대한 성능도 고려해야 함. 구글 검색 순위에 페이지의 웹 지표 점수를 반영되어 노출해 줌. 사용자 경험 개선 뿐만 아니라 검색엔진 최적화와 연결됨.
+    - lcp등 과 같은 core web vitals 지표 측정항목을 고려해야 함. 프로젝트시 반응형 페이지에 대한 성능도 고려해야 함. 구글 검색 순위에 페이지의 웹 지표 점수를 반영되어 노출해 줌. 사용자 경험 개선 뿐만 아니라 검색엔진 최적화와 연결됨.
     - LCP 최적화 : https://ui.toast.com/weekly-pick/ko_202012101720
 
     **SEO**
