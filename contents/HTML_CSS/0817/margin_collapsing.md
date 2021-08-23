@@ -38,7 +38,8 @@ thumbnail: './HTMLCSS.jpg'
 - 인접 형제 요소의 상하 margin이 겹칠 때, 두 margin의 값 중 큰 값으로 상쇄되어(작은 값이 아닌) 적용됩니다. 두 값이 동일할 경우 하나의 margin 값만 적용됩니다.
   <figcaption>
 
-  ![](https://media.vlpt.us/post-images/raram2/97e16a40-121f-11ea-aaba-65695302c179/01-margin-collapsing-sibling-case.png)
+  ![](https://media.vlpt.us/post-images/raram2/97e16a40-121f-11ea-aaba-65695302c179/01-margin-collapsing-sibling-case.png){: width="100%" height="100%"}
+  
   <출처 : [raram2님 blog](https://velog.io/@raram2/CSS-%EB%A7%88%EC%A7%84-%EC%83%81%EC%87%84Margin-collapsing-%EC%9B%90%EB%A6%AC-%EC%99%84%EB%B2%BD-%EC%9D%B4%ED%95%B4)>
   </figcaption>
 
@@ -47,14 +48,16 @@ thumbnail: './HTMLCSS.jpg'
 - 아래 그림처럼 인접 요소 사이에 다른 요소가 있다면 margin collapsing은 발생하지 않습니다.
   <figcaption>
 
-  ![](./images/margin_3.PNG)
+  ![](./images/margin_3.PNG){: width="100%" height="100%"}
+
   <출처 : [joshwcomeau blog](https://www.joshwcomeau.com/css/rules-of-margin-collapse/)>
   </figcaption>
 
 - 그렇다면 부모요소에 감싸진 자식요소는 어떨까요?
   <figcaption>
 
-  ![](./images/margin_4.PNG)
+  ![](./images/margin_4.PNG){: width="100%" height="100%"}
+
   <출처 : [joshwcomeau blog](https://www.joshwcomeau.com/css/rules-of-margin-collapse/)>
   </figcaption>
 - 부모요소에 감싸진다고 해서 margin collapsing을 방지할 수 있는건 아닙니다. 왜 그럴까요?
@@ -67,14 +70,16 @@ thumbnail: './HTMLCSS.jpg'
 - 아래 그림처럼 부모 요소에(또는 부모 요소와 자식 요소 사이에) border, padding 속성의 값이나 inline 컨텐츠가 없을 경우 margin collapsing이 발생하고, 상쇄된 margin은 부모 요소의 바깥으로 렌더링됩니다.
   <figcaption>
 
-  ![](./images/margin_2.PNG)
+  ![](./images/margin_2.PNG){: width="100%" height="100%"}
+
   <출처 : [joshwcomeau blog](https://www.joshwcomeau.com/css/rules-of-margin-collapse/)>
   </figcaption>
 
 - 아래 그림처럼 부모 요소에 padding이 존재한다면 margin collapsing은 발생하지 않습니다.
   <figcaption>
 
-  ![](./images/margin_1.PNG)
+  ![](./images/margin_1.PNG){: width="100%" height="100%"}
+
   <출처 : [joshwcomeau blog](https://www.joshwcomeau.com/css/rules-of-margin-collapse/)>
   </figcaption>
 
@@ -86,7 +91,8 @@ thumbnail: './HTMLCSS.jpg'
 
   <figcaption>
 
-  ![](https://media.vlpt.us/post-images/raram2/ffac75c0-121f-11ea-aaba-65695302c179/02-margin-collapsing-emptybox-case.png)
+  ![](https://media.vlpt.us/post-images/raram2/ffac75c0-121f-11ea-aaba-65695302c179/02-margin-collapsing-emptybox-case.png){: width="100%" height="100%"}
+
   <출처 : [raram2님 blog](https://velog.io/@raram2/CSS-%EB%A7%88%EC%A7%84-%EC%83%81%EC%87%84Margin-collapsing-%EC%9B%90%EB%A6%AC-%EC%99%84%EB%B2%BD-%EC%9D%B4%ED%95%B4)>
   </figcaption>
 
@@ -100,7 +106,8 @@ thumbnail: './HTMLCSS.jpg'
 - 아래 그림의 상단 블록 요소는 negative margin-bottom을 가지고 있고, 하단 블록요소는 positive margin-top을 가지고 있습니다. 이 경우에도 예외없이 margin collapsing이 발생하게 됩니다.
   <figcaption>
 
-  ![](./images/margin_5.PNG)
+  ![](./images/margin_5.PNG){: width="100%" height="100%"}
+
   <출처 : [joshwcomeau blog](https://www.joshwcomeau.com/css/rules-of-margin-collapse/)>
   </figcaption>
 
@@ -108,7 +115,7 @@ thumbnail: './HTMLCSS.jpg'
 
   <figcaption>
 
-  ![](./images/margin_6.PNG)
+  ![](./images/margin_6.PNG){: width="100%" height="100%"}
 
   <출처 : [joshwcomeau blog](https://www.joshwcomeau.com/css/rules-of-margin-collapse/)>
   </figcaption>
