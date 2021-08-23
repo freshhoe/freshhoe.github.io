@@ -39,7 +39,7 @@ thumbnail: './HTMLCSS.jpg'
   <figcaption>
 
   ![](https://media.vlpt.us/post-images/raram2/97e16a40-121f-11ea-aaba-65695302c179/01-margin-collapsing-sibling-case.png)
-  <출처 : https://velog.io/@raram2/CSS-%EB%A7%88%EC%A7%84-%EC%83%81%EC%87%84Margin-collapsing-%EC%9B%90%EB%A6%AC-%EC%99%84%EB%B2%BD-%EC%9D%B4%ED%95%B4>
+  <출처 : [raram2님 blog](https://velog.io/@raram2/CSS-%EB%A7%88%EC%A7%84-%EC%83%81%EC%87%84Margin-collapsing-%EC%9B%90%EB%A6%AC-%EC%99%84%EB%B2%BD-%EC%9D%B4%ED%95%B4)>
   </figcaption>
 
 - **예외** : 뒤에 오는 형제 요소가 floating 해제를 위한 요소라면 margin collapsing이 일어나지 않습니다. 반대로 말하면 float된 요소는 margin collapsing이 일어나지 않는다는 말과 같습니다.
@@ -48,14 +48,14 @@ thumbnail: './HTMLCSS.jpg'
   <figcaption>
 
   ![](./images/margin_3.PNG)
-  <출처 : https://www.joshwcomeau.com/css/rules-of-margin-collapse/>
+  <출처 : [joshwcomeau blog](https://www.joshwcomeau.com/css/rules-of-margin-collapse/)>
   </figcaption>
 
 - 그렇다면 부모요소에 감싸진 자식요소는 어떨까요?
   <figcaption>
 
   ![](./images/margin_4.PNG)
-  <출처 : https://www.joshwcomeau.com/css/rules-of-margin-collapse/>
+  <출처 : [joshwcomeau blog](https://www.joshwcomeau.com/css/rules-of-margin-collapse/)>
   </figcaption>
 - 부모요소에 감싸진다고 해서 margin collapsing을 방지할 수 있는건 아닙니다. 왜 그럴까요?
 
@@ -68,14 +68,14 @@ thumbnail: './HTMLCSS.jpg'
   <figcaption>
 
   ![](./images/margin_2.PNG)
-  <출처 : https://www.joshwcomeau.com/css/rules-of-margin-collapse/>
+  <출처 : [joshwcomeau blog](https://www.joshwcomeau.com/css/rules-of-margin-collapse/)>
   </figcaption>
 
 - 아래 그림처럼 부모 요소에 padding이 존재한다면 margin collapsing은 발생하지 않습니다.
   <figcaption>
 
   ![](./images/margin_1.PNG)
-  <출처 : https://www.joshwcomeau.com/css/rules-of-margin-collapse/>
+  <출처 : [joshwcomeau blog](https://www.joshwcomeau.com/css/rules-of-margin-collapse/)>
   </figcaption>
 
 #### 빈 블록 요소
@@ -87,7 +87,7 @@ thumbnail: './HTMLCSS.jpg'
   <figcaption>
 
   ![](https://media.vlpt.us/post-images/raram2/ffac75c0-121f-11ea-aaba-65695302c179/02-margin-collapsing-emptybox-case.png)
-  <출처 : https://velog.io/@raram2/CSS-%EB%A7%88%EC%A7%84-%EC%83%81%EC%87%84Margin-collapsing-%EC%9B%90%EB%A6%AC-%EC%99%84%EB%B2%BD-%EC%9D%B4%ED%95%B4>
+  <출처 : [raram2님 blog](https://velog.io/@raram2/CSS-%EB%A7%88%EC%A7%84-%EC%83%81%EC%87%84Margin-collapsing-%EC%9B%90%EB%A6%AC-%EC%99%84%EB%B2%BD-%EC%9D%B4%ED%95%B4)>
   </figcaption>
 
 - 첫 번째 그림에서 빈 요소의 margin-top(60)과 margin-bottom(30)의 값 중에서 margin-top 의 값이 크기 때문에 margin-bottom의 값은 상쇄됩니다.
@@ -101,7 +101,7 @@ thumbnail: './HTMLCSS.jpg'
   <figcaption>
 
   ![](./images/margin_5.PNG)
-  <출처 : https://www.joshwcomeau.com/css/rules-of-margin-collapse/>
+  <출처 : [joshwcomeau blog](https://www.joshwcomeau.com/css/rules-of-margin-collapse/)>
   </figcaption>
 
 - 이런 경우 결국 두 블록 요소의 상단과 하단에 margin이 없는 경우와 같습니다.
@@ -109,7 +109,8 @@ thumbnail: './HTMLCSS.jpg'
   <figcaption>
 
   ![](./images/margin_6.PNG)
-  <출처 : https://www.joshwcomeau.com/css/rules-of-margin-collapse/>
+
+  <출처 : [joshwcomeau blog](https://www.joshwcomeau.com/css/rules-of-margin-collapse/)>
   </figcaption>
 #### 예외사항
 - 위의 세 가지 상황에 해당하더라도 아래와 같은 속성이 적용된 요소는 margin collapsing이 발생하지 않습니다.
@@ -128,14 +129,13 @@ thumbnail: './HTMLCSS.jpg'
 <hr>
 
 ## 더 알아보면 좋을 것들
-- Block Format Context(블록 서식 맥락)
-https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Block_formatting_context
+- [Block Format Context(블록 서식 맥락)](https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Block_formatting_context)
 - Negative Margin(음수 마진)
 
 <hr>
 
 ### 참조링크
-
-- https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing
-- https://www.joshwcomeau.com/css/rules-of-margin-collapse/
-- https://velog.io/@raram2/CSS-%EB%A7%88%EC%A7%84-%EC%83%81%EC%87%84Margin-collapsing-%EC%9B%90%EB%A6%AC-%EC%99%84%EB%B2%BD-%EC%9D%B4%ED%95%B4
+이미지 및 정보 출처
+- [MDN 마진 상쇄](https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing)
+- [joshwcomeau blog](https://www.joshwcomeau.com/css/rules-of-margin-collapse/)
+- [raram2님 blog](https://velog.io/@raram2/CSS-%EB%A7%88%EC%A7%84-%EC%83%81%EC%87%84Margin-collapsing-%EC%9B%90%EB%A6%AC-%EC%99%84%EB%B2%BD-%EC%9D%B4%ED%95%B4)
