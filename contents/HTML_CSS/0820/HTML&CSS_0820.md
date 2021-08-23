@@ -23,6 +23,7 @@ thumbnail: './HTMLCSS.jpg'
 - button을 눌렀을 때의 상태를 나타내는 `aria-pressed` 가 있다. 불린값. 스크립트로 불린값 체인지. 
 
 - BEM OOCSS SMACSS : CSS 설계 방법론. 객체지향형처럼 쓰기 위한 CSS 방법론.
+BEM (Block Element Modifier) : component 기반의 
 BEM에서 class naming시 `__`는 Block 과 Element를 구분하는 구분자 역할. 프로젝트에서 BEM 방법론을 도입 시도해보고 지옥경험 권장.
 `ediya-menu__item--name`를 예시로 보면 `ediya-menu`가 블록 요소에 대한 클래스 `__` 뒤에는 Element 관련 클래스. item 이라는 이름의 name이라는 특성? 
 
@@ -37,7 +38,7 @@ BEM에서 class naming시 `__`는 Block 과 Element를 구분하는 구분자 �
 ## 두 번째 시간
 - gap 속성 사용법.
 
-- img[Attributes Style]: img 태그 직접 스타일 관련 속성을 부여해서 해당 속성값이 렌더링에 적용되었다는 의미.
+- img[Attributes Style]: 개발자 도구에서 img 태그 직접 스타일 관련 속성을 부여해서 해당 속성값이 렌더링에 적용되었다는 의미.
 
 **반응형 이미지 렌더링(면접 빈출)**
 - 반응형 이미지로 여러가지 소스를 제공하는 것. 중요한 이슈 중 하나.
