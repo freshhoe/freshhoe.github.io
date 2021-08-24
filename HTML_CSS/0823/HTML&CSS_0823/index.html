@@ -12,17 +12,15 @@
 <li>sass도 css 로 변환되어 서비스. css 는 배포에 최적화. sass 는 개발에 최적화.</li>
 <li>less, stylus도 sass 와 같은 preprossessor.</li>
 <li>postcss 는 후처리의 개념. plugin이기 때문에 결과물에 어떤 가공을 가하는 것. 이를테면 css 파일이 나오면 autoprefixer를 통해 후처리를 하는 것.</li>
-<li>css 가 강력해지고 있고 sass의 활용수준이 css 수준에서 머물고 있기 때문에 sass의 영향력이 줄지 않을까 라는 사견.</li>
+<li>css 가 강력해지고 있고 sass의 활용수준이 css 수준에서 머물고 있기 때문에 sass의 영향력이 줄지 않을까 라는…</li>
 <li>Sass와 SCSS는 문법의 차이. 이 둘 모두 통틀어 Sass라고 부를 수 있다.</li>
 <li>현업에서는 node Sass를 많이 쓴다. 그러나 공식 문서 표준은 Dart Sass이고, 점점 이쪽으로 넘어올 것이다. 수업도 Dart Sass로 진행할 예정.</li>
-</ul>
-<p>Dart Sass에서는 node Sass에는 없었던 @use와 @forward를 사용할 수 있다.</p>
-<ul>
+<li>Dart Sass에서는 node Sass에는 없었던 @use와 @forward를 사용할 수 있다.</li>
 <li>기존의 sass에서는 mixin의 선언순서도 기억해서 사용해야 한다.</li>
 <li>그런데 Dart Sass 에서는 @use와 @forward를 통해 module 개념을 도입했다.</li>
 <li>sass에서의 연산에서 <code class="language-text">/</code> 연산은 특별한 규칙이 필요했다.</li>
 <li>dart sass에서는 sass:math로 math 객체를 불러와서 math.div(12px, 2) 로 나눗셈(division)을 수행한다.</li>
-<li>npm install 을 통해 참조모듈들은 전역 설치보다는 프로젝트 내의 로컬로만 설치하는 것을 추천. path 꼬임 방지 목적</li>
+<li>npm install 을 통한 참조모듈들 설치는 전역 설치보다는 프로젝트 내의 로컬로만 설치하는 것을 추천. path 꼬임 방지 목적</li>
 </ul>
 <p><strong>package.json</strong></p>
 <ul>
