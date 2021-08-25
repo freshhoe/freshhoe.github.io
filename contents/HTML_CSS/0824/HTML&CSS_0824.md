@@ -22,7 +22,9 @@ thumbnail: './HTMLCSS.jpg'
 
 - mixin을 정의한 파일에서 mixin을 가져다가 활용하는 것도 가능. 함수와 유사하기 때문인듯? 선언 순서가 중요할 듯?
 
-- a 태그 data-tooltip 속성.
+- [HTML5 `data-tooltip` 속성](https://www.sitepoint.com/how-why-use-html5-custom-data-attributes/)
+- CSS `attr()`함수로 `data-tooltip` 속성 값을 가지고 와서 `::before` 선택자의 `content`로 삽입해 스타일링 하는 방식을 고려해 볼 수 있다.
+- `title`속성 외에 사용자에게 추가적인 정보를 전달하기 위한 목적으로 사용됨.
 
 <hr>
 
@@ -42,7 +44,7 @@ thumbnail: './HTMLCSS.jpg'
 - 현업에서는 버튼 스타일이 크로스 브라우징 체크하면 높이에 1~2px 오차가 발생할 가능성 있어서 높이를 고정해주는 경우가 많음.
 - [yamoo9 gitbook CSS grid](https://yamoo9.gitbook.io/css-grid/)
 
-- `grid-template` 에서 `repeat()`은 IE10 지원안 할 수도.
+- `grid-template` 에서 `repeat()`은 IE 지원안함. IE를 위한 grid project kit 에서 다른 방식으로 가능하게 할 수도...
 
 <hr>
 
