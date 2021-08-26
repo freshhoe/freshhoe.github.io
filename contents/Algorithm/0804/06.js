@@ -36,3 +36,4 @@ function solution (songs, m) {
     return answer;
 }
 console.log(solution([1, 2, 3, 4, 5, 6, 7, 8, 9], 3)); // 17
+console.log(solution([6, 5, 8, 5, 6, 8, 7, 6, 6, 7], 3)); // 24
