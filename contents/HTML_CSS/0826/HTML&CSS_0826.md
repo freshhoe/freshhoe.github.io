@@ -46,7 +46,7 @@ thumbnail: './HTMLCSS.jpg'
 
 - [반응형 테이블 관련 article](https://hyeonseok.com/blog/729)
 
-- table을 쓰게되면 description 은 summary 태그에 넣는 것을 고려해볼 수 있다.
+- table을 쓰게되면 description 은 summary 태그에 넣는 것을 고려해 볼 수 있다.
 
 - BEM 방식을 사용함으로써 명시도를 조금 낮출 수 있다.
 
