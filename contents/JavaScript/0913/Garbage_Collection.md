@@ -8,9 +8,11 @@ thumbnail: './JS.png'
 
 <!-- ![](./images/.PNG) -->
 
-메모리 관리 방식에 따라 Unmanaged language와 Managed language로 분류가 가능합니다. JavaScript는 메모리 관리를 개발자에게 위임하지 않고, JavaScript 엔진이 보이지 않는 곳에 메모리 관리를 수행하는 Managed language입니다. <br>
-우리가 만드는 모든 값은 메모리를 차지하고 필요없는 것은 사라집니다. 여기서 필요없는 것을 사라지게 하는 기능을 JavaScript 엔진 내에서 동작하는 Garbage Collector가 담당합니다. <br>
-대략적인 동작 원리와 연관된 개념에 대해 간단히 살펴보겠습니다.
+우리가 만드는 모든 값은 메모리를 차지하고 필요없는 것은 사라집니다. Garbage Collector는 JavaScript 엔진 내에서 메모리의 필요없는 값을 삭제하여 메모리 관리를 수행하는 기능을 합니다.
+
+메모리 관리 방식에 따라 Unmanaged language와 Managed language로 분류가 가능한데, JavaScript는 메모리 관리를 개발자에게 위임하지 않고 JavaScript 엔진이 보이지 않는 곳에서 Garbage Collection을 통해 메모리 관리를 수행하는 Managed language입니다.
+
+그럼 JavaScript Garbage Collection의 대략적인 동작 방식에 대해 간단히 살펴보겠습니다.
 
 ## 변수 생애 주기
 
@@ -37,9 +39,9 @@ thumbnail: './JS.png'
 
   </figure>
 
-- 해제 (Release memory)
+- 쓸모 없어진 값 해제 (Release memory)
 
-  쓸모없어진 값의 예는 아래와 같습니다. user 변수를 통해 객체가 더이상 참조되지 않기 때문에 객체는 쓸모없어진 값이 되며, 메모리 관점에서 객체가 차지하고 있는 공간은 해제가 필요하게 됩니다.
+  쓸모 없어진 값의 예는 아래와 같습니다. user 변수를 통해 객체가 더이상 참조되지 않기 때문에 객체는 쓸모 없어진 값이 되며, 메모리 관점에서 객체가 차지하고 있는 공간은 해제가 필요하게 됩니다.
 
   ```js
   let user = null;
@@ -55,7 +57,7 @@ thumbnail: './JS.png'
     
   </figure>
 
-쓸모 없어진 것을 판단하는 두 가지 기준을 바탕으로 아래와 같은 알고리즘을 수행해 Garbage Collection이 이루어집니다.
+쓸모 없어진 것을 판단하는 두 가지 기준 있고, 그 기준을 바탕으로 아래와 같은 알고리즘이 동작하여 Garbage Collection이 이루어집니다.
 
 ## Reference-Counting Algorithm
 
@@ -63,7 +65,7 @@ thumbnail: './JS.png'
 
 그러나 이렇게 단순히 참조여부를 기준으로 삭제 여부를 결정하는 것은 한계가 있습니다.
 
-조금 복잡한 예시를 통해 살펴보겠습니다. 아래 marry 함수는 객체 두 개를 인수로 받아 서로 참조하게 만들고, 두 객체를 포함하는 새로운 객체를 반환합니다.
+조금 복잡한 예시를 살펴보겠습니다. 아래 marry 함수는 객체 두 개를 인수로 받아 서로 참조하게 만들고, 두 객체를 포함하는 새로운 객체를 반환합니다.
 
 ```js
 function marry(man, woman) {
@@ -157,6 +159,10 @@ family = null;
   
 </figure>
 
+이러한 루트로부터의 도달가능성 기준에 의해 Garbage Collection을 수행하면 루트 중 하나인 전역 변수의 경우 브라우저 환경에서 탭을 닫을 때까지 삭제되지 않을 수 있습니다.
+
+따라서 메모리 관리의 효율측면에서 전역 변수의 사용은 남발하지 않는 것이 좋습니다.
+
 ## 최적화 기법
 
 JavaScript 엔진은 위에서 설명한 알고리즘에 기반한 Garbage Collection 수행을 더 빠르게 하기 위해 아래와 같은 최적화 기법 사용합니다. 최적화 기법에 대한 자세한 설명은 참조 링크를 통해 살펴볼 수 있습니다.
@@ -171,7 +177,7 @@ JavaScript 엔진은 위에서 설명한 알고리즘에 기반한 Garbage Colle
 
 JavaScript 엔진마다 구체적인 최적화 기법과 Garbage Collection Algorithm이 다를 수 있습니다. 이 이상의 심화학습은 엔진의 발전과 함께 성장하고 싶은게 아니라면 실질적인 효용은 없다고 생각합니다.
 
-다만 Garbage
+다만 클로저의 개념이해와 더불어 왜 클로저가 Garbage Collection의 대상이 아닌지에 대해 추가학습을 하는 것은 좀 더 폭 넓은 이해를 하는데 도움이 된다고 생각합니다.
 
 ## 참조 링크
 
