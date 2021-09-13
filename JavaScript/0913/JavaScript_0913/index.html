@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.e53586a225ffdde20c86.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#ccc;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><meta name="generator" content="Gatsby 3.10.1"/><title data-react-helmet="true">4. JavaScript TIL</title><meta data-react-helmet="true" name="description" content=""/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1.0"/><meta data-react-helmet="true" http-equiv="Content-Type" content="text/html;charset=UTF-8"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" property="og:title" content="4. JavaScript TIL"/><meta data-react-helmet="true" property="og:description" content=""/><meta data-react-helmet="true" property="og:image" content="/static/8155d983e2c1460e10661d6945336f58/JS.png"/><meta data-react-helmet="true" property="og:url"/><meta data-react-helmet="true" property="og:site_name" content="4. JavaScript TIL"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:title" content="4. JavaScript TIL"/><meta data-react-helmet="true" name="twitter:description" content=""/><meta data-react-helmet="true" name="twitter:image" content="/static/8155d983e2c1460e10661d6945336f58/JS.png"/><meta data-react-helmet="true" name="twitter:site" content="@username"/><meta data-react-helmet="true" name="twitter:creator" content="@username"/><meta data-react-helmet="true" name="google-site-verification" content="fBHHZBKbqkEoxYrrtnKId4pUTXsh6XTdz6tVslODSrA"/><meta data-react-helmet="true" name="naver-site-verification" content="97c9bf1b98b0a3ca1bbf089fd528134f176d29a5"/><link rel="canonical" href="https://freshhoe.github.io/JavaScript/0913/JavaScript_0913/" data-baseprotocol="https:" data-basehost="freshhoe.github.io"/><link rel="sitemap" type="application/xml" href="/sitemap/sitemap-index.xml"/><link rel="icon" href="/favicon-32x32.png?v=ba907e3ea43e1a5b11075d95af1a6a26" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link as="script" rel="preload" href="/webpack-runtime-71879c171e6b236c3340.js"/><link as="script" rel="preload" href="/framework-75034fa8e3a9e81ff051.js"/><link as="script" rel="preload" href="/app-7f1b73a2b5af3ed5e834.js"/><link as="script" rel="preload" href="/cb1608f2-a2b9d154d9bc2051201f.js"/><link as="script" rel="preload" href="/d0dcf9c1039535d44ee74defc829dfbf62dac3c5-ae00d24003731288e2f7.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-tsx-58d4baf5e84c0cf4684e.js"/><link as="fetch" rel="preload" href="/page-data/JavaScript/0913/JavaScript_0913/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 13ku56z">.css-13ku56z{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;}</style><main class="css-13ku56z e1strnqo0"><style data-emotion="css-global 1fjbsoa">@import url('<https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap>');*{padding:0;margin:0;box-sizing:border-box;font-family:'Nanum Myeongjo',serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp e1opi4mu1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div class="css-1bjn9yo e1opi4mu0 gatsby-image-wrapper" style="position:absolute;overflow:hidden"><div aria-hidden="true" style="width:100%;padding-bottom:100%"></div><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/0lEQVQ4y+2SP2gTYRjG315ztrnGpN4lZ4N33/tdbKWDo6AOlg6iIOggFFdnwVVwFOqfwVZsSyuikEgFHRy0oFAQOjtUI4pacxfTJE3OC4TW3NVeLvkkPRAtyaCTgx8v3/DAj+d9Xh7YzJK/HvgP/4Pwt0zrd3OkphNb/xPYMQgzqW2Q6ge1UUaviI7RAXYM4q4S6516fKR37LSwsaKyEs5eF4cH+QG5++wp4f1S3Mu3+Pawl8e1N0o4xGkk0CjgQioGAAOx7qOHegDg/LkQM9HWO8D1PJbTirSH248BVqGXL0YAIDkbZV5iISUXlhV3lTjZzs6ltNIf5hIYYCVM3o4CwMHhXY/mot+L2LSonemQ2dZbzj48qPEbn8nmFzJ2RoDtd0DjXzyUWbnd2rZOtnJY387cH+GGEvz6J7VeRNeiz1LyidEgAAjBrteLcbaGsGPhponlt0rTxGpGjUS4IY2v6aT6UV1ejDNbY/XEpQthAJgeF1mFwq+ezMT7k1J4Nzc1Lt69KQHAyJFer4DHDvfwAZi+Ki492eubz89IzNoBl/FpUu4TOD8ex8HjOzFWpXM3xFBfl68AwMnR4PqKupX7PbOjE/aVZl/tuzchzVwT0y/jzVLrML74YCp664r4fF52ssTNkzYl8U/NLMoqtFFEv8a1n6JFmUkdg/j1/AEBC6bLcXen9gAAAABJRU5ErkJggg==" alt="thumbnail" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source type='image/webp' srcset="/static/8155d983e2c1460e10661d6945336f58/8444f/JS.webp 200w,
+/static/8155d983e2c1460e10661d6945336f58/91996/JS.webp 225w" sizes="(max-width: 225px) 100vw, 225px" /><source srcset="/static/8155d983e2c1460e10661d6945336f58/a9f05/JS.png 200w,
+/static/8155d983e2c1460e10661d6945336f58/fe9a8/JS.png 225w" sizes="(max-width: 225px) 100vw, 225px" /><img loading="lazy" sizes="(max-width: 225px) 100vw, 225px" srcset="/static/8155d983e2c1460e10661d6945336f58/a9f05/JS.png 200w,
+/static/8155d983e2c1460e10661d6945336f58/fe9a8/JS.png 225w" src="/static/8155d983e2c1460e10661d6945336f58/fe9a8/JS.png" alt="thumbnail" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><style data-emotion="css m1156n">.css-m1156n{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:100%;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-m1156n{width:100%;padding:40px 20px;}}</style><div class="css-m1156n e1st1jau3"><style data-emotion="css gywgo7">.css-gywgo7{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#ffffff;color:#000000;font-size:22px;cursor:pointer;box-shadow:0 0 10px rgba(0, 0, 0, 0.3);}@media (max-width: 768px){.css-gywgo7{width:30px;height:30px;font-size:18px;}}</style><div class="css-gywgo7 e1st1jau2"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path></svg></div><style data-emotion="css gn4qtp">.css-gn4qtp{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin-top:auto;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:45px;font-weight:800;}@media (max-width: 768px){.css-gn4qtp{font-size:30px;}}</style><div class="css-gn4qtp e1st1jau1">4. JavaScript TIL</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e1st1jau0"><div>JavaScript</div><div>2021.09.13.</div></div></div></div><style data-emotion="css uo146q">.css-uo146q{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:100px 0;word-break:break-all;line-height:1.8;font-size:16px;font-weight:400;}.css-uo146q p{padding:3px 0;}.css-uo146q h1,.css-uo146q h2,.css-uo146q h3{font-weight:800;margin-bottom:30px;}.css-uo146q *+h1,.css-uo146q *+h2,.css-uo146q *+h3{margin-top:80px;}.css-uo146q hr+h1,.css-uo146q hr+h2,.css-uo146q hr+h3{margin-top:0;}.css-uo146q h1{font-size:30px;}.css-uo146q h2{font-size:25px;}.css-uo146q h3{font-size:20px;}.css-uo146q blockquote{margin:30px 0;padding:5px 15px;border-left:2px solid #000000;font-weight:800;}.css-uo146q ol,.css-uo146q ul{margin-left:20px;padding:30px 0;}.css-uo146q hr{border:1px solid #000000;margin:100px 0;}.css-uo146q a{color:#4263eb;-webkit-text-decoration:underline;text-decoration:underline;}.css-uo146q pre[class*='language-']{margin:30px 0;padding:15px;font-size:15px;}.css-uo146q pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);border-radius:3px;}.css-uo146q code[class*='language-'],.css-uo146q pre[class*='language-']{tab-size:2;}@media (max-width: 768px){.css-uo146q{width:100%;padding:80px 20px;line-height:1.6;font-size:14px;}.css-uo146q h1{font-size:23px;}.css-uo146q h2{font-size:20px;}.css-uo146q h3{font-size:17px;}.css-uo146q img{width:100%;}.css-uo146q hr{margin:50px 0;}}</style><div class="css-uo146q e1ijh0y10"><!-- ![](./images/.PNG) -->
+<h2>첫 번째 시간</h2>
+<p><strong>자바스크립트의 메모리구조</strong></p>
+<ul>
+<li>자바스크립트의 메모리 구조를 콜스택, 힙으로 설명하는 것은 ECMAScript에 명시되어 있지 않고, C++에는 그러한 구조로 구성되어 있기 때문에 근거가 100% 확신할 수 없는 내용이다. 게다가 엔진에 따라 다를 수도 있기 때문에 ‘모른다’ 라고 하는게 겸손한 답변이라고 볼 수 있다. V8엔진에는 힙을 있을 수도 있다. 그러나 이게 표준이라고 볼 수 없다.</li>
+<li>자바스크립트의 원시값도 거의 객체다. 좀 더 구체적으로 말하면 객체의 프로퍼티다. var 키워드에 의해 선언 및 할당된 것은 브라우저 환경에서 window 객체의 프로퍼티다. let, const 키워드에 의해 선언 및 할당된 것은 조금 다르다.</li>
+<li>리액트에서 객체를 상태로 가지고 있을때에는 불변성을 유지해야 한다. 즉, 객체를 원시값처럼 써야한다. 따라서 push, pop 같은 배열 메서드를 사용해서는 안된다. 참조값은 그대로 유지되는데 그 참조값에 해당하는 객체 내부 값은 변하기 때문에 그 값의 변화를 알기가 어렵다. 내부적으로 프로퍼티 하나하나를 비교해야 한다.</li>
+</ul>
+<p><strong>isNaN vs Number.isNaN</strong></p>
+<ul>
+<li><code class="language-text">Number.isNaN()</code> 은 숫자가 아니면 false, 숫자여도 NaN이 아니면 false다. <code class="language-text">isNaN()</code> 은 어떠한 경우에 어떤 결과가 나오는지 헷갈린다.(ex. isNaN(undefined) -> true 다.) 따라서 <code class="language-text">Number.isNaN()</code>을 사용을 권장한다.</li>
+</ul>
+<p><strong>함수 표현식과 함수선언문</strong></p>
+<ul>
+<li>함수 표현식에서는 기명함수 리터럴을 쓰지 않는게 좋다. 오해를 유발할 수 있기 때문.</li>
+<li>이러한 고민의 결과로 ES6에서 나온 화살표함수는 무조건 익명으로 써야한다.</li>
+</ul>
+<p><strong>히든클래스</strong></p>
+<ul>
+<li>클래스기반 객체지향 언어는 클래스에 대해 사전에 정의해줘야 한다. 따라서 프로퍼티를 추가하거나 지우는 것은 불가능하다. 자바스크립트는 클래스 없이 객체 리터럴로 객체를 바로 생성할 수 있다.</li>
+<li>프로퍼티에 빠르게 접근하기 위해 마치 클래스 기반의 객체지향 언어에서 클래스를 사용하듯, 히든 클래스라는 것을 만든다. 그러나 자바스크립트는 동적 할당이 가능한 언어기 때문에 히든 클래스는 이러한 장점과 대척점에 있는 개념으로 보인다. 물론 비효율성을 고려해 만들어졌겠지만… 비효율성이 발생하더라도 사용자가 느낄 수 없을 정도라고 예상되기 때문에, 자바스크립트라는 언어의 장점이라고 할 수 있는 동적 프로퍼티 할당을 활용하는 것이 권장된다.</li>
+</ul>
+<hr>
+<h2>두 번째 시간</h2>
+<p><strong>ES6에서 추가된 객체 리터럴 확장 기능</strong></p>
+<ul>
+<li>예제 10-20 알아두기. 프로퍼티 축약 표현이라는 이름도. 이러한 문법은 눈에 익어야 한다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  y <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token punctuation">,</span> y <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// {x: 1, y: 2}</span></code></pre></div>
+<p><strong>메서드 축약 표현</strong></p>
+<ul>
+<li><code class="language-text">function</code> 키워드 없이 함수를 객체의 값으로 사용하는것. 예제 10-23 은 메서드가 아니라 함수다. 10-24가 메서드다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// 예제 10-23</span>
+<span class="token comment">// ES5</span>
+<span class="token comment">// 이렇게 메서드 사용하는 것은 앞으로 쓰지 않는다.</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'Lee'</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">sayHi</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hi! '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+obj<span class="token punctuation">.</span><span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 메서드로 호출한 방법.</span>
+
+<span class="token comment">// 예제 10-24</span>
+<span class="token comment">// ES6</span>
+<span class="token comment">// 이런 방식으로 메서드 사용을 권장함.</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'Lee'</span><span class="token punctuation">,</span>
+  <span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hi! '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<p><strong>11. 원시값과 객체의 비교</strong></p>
+<ul>
+<li>원시값과 객체는 값을 만들고 관리하는 방식의 차이가 있다. 원시타입은 변경 불가능한 값이다.(immutable value) 객체는 변경 가능한 값이다.(mutable value)</li>
+<li>immutable value는 참조하는 선두 어드레스가 바뀐다는 것을 의미한다. mutable value은 참조하는 선두 어드레스 바뀌지 않는다는 것을 의미한다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">var</span> b <span class="token operator">=</span> a<span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>b 가 이미 존재하는지 파악한다. a 는 식별자 표현식이다. 평가되어 1 이라는 값을 참조한다.</li>
+<li>그런데 이 과정이 값을 복사하고 새로운 메모리 공간을 차지하게 하는지, 기존의 a가 참조하는 메모리 주소를 똑같이 가리키고 있는지 알 수 없다. 그러나 재할당, 정확히 말해 원시값의 재할당은 값을 복사해 새로운 메모리 공간을 차지하고 전달이 된다는 것은 동일하다.</li>
+<li>c언어에서는 원시값을 메모리주소를 유지한채 값을 새롭게 쓸 수 있다. 엄밀히 말해 immutable이 아니다.</li>
+<li>객체의 사이즈는 원시 값에 비해 크다. 따라서 메모리 공간도 많이 차지하고 사이즈의 변동도 잦을 수 있기 때문에 직접적인 객체값이 아닌 참조값을 복사해서 전달한다.</li>
+<li>위와 같은 방식은 파악이 어렵다. 그래서 참조에 의한 파악이 아니라 값을 복사해서 참조값을 변경해서 파악하는 방식을 사용하자는 움직임이 일어나고 있다.</li>
+</ul>
+<p><strong>과제1</strong></p>
+<ul>
+<li>copy 와 obj가 실제로 내용이 다른지 알아내는 (변화를 추적하는) 함수를 구현</li>
+<li>프로퍼티 구성이 똑같고, 값도 같은지 확인하는 것.</li>
+<li>Object.keys(obj1) 을 통해 obj1 의 키 값 배열을 가져온다. 그러나 이것은 중첩 객체를 어떻게 가져오는가? typeof를 통해 원시값인지 객체인지 확인. 원시값이면 값이 같은지 확인. 객체이면 재귀로 파악.</li>
+</ul>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">isEqual</span><span class="token punctuation">(</span><span class="token parameter">obj1<span class="token punctuation">,</span> obj2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment">// 같으면 true 다르면 false</span>
+<span class="token comment">// 인수가 저렇게 항상 오지 않을때의 예외처리는 어떻게 할 것인가도 고려해야 함.</span>
+<span class="token keyword">function</span> <span class="token function">deepCopy</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token comment">// 복사본을 리턴</span>
+<span class="token comment">// 함수의 카피는 굉장히 어렵기 때문에 참조값을 할당하는 걸로.</span></code></pre></div>
+<ul>
+<li>
+<p>이번주 일요일까지 과제 깃허브에 올리고, 깃허브 주소 알려주길.</p>
+</li>
+<li>
+<p>구현해보고 안되면 참고. 참고도 되도록 보지 않고. 구현이 완료되면 다 지우고 처음부터 안보고. 내 지식을 활용하고 더 바람직한 것은 방식은 없는지 생각해 가면서. 변수 이름은 이게 좋은가? 여기서 변수를 선언해야 하는가? 등을 고민해서 고칠게 없을 때까지.</p>
+</li>
+<li>
+<p>모든 코드를 왜 그렇게 했는지 이유가 있어야 하고 답변할 줄 알아야 점수 부여됨. 이게 코드리뷰다.</p>
+</li>
+<li>
+<p>면접에서 얕은 복사, 깊은 복사 개념에 대해 몰랐다 라는 것은 말이 안됨. 확실히 알아야 함. 원시값 복사를 깊은 복사라고 말하는 것은 조금 부족. 객체 안의 모든 값까지 복사하는 것을 깊은 복사라고 한다. 객체를 단순히 복사하는 것을 얕은 복사라고 하는 것도 조금 부족. 1레벨만 복사하는 것을 얕은 복사라고 한다. 빌트인으로 복사하는 것은 다 얕은 복사다.</p>
+</li>
+<li>
+<p>한 두개의 객체를 생성할 때는 객체 리터럴, 더 많이 만들 경우 생성자 함수를 사용. 그런데 동일한 객체를 여러 개 만들 일은 실제 많이 없다. 그래서 클래스가 필요없었던 것. 객체리터럴로 80% 커버 가능.</p>
+</li>
+</ul>
+<hr>
+<h2>세 번째 시간</h2>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">var</span> o1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+  a<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 빈 객체에 o1의 프로퍼티를 덮어씌운다는 의미</span>
+<span class="token keyword">var</span> o2 <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> o1<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 얕은 복사 (빌트인)</span>
+<span class="token keyword">var</span> o2 <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token operator">...</span>o1 <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// 위와 같은 얕은 복사</span></code></pre></div>
+<p><strong>12. 함수</strong></p>
+<ul>
+<li>return은 뒤에 있는 것을 함수 바깥으로 반환하는 것, 그리고 함수의 종료라는 두 가지 기능을 한다.</li>
+<li>함수의 매개변수는 암묵적으로 몸체에서 var 키워드로 선언된 것으로 보면된다.</li>
+<li>적절한 인수를 체크하는 방법. 유사 배열 객체인 arguments 객체를 사용한다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token parameter">x<span class="token punctuation">,</span> y</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> x <span class="token operator">!==</span> <span class="token string">'number'</span> <span class="token operator">&amp;&amp;</span> y <span class="token operator">!==</span> <span class="token string">'number'</span><span class="token punctuation">)</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'인수의 데이터 타입이 적절하지 않습니다.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>arguments<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'인수의 갯수가 부족합니다.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arguments<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span>
+  <span class="token keyword">return</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>그런데 arrow function을 쓰면 arguments라고 하는 객체를 갖지 않는다. 그럴때는 <code class="language-text">args</code>를 사용한다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">add</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> x <span class="token operator">!==</span> <span class="token string">'number'</span> <span class="token operator">&amp;&amp;</span> y <span class="token operator">!==</span> <span class="token string">'number'</span><span class="token punctuation">)</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'인수의 데이터 타입이 적절하지 않습니다.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>args<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'인수의 갯수가 부족합니다.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>args<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span>
+  <span class="token keyword">return</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<ul>
+<li>
+<p>함수선언문을 익명으로 쓰면 함수 표현식이다. 그런데 에러가 발생한다. 따라서 함수선언문은 함수명이 필수다. 식별자와 함수객체를 바인딩하기 위해서.</p>
+</li>
+<li>
+<p>연산자는 항상 값을 만들어내는 표현식의 일부다. 함수호출연산자<code class="language-text">()</code>도 표현식의 일부다.</p>
+</li>
+<li>
+<p><code class="language-text">add(1, 2)</code>도 표현식이다. <code class="language-text">add</code> 는 함수식별자인 피연산자다.</p>
+</li>
+<li>
+<p>함수선언문이나 함수표현식이나 둘 다 써도 상관없다. 그런데 리액트 공식문서에도 선언문으로 많이 사용한다. 중요한 것은 일관성이 있어야 한다.</p>
+</li>
+<li>
+<p>정의 방식이 하나 더 있는데, 바로 화살표 함수다. 함수 몸체가 더 작으므로 화살표 함수를 쓰는게 나아보인다.</p>
+</li>
+<li>
+<p>매개변수에 객체를 쓸 경우, 따로 변수에 객체를 할당해 인수로 넘겨주는 것은 재사용의 의도가 있다는 의미. 그러나 변수에 담긴 순간 생애주기가 길어진다. 또한 함수 내부에서 객체에 변화를 주었을 때, 변환된 값이 반환되는데 추적하기 어려울 수 있다.</p>
+</li>
+</ul>
+<hr>
+<h2>네 번째 시간</h2>
+<ul>
+<li>
+<p>즉시 실행 함수는 클로저를 만들기 위해서 사용되는 경우가 많다.</p>
+</li>
+<li>
+<p>사용방법이 여러가지 있는데, 화살표함수를 그룹연산자 내부에 사용할 경우 <code class="language-text">()</code>호출연산자를 그룹연산자 밖에 써줘야 한다.</p>
+</li>
+<li>
+<p>for문을 쓰면 실행 컨텍스트가 만들어지지는 않고 렉시컬 환경만 만들어진다. 재귀를 쓰면 실행컨텍스트가 만들어진다. 재귀가 가독성이 더 좋다고 본다. 선언형 프로그래밍에 속한다.</p>
+</li>
+</ul>
+<p><strong>중첩함수</strong></p>
+<ul>
+<li>외부 함수 내부에 중첩 함수를 구현했다는 것은 코드가 복잡해서 가독성 관점에서 분리시킨 목적과 외부 함수 내부에서만 재사용성 목적도 있기 때문이다.</li>
+</ul>
+<p><strong>콜백함수</strong></p>
+<ul>
+<li>예제 12-49 에서 for문을 함수에 넣어준 것은 반복문의 추상화. 가독성 향상을 위해. 반복문은 계속 유지되는 기능이니 상수로 보고, console 부분이 변수(변해야 하는 기능)로 볼 수 있다.</li>
+<li>콜백함수는 호출당시 인수를 줄 수 있다.</li>
+<li>대부분의 콜백함수는 고차함수가 호출한다. 콜백함수를 고차함수가 호출하지 않는 경우가 비동기다.</li>
+<li>array 메서드를 통해 고차, 콜백함수를 알아보자.</li>
+<li>predicate 는 콜백함수인데, true 또는 false를 반환한다.</li>
+<li>예를 들어, .filter 메서드를 사용했을 때, 콜백함수읜 인수로 지정할 수 있는 것은, 배열의 요소값, 인덱스, 배열 전체다.</li>
+<li>함수를 호출하면 콜스택이라고 하는 곳에 쌓인다. 자바스크립트 엔진은 하나의 콜스택만 있는 싱글쓰레드다. 브라우저는 멀티 쓰레드다.</li>
+<li>예제 12-55의 setTimeout은 콜백함수를 호출하는 고차함수가 아니다. 브라우저에게 1초 지났는지 여부만 전달한다.</li>
+</ul>
+<hr>
+<h2>다섯 번째 시간</h2>
+<ul>
+<li>
+<p>동일한 인수를 전달하면 언제나 동일한 결과값을 반환하는 함수를 순수함수라고 한다.</p>
+</li>
+<li>
+<p>동일한 인수를 전달해도 동일한 결과를 반환하지 않을 수도 있는 함수를 비순수함수라고 한다.</p>
+</li>
+<li>
+<p>또한 함수 내부에서 인수로 전달받은 외부 변수의 상태를 바꿀 수 있는, 부수효과를 발생시키는 함수도 비순수함수라고 한다.</p>
+</li>
+<li>
+<p>서버에서 데이터를 받아와서 무언가를 하는 함수는 외부상태에 의존해서 결과가 달라지기 때문에 비순수함수다.</p>
+</li>
+<li>
+<p>함수형 프로그래밍에서는 순수함수를 추구한다. 추구한다는 말은 순수함수만으로 작업을 하는 것이 어렵다는 말이다. 다만 그렇게 하려고 노력해야 한다.</p>
+</li>
+<li>
+<p>이렇게 순수, 비순수에 대한 개념이 있어야 추구하는 방향성에 일관성이 생길 수 있다.</p>
+</li>
+<li>
+<p>26장까지가 이론. 27장부터가 JS가 제공하는 함수에 관한 이야기. 다다음주정도면 이론이 끝날 것.</p>
+</li>
+<li>
+<p>27장부터는 직접 치면서 문제를 풀기 시작해야 한다. 39장 DOM, 이후에 이벤트 관련내용이 끝나면 UI 컴포넌트를 만드는 실습에 들어갈 것. poiemawb.com에 어떤 실습을 할지 나와있음.</p>
+</li>
+<li>
+<p>이것을 구현한 코드의 품질이 중요하다. 구현은 기본. 이게 끝나면 앱을 만들 것. 이후에는 미니 프로젝트. 비동기를 배우고 이후에는 최종프로젝트.</p>
+</li>
+<li>
+<p>예습 범위 : 16 ~ 18장 까지.</p>
+</li>
+</ul></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v80">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2021 Developer Hoe, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/JavaScript/0913/JavaScript_0913/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-b103270a4ec311a9029b.js"],"app":["/app-7f1b73a2b5af3ed5e834.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-ba2c39d40dd516412223.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-f9fd52be6a2b0809ada4.js"],"component---src-pages-info-tsx":["/component---src-pages-info-tsx-8253c7febe95d59a3243.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-58d4baf5e84c0cf4684e.js"]};/*]]>*/</script><script src="/polyfill-b103270a4ec311a9029b.js" nomodule=""></script><script src="/component---src-templates-post-template-tsx-58d4baf5e84c0cf4684e.js" async=""></script><script src="/d0dcf9c1039535d44ee74defc829dfbf62dac3c5-ae00d24003731288e2f7.js" async=""></script><script src="/cb1608f2-a2b9d154d9bc2051201f.js" async=""></script><script src="/app-7f1b73a2b5af3ed5e834.js" async=""></script><script src="/framework-75034fa8e3a9e81ff051.js" async=""></script><script src="/webpack-runtime-71879c171e6b236c3340.js" async=""></script></body></html>

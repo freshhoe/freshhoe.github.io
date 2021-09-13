@@ -1,0 +1,212 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.e53586a225ffdde20c86.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#ccc;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><meta name="generator" content="Gatsby 3.10.1"/><title data-react-helmet="true">Garbage Collection</title><meta data-react-helmet="true" name="description" content=""/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1.0"/><meta data-react-helmet="true" http-equiv="Content-Type" content="text/html;charset=UTF-8"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" property="og:title" content="Garbage Collection"/><meta data-react-helmet="true" property="og:description" content=""/><meta data-react-helmet="true" property="og:image" content="/static/8155d983e2c1460e10661d6945336f58/JS.png"/><meta data-react-helmet="true" property="og:url"/><meta data-react-helmet="true" property="og:site_name" content="Garbage Collection"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:title" content="Garbage Collection"/><meta data-react-helmet="true" name="twitter:description" content=""/><meta data-react-helmet="true" name="twitter:image" content="/static/8155d983e2c1460e10661d6945336f58/JS.png"/><meta data-react-helmet="true" name="twitter:site" content="@username"/><meta data-react-helmet="true" name="twitter:creator" content="@username"/><meta data-react-helmet="true" name="google-site-verification" content="fBHHZBKbqkEoxYrrtnKId4pUTXsh6XTdz6tVslODSrA"/><meta data-react-helmet="true" name="naver-site-verification" content="97c9bf1b98b0a3ca1bbf089fd528134f176d29a5"/><link rel="canonical" href="https://freshhoe.github.io/JavaScript/0913/Garbage_Collection/" data-baseprotocol="https:" data-basehost="freshhoe.github.io"/><link rel="sitemap" type="application/xml" href="/sitemap/sitemap-index.xml"/><link rel="icon" href="/favicon-32x32.png?v=ba907e3ea43e1a5b11075d95af1a6a26" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=ba907e3ea43e1a5b11075d95af1a6a26"/><link as="script" rel="preload" href="/webpack-runtime-71879c171e6b236c3340.js"/><link as="script" rel="preload" href="/framework-75034fa8e3a9e81ff051.js"/><link as="script" rel="preload" href="/app-7f1b73a2b5af3ed5e834.js"/><link as="script" rel="preload" href="/cb1608f2-a2b9d154d9bc2051201f.js"/><link as="script" rel="preload" href="/d0dcf9c1039535d44ee74defc829dfbf62dac3c5-ae00d24003731288e2f7.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-tsx-58d4baf5e84c0cf4684e.js"/><link as="fetch" rel="preload" href="/page-data/JavaScript/0913/Garbage_Collection/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 13ku56z">.css-13ku56z{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;}</style><main class="css-13ku56z e1strnqo0"><style data-emotion="css-global 1fjbsoa">@import url('<https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap>');*{padding:0;margin:0;box-sizing:border-box;font-family:'Nanum Myeongjo',serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp e1opi4mu1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div class="css-1bjn9yo e1opi4mu0 gatsby-image-wrapper" style="position:absolute;overflow:hidden"><div aria-hidden="true" style="width:100%;padding-bottom:100%"></div><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/0lEQVQ4y+2SP2gTYRjG315ztrnGpN4lZ4N33/tdbKWDo6AOlg6iIOggFFdnwVVwFOqfwVZsSyuikEgFHRy0oFAQOjtUI4pacxfTJE3OC4TW3NVeLvkkPRAtyaCTgx8v3/DAj+d9Xh7YzJK/HvgP/4Pwt0zrd3OkphNb/xPYMQgzqW2Q6ge1UUaviI7RAXYM4q4S6516fKR37LSwsaKyEs5eF4cH+QG5++wp4f1S3Mu3+Pawl8e1N0o4xGkk0CjgQioGAAOx7qOHegDg/LkQM9HWO8D1PJbTirSH248BVqGXL0YAIDkbZV5iISUXlhV3lTjZzs6ltNIf5hIYYCVM3o4CwMHhXY/mot+L2LSonemQ2dZbzj48qPEbn8nmFzJ2RoDtd0DjXzyUWbnd2rZOtnJY387cH+GGEvz6J7VeRNeiz1LyidEgAAjBrteLcbaGsGPhponlt0rTxGpGjUS4IY2v6aT6UV1ejDNbY/XEpQthAJgeF1mFwq+ezMT7k1J4Nzc1Lt69KQHAyJFer4DHDvfwAZi+Ki492eubz89IzNoBl/FpUu4TOD8ex8HjOzFWpXM3xFBfl68AwMnR4PqKupX7PbOjE/aVZl/tuzchzVwT0y/jzVLrML74YCp664r4fF52ssTNkzYl8U/NLMoqtFFEv8a1n6JFmUkdg/j1/AEBC6bLcXen9gAAAABJRU5ErkJggg==" alt="thumbnail" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source type='image/webp' srcset="/static/8155d983e2c1460e10661d6945336f58/8444f/JS.webp 200w,
+/static/8155d983e2c1460e10661d6945336f58/91996/JS.webp 225w" sizes="(max-width: 225px) 100vw, 225px" /><source srcset="/static/8155d983e2c1460e10661d6945336f58/a9f05/JS.png 200w,
+/static/8155d983e2c1460e10661d6945336f58/fe9a8/JS.png 225w" sizes="(max-width: 225px) 100vw, 225px" /><img loading="lazy" sizes="(max-width: 225px) 100vw, 225px" srcset="/static/8155d983e2c1460e10661d6945336f58/a9f05/JS.png 200w,
+/static/8155d983e2c1460e10661d6945336f58/fe9a8/JS.png 225w" src="/static/8155d983e2c1460e10661d6945336f58/fe9a8/JS.png" alt="thumbnail" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><style data-emotion="css m1156n">.css-m1156n{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:100%;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-m1156n{width:100%;padding:40px 20px;}}</style><div class="css-m1156n e1st1jau3"><style data-emotion="css gywgo7">.css-gywgo7{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#ffffff;color:#000000;font-size:22px;cursor:pointer;box-shadow:0 0 10px rgba(0, 0, 0, 0.3);}@media (max-width: 768px){.css-gywgo7{width:30px;height:30px;font-size:18px;}}</style><div class="css-gywgo7 e1st1jau2"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path></svg></div><style data-emotion="css gn4qtp">.css-gn4qtp{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin-top:auto;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:45px;font-weight:800;}@media (max-width: 768px){.css-gn4qtp{font-size:30px;}}</style><div class="css-gn4qtp e1st1jau1">Garbage Collection</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e1st1jau0"><div>JavaScript</div><div>2021.09.13.</div></div></div></div><style data-emotion="css uo146q">.css-uo146q{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:100px 0;word-break:break-all;line-height:1.8;font-size:16px;font-weight:400;}.css-uo146q p{padding:3px 0;}.css-uo146q h1,.css-uo146q h2,.css-uo146q h3{font-weight:800;margin-bottom:30px;}.css-uo146q *+h1,.css-uo146q *+h2,.css-uo146q *+h3{margin-top:80px;}.css-uo146q hr+h1,.css-uo146q hr+h2,.css-uo146q hr+h3{margin-top:0;}.css-uo146q h1{font-size:30px;}.css-uo146q h2{font-size:25px;}.css-uo146q h3{font-size:20px;}.css-uo146q blockquote{margin:30px 0;padding:5px 15px;border-left:2px solid #000000;font-weight:800;}.css-uo146q ol,.css-uo146q ul{margin-left:20px;padding:30px 0;}.css-uo146q hr{border:1px solid #000000;margin:100px 0;}.css-uo146q a{color:#4263eb;-webkit-text-decoration:underline;text-decoration:underline;}.css-uo146q pre[class*='language-']{margin:30px 0;padding:15px;font-size:15px;}.css-uo146q pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);border-radius:3px;}.css-uo146q code[class*='language-'],.css-uo146q pre[class*='language-']{tab-size:2;}@media (max-width: 768px){.css-uo146q{width:100%;padding:80px 20px;line-height:1.6;font-size:14px;}.css-uo146q h1{font-size:23px;}.css-uo146q h2{font-size:20px;}.css-uo146q h3{font-size:17px;}.css-uo146q img{width:100%;}.css-uo146q hr{margin:50px 0;}}</style><div class="css-uo146q e1ijh0y10"><!-- ![](./images/.PNG) -->
+<p>우리가 만드는 모든 값은 메모리를 차지하고 필요없는 것은 사라집니다. Garbage Collector는 JavaScript 엔진 내에서 메모리의 필요없는 값을 삭제하여 메모리 관리를 수행하는 기능을 합니다.</p>
+<p>메모리 관리 방식에 따라 Unmanaged language와 Managed language로 분류가 가능한데, JavaScript는 메모리 관리를 개발자에게 위임하지 않고 JavaScript 엔진이 보이지 않는 곳에서 Garbage Collection을 통해 메모리 관리를 수행하는 Managed language입니다.</p>
+<p>그럼 JavaScript Garbage Collection의 대략적인 동작 방식에 대해 간단히 살펴보겠습니다.</p>
+<h2>변수 생애 주기</h2>
+<p>우리가 만드는 모든 값은 메모리를 차지하고 쓸모 없어진 것들을 Garbage Collector가 찾아내 삭제하게 됩니다. 쓸모 없어진다는 의미를 변수의 생애주기를 바탕으로 설명하면,</p>
+<ul>
+<li>
+<p>메모리 공간 확보 (Allocate memory)</p>
+</li>
+<li>
+<p>사용 (Use memory)</p>
+<p>user 변수에 아래와 같은 객체를 할당하면 전역에서 user 변수를 통해 연결된 객체를 참조할 수 있고, 메모리 관점에서 메모리가 사용되고 있다고 볼 수 있습니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<figure style="display: block; text-align: center;">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 186px; ">
+      <a class="gatsby-resp-image-link" href="/static/8803420abbeb7f4c46d5c30472da67b7/d1752/Use_memory.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 105.91397849462365%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAABJ0AAASdAHeZh94AAACmUlEQVQ4y6WUa3KbSBRGvd7ZyGwgm5gt5M8k5R/jvGzPpPRGGGEBAvEGQdNAnxSN5UhO5EpNqPqq+359+3DhNlwBKKX4net0/9UxGEZZ7JC5g8xdZOHSFh5tMcw92tLT/uANa8c81Xdn0Gdg3wpq/54uN2mzNTI1ENGcOlrSxAvKYKLXDsEEmazo8gdq/46uKS8Dm8QAVVAlFlvjC+bXa3xnwePsmundNfb8hs3qjnQ3J48f6XPrdaDYT1CVi6oc8t0E1/iASE3KYE6xX1IEM8pwpb3u4NCEk8tApXqaxELEBk1iIlOLNtsg0wfa3KbNrFGphUweaOI1IjZRfXsO/FmX1Yl03Mj/1+VLl5zdokT1/CRD7qkuVihFTbT3CD2bKPAIfYeqrunMKUrU/MqZPQO2TY1jmzgPM7bWEs+xqEKf/M8/EJ/+HoF9/2vA1+5c/vWGdrt+Br585NP9V7/72b1sjq6wlYIyDTlkEWUW6bEuU6o85jDo6D/NTzX4VZGeNyX2bUL7nnJvUARLcn+Bb34mdqak7lR75X5F5s302hAf8wZ/t76llc13YLrfIost9Cn0CbJ0Wd+/ZXL7nvDxK/biH9z1F5zVR/LYGvPaaJTKSL0lshEnwGBLnVggI2hC+trnEJsU+7WuMhuqCtdUyYZmuPEAkiE0ez3GzvxHoEg3OqHJt7SlS3tw6aodSgRaIhthInvUP49BIt9CF18AZjaqdnHNO1b/vWP++S3W4qPe1NW+fl/O6gZjdsPq/h3B5l+a0huB7gtg4tvUiQlyT195+n12Q4UHT8c0AYhg9KrRU8LX3rAn2k6R4gQ4tD+wZ8SuQeSuiD1Dz49x5Iwa4yc53/3QMeifvqCzgz1M1XFUJzGv+Or8YH8DE8RSbdzNeyIAAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
+  <picture>
+          <source srcset="/static/8803420abbeb7f4c46d5c30472da67b7/bd8a7/Use_memory.webp 186w" sizes="(max-width: 186px) 100vw, 186px" type="image/webp">
+          <source srcset="/static/8803420abbeb7f4c46d5c30472da67b7/d1752/Use_memory.png 186w" sizes="(max-width: 186px) 100vw, 186px" type="image/png">
+          <img class="gatsby-resp-image-image" src="/static/8803420abbeb7f4c46d5c30472da67b7/d1752/Use_memory.png" alt="객체 참조에 의한 메모리 사용" title="객체 참조에 의한 메모리 사용" loading="lazy" decoding="async" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;">
+        </picture>
+  </a>
+    </span>
+  <figcaption style="text-align: center; font-size: 12px; color: #808080"></figcaption></figure>
+<p>&#x3C;출처 : <a href="https://ko.javascript.info/garbage-collection" target="_blank" rel="nofollow">모던 JavaScript Tutorial</a>></p>
+  </figcaption>
+</figure>
+</li>
+<li>
+<p>쓸모 없어진 값 해제 (Release memory)</p>
+<p>쓸모 없어진 값의 예는 아래와 같습니다. user 변수를 통해 객체가 더이상 참조되지 않기 때문에 객체는 쓸모 없어진 값이 되며, 메모리 관점에서 객체가 차지하고 있는 공간은 해제가 필요하게 됩니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span></code></pre></div>
+<figure style="display: block; text-align: center;">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 255px; ">
+      <a class="gatsby-resp-image-link" href="/static/55a73b5fb1cdc362316545a9a8d649e9/18417/Release_memory.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 81.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABJ0AAASdAHeZh94AAACd0lEQVQ4y62TTW7bRhiGdYRucoMsusgFcoEAAXqAAr1Nd9lk103XuUmyaN1YdmwnMi1KpEiRFCmS5s9whhz+PIFIxZCLAPEiA7yYb/h988w74DczTsYwDOPc6wpdBrQipKsierkfNaj4GEe0VTjW9K16tHf2PeChsCvW9NUWGd9RhgvK6JbMv0ZEt5SRQVs6dPmKttr/GHhw1ssAunvK/ZLAuiTxF4T2JfH2hiw00dWOQXq0VfIEhyIci8t4RezfknifUbk7HRCvyHYGqW+gDy7l/4CHYOh6hr5nGPrjlUN0siBz5+ytMxL7P/LtJU1ikG0viK2zcS3Da7oqnYDj/uGxw58xZl0pqD5+orEchrZFByGN66O3Ac2TdKx1fXpVMwv+fMvVL79y9/I3qvMrqvNPaNtFWydaO2jLefztJNfY7mhKLZbMwjd/8eX5S8xXv4/ANoppAVkLlJajmq6h7mrqVj3oW041curdUqAMk1n89zuun71g9foPamNFbbnk8QaVWtT3G2Rikbg3ZP6CIlpShEvynYG631BnDkVgIKuCPslQtyazNkkR/8ypVzbaC5Cmjch90HvoUgYVsrMvCNdzws0l++1nRLIecwwZTe4gZUGf5hPw9A9pb4cybcoDsA7p5A4tPHTp0QqftgpQ2QaVOajcQQsfmdpIdQIc+7DtHoByBHrQxsjMZmfNcYwziv2SoY5Q92vCzRWe+RGRWkeH+WOHDy/EC6jXDlniku/uKKIVRWROc2ge40lltELEFun2C0qJCWh8A/YT8NBLzXozxl3X0ff9kzS+/zid2ubUYZfliA9nyPk18vzq6bq4Qbz/l2az5Sua+7k6zWxNHgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"></span>
+  <picture>
+          <source srcset="/static/55a73b5fb1cdc362316545a9a8d649e9/a59e9/Release_memory.webp 192w,
+/static/55a73b5fb1cdc362316545a9a8d649e9/a12a6/Release_memory.webp 255w" sizes="(max-width: 255px) 100vw, 255px" type="image/webp">
+          <source srcset="/static/55a73b5fb1cdc362316545a9a8d649e9/3b721/Release_memory.png 192w,
+/static/55a73b5fb1cdc362316545a9a8d649e9/18417/Release_memory.png 255w" sizes="(max-width: 255px) 100vw, 255px" type="image/png">
+          <img class="gatsby-resp-image-image" src="/static/55a73b5fb1cdc362316545a9a8d649e9/18417/Release_memory.png" alt="객체 참조 해제" title="객체 참조 해제" loading="lazy" decoding="async" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;">
+        </picture>
+  </a>
+    </span>
+  <figcaption style="text-align: center; font-size: 12px; color: #808080"></figcaption></figure>
+<p>&#x3C;출처 : <a href="https://ko.javascript.info/garbage-collection" target="_blank" rel="nofollow">모던 JavaScript Tutorial</a>></p>
+  </figcaption>
+</figure>
+</li>
+</ul>
+<p>쓸모 없어진 것을 판단하는 두 가지 기준 있고, 그 기준을 바탕으로 아래와 같은 알고리즘이 동작하여 Garbage Collection이 이루어집니다.</p>
+<h2>Reference-Counting Algorithm</h2>
+<p>첫 번째는 가장 단순한 기준인 참조 여부입니다. 위의 변수 생애 주기 예시에서 봤듯이, 어떤 메모리의 값이 참조된다는 것은 사용된다는 것을 의미하고 이러한 값은 삭제되지 않습니다.</p>
+<p>그러나 이렇게 단순히 참조여부를 기준으로 삭제 여부를 결정하는 것은 한계가 있습니다.</p>
+<p>조금 복잡한 예시를 살펴보겠습니다. 아래 marry 함수는 객체 두 개를 인수로 받아 서로 참조하게 만들고, 두 객체를 포함하는 새로운 객체를 반환합니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">marry</span><span class="token punctuation">(</span><span class="token parameter">man<span class="token punctuation">,</span> woman</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  woman<span class="token punctuation">.</span>husband <span class="token operator">=</span> man<span class="token punctuation">;</span>
+  man<span class="token punctuation">.</span>wife <span class="token operator">=</span> woman<span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    father<span class="token operator">:</span> man<span class="token punctuation">,</span>
+    mother<span class="token operator">:</span> woman<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> family <span class="token operator">=</span> <span class="token function">marry</span><span class="token punctuation">(</span>
+  <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'Ann'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<figure style="display: block; text-align: center;">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 420px; ">
+      <a class="gatsby-resp-image-link" href="/static/e18a84d6a0eb77bd5606a54b2825dc61/b0db9/marry.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 59.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABJ0AAASdAHeZh94AAAByUlEQVQoz42QbW+bMBSF8/9/0r7u0zat3dalq6Y0aRpIKAZj8AsGbJ4JWlo1rdRd6ejanOvHx6x4qnEcH3sMBK8IbfUiX73et5IxdK/OLbV6AxxadLamPFxS7L/TZGtc+ReZ/KS8v5i/1+kl0df/CYyBwZZ0Oqe3gsGVDNPa5I/rSVZ8nHAxF9s0ilLkGOtor75B13Fe57Bn4Aw6V4y4pkSrHH37CycznKnmF7w3v3BWb25ZTMDJO2R6hTheUz/cYIoNcZk/O7dwZmCMgb7zs8JkhoGo6zlh2xRYlc/dNQVBq0cf5vmh74gxPid9frJWklpJ1O6GKE7QOt6r0VmQOWp7Q10VKFkQQnj5h94qJnWtpqsLzJdP+KbEt5rQd3jbUGQH7HTJ0DOEHm8q9DRXnui8wZsnhmtY2XLH2GbIdI04XCHFht6k9DrByowgBX0l8L+/EsURZ0qCSdFqT77/QZGs8fU90Z2w8p6Vrw8YuaURGwZ7RGV/0MUW+gKnclR2RD6kc0rnLJ2VDDpBHq/xzQEnd9T5BoaCTp9YNeKORkzAHU4lc59kVUIrM/zFZ3pxpM9TRt/SGokWO9TD7ZzIlHvqfIurpmAJ/wB6Tp83U0HpCQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"></span>
+  <picture>
+          <source srcset="/static/e18a84d6a0eb77bd5606a54b2825dc61/a59e9/marry.webp 192w,
+/static/e18a84d6a0eb77bd5606a54b2825dc61/0ca9f/marry.webp 384w,
+/static/e18a84d6a0eb77bd5606a54b2825dc61/8b3fd/marry.webp 420w" sizes="(max-width: 420px) 100vw, 420px" type="image/webp">
+          <source srcset="/static/e18a84d6a0eb77bd5606a54b2825dc61/3b721/marry.png 192w,
+/static/e18a84d6a0eb77bd5606a54b2825dc61/66595/marry.png 384w,
+/static/e18a84d6a0eb77bd5606a54b2825dc61/b0db9/marry.png 420w" sizes="(max-width: 420px) 100vw, 420px" type="image/png">
+          <img class="gatsby-resp-image-image" src="/static/e18a84d6a0eb77bd5606a54b2825dc61/b0db9/marry.png" alt="family" title="family" loading="lazy" decoding="async" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;">
+        </picture>
+  </a>
+    </span>
+  <figcaption style="text-align: center; font-size: 12px; color: #808080"></figcaption></figure>
+<p>&#x3C;출처 : <a href="https://ko.javascript.info/garbage-collection" target="_blank" rel="nofollow">모던 JavaScript Tutorial</a>></p>
+  </figcaption>
+</figure>
+<p>위의 그림에서 family에 null을 할당해 아무것도 참조하지 않도록 합니다. marry 함수에 의해 새롭게 생성된 객체와 함수 내부객체들은 서로를 참조하고 있고 이러한 참조를 순환참조라고 합니다. 사용되어지지 않고 있음에도 서로 참조하고 있기 때문에 Reference-Counting Algorithm은 해당 객체들을 삭제하지 않습니다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">family <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span></code></pre></div>
+<figure style="display: block; text-align: center;">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 521px; ">
+      <a class="gatsby-resp-image-link" href="/static/224f960b9d7d992b53f8b1c4f58a54a7/db56f/family_null.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 61.979166666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABJ0AAASdAHeZh94AAAB7klEQVQoz3WSaW7bMBSEfb6eoZfoCXq0/urfImiQuqkTx5bsaKMWUhI3ifwKy06arYQGI3LmjR5JrXgzYozPPJuWYATTWGFVtsCPJbMRi/bS+zRW/w0MM2HMwJVYuafN1qhyg253RFsQdL543gXGEIhzWBafwOkJgaALnEzolrA/OJki81tslyzaybN4X9S+6/B1txMxOGLwC4cX7zHOH9as7GaLvrphajqmqn4N0TCJlkl0zI1kruVl3p61t95SsDp8+cr9p89MlSBYR9CGaOwzO9kh0zXl3Q+ah5/02ZZZm0UPJ98Joyb6Cbvds9LXa/pv35na7rLNwDxPhMsWplGhVYYUe1STYlRJcGbR5hgJMfB0JT4r/p2hz8szW8swKLrdBl8cwfv3ZzsodHJPlx3oe0mYz5/3x5xVJBKMWQKd7bGqYpAV/d0VRqQYLQlmZKgyhmRD1ANuMgwP16j0Fj002F5gTYdNj+cOo/O4xxw/FkwqoT3eIMU9ViV4lWJVyyBy+u0aU5fLz+2GA23+my5fM/UHZlugd7tLoHW4vMQYQVduMP2Rsd2jxBajC0y+p9/+YmgKnBmxWiCrO0aZMnYJQ7vH2QqTpJdA73HpI77rcLW4oMY1NbaumZuGKBVx0IR+wDXNa9+Juxb7kPAX26ecgyt3b2cAAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
+  <picture>
+          <source srcset="/static/224f960b9d7d992b53f8b1c4f58a54a7/a59e9/family_null.webp 192w,
+/static/224f960b9d7d992b53f8b1c4f58a54a7/0ca9f/family_null.webp 384w,
+/static/224f960b9d7d992b53f8b1c4f58a54a7/222ae/family_null.webp 521w" sizes="(max-width: 521px) 100vw, 521px" type="image/webp">
+          <source srcset="/static/224f960b9d7d992b53f8b1c4f58a54a7/3b721/family_null.png 192w,
+/static/224f960b9d7d992b53f8b1c4f58a54a7/66595/family_null.png 384w,
+/static/224f960b9d7d992b53f8b1c4f58a54a7/db56f/family_null.png 521w" sizes="(max-width: 521px) 100vw, 521px" type="image/png">
+          <img class="gatsby-resp-image-image" src="/static/224f960b9d7d992b53f8b1c4f58a54a7/db56f/family_null.png" alt="객체 참조 해제" title="객체 참조 해제" loading="lazy" decoding="async" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;">
+        </picture>
+  </a>
+    </span>
+  <figcaption style="text-align: center; font-size: 12px; color: #808080"></figcaption></figure>
+<p>&#x3C;출처 : <a href="https://ko.javascript.info/garbage-collection" target="_blank" rel="nofollow">모던 JavaScript Tutorial</a>></p>
+  </figcaption>
+</figure>
+<h2>Mark and Sweep Algorithm</h2>
+<p>쓸모없어진 것을 판단하는 두 번째 기준은 도달 가능성입니다. ‘도달 가능한(reachable)’ 값은 사용할 수 있는 것은 물론이고, 어떻게든 접근할 수 있는 값을 의미합니다. 이렇게 도달 가능한 값은 삭제되지 않습니다. 도달 가능 여부는 전역변수와 같은 루트가 참조하는 값이나, 체이닝으로 루트에서 참조할 수 있는 값인지로 판단할 수 있습니다. 루트 값의 예시는 다음과 같습니다.</p>
+<ul>
+<li>현재 함수의 지역 변수와 매개변수</li>
+<li>중첩 함수의 체인에 있는 함수에서 사용되는 변수와 매개변수</li>
+<li>전역 변수</li>
+<li>기타</li>
+</ul>
+<p>구체적인 프로세스를 아래와 그림과 함께 살펴보겠습니다. 첫 번째 단계에서 루트 정보를 수집하고 mark 해둡니다. 이후 루트가 참조하고 있는 모든 객체를 방문하고 이것들도 mark 해둡니다.</p>
+<figure style="display: block; text-align: center;">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 481px; ">
+      <a class="gatsby-resp-image-link" href="/static/eff6a36f06965f2d4e4ef6c989b24e25/213b2/marksweep1.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 51.5625%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABJ0AAASdAHeZh94AAABe0lEQVQoz22S2W7bMBBF9f+/1tcCKRI78SpZK0WJFMX1FJYtx019AZLgcO7ggDNZSollcZPXJWP9wVhvGOt3nCqX+CMvpf/uz7GMVSkRlcSb9las+kA1W1x/vj3fDTzOxLPWt0zKEjP1eFFBVxO7GrQC0UJMEAIx3/9rvFMZ1WFkhXPzN2Fx+s1QviPqA033hSm26KFlyreEsce1JfnnLyZ5xhr9XdhZdH3EqAZ7hYnxRrjso2RWPaLdYc3Apdog2g2mKwiiZhA5U7nDO0sMAR8c8/GD2LeL3X69YasTIQayaztSDMTTJ0RI1hKqM67KCX1LGgQYQygOi3lWEt0dGdsTYZTE4wZdHdEyR3VnsvUzXd8wXUnqI162uPqMGwXq9AfT5zhnl7wYA97NBGcfjYjB4+1M8O6poJsxssCMFXpo0GKPEgV6bDDNHj+NvNLqX5W9Csbg8PNE8Hcq0eAuB3ywC8XzHP6cyexV8AfDMnFaXtDdDqPES7KV8C92CwrgxnIG1QAAAABJRU5ErkJggg=='); background-size: cover; display: block;"></span>
+  <picture>
+          <source srcset="/static/eff6a36f06965f2d4e4ef6c989b24e25/a59e9/marksweep1.webp 192w,
+/static/eff6a36f06965f2d4e4ef6c989b24e25/0ca9f/marksweep1.webp 384w,
+/static/eff6a36f06965f2d4e4ef6c989b24e25/e95f8/marksweep1.webp 481w" sizes="(max-width: 481px) 100vw, 481px" type="image/webp">
+          <source srcset="/static/eff6a36f06965f2d4e4ef6c989b24e25/3b721/marksweep1.png 192w,
+/static/eff6a36f06965f2d4e4ef6c989b24e25/66595/marksweep1.png 384w,
+/static/eff6a36f06965f2d4e4ef6c989b24e25/213b2/marksweep1.png 481w" sizes="(max-width: 481px) 100vw, 481px" type="image/png">
+          <img class="gatsby-resp-image-image" src="/static/eff6a36f06965f2d4e4ef6c989b24e25/213b2/marksweep1.png" alt="객체 참조 해제" title="객체 참조 해제" loading="lazy" decoding="async" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;">
+        </picture>
+  </a>
+    </span>
+  <figcaption style="text-align: center; font-size: 12px; color: #808080"></figcaption></figure>
+<p>&#x3C;출처 : <a href="https://ko.javascript.info/garbage-collection" target="_blank" rel="nofollow">모던 JavaScript Tutorial</a>></p>
+  </figcaption>
+</figure>
+<p>도달 가능한 모든 객체를 모두 방문하며 mark 해둡니다. 오른쪽에는 루트로부터 도달할 수 없는 객체들이 존재합니다.</p>
+<figure style="display: block; text-align: center;">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 490px; ">
+      <a class="gatsby-resp-image-link" href="/static/ce93a7a7c1f39d54db6fbc0dda7f2d9c/ce5c5/marksweep2.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 52.60416666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABJ0AAASdAHeZh94AAABmklEQVQoz32Si27bMAxF8/8/t7UrkLRF0yV2/H7bsmS9zmA7brItG2EJNHV5SYJ3571nPsyf1RhRoId8PSLH24nZNtyC/eP/PrZjdZfb6YEhP1CGT1ThM138A6fFFeyuKL4I7m2L7a7N4ZIQLzpsV+BEjesLnFW4OgdjtqxbN86hJ4mZFN7Zr7ddEj0jm5ixjFFtgQmPIBUmOC6JMj0znA8YqxeSjdBYQ5d90BcnzEy4jTwUAbqvCC4vtOmBproQRy+IKkCnIeXxiax4Zawj7LXTmdJEJ4xocbP/ecBf33Y4jysS/CSXwCQ62vwT1efoplhiNo8wdbZ2PNTINmGMPvDzuE2JOO0ZqxAl2nUprm+w8WmpZqOf0NT4IsWWKVMWYtsS9LptNRP2GVI0a14WLUXGLkUNzbwUtwCD83fqZI9oUvL0HVVFJPEbafAN0WfLmDd58GDLbFtevUn2aNkzKUGWvDI2c+UGLQem8zv8RuIf6NDfdPhIV/em8og82iO7HGfNX1q8J979U/l3mlNaUmRvjPUFazT/a+IX89VYm7Tx5i8AAAAASUVORK5CYII='); background-size: cover; display: block;"></span>
+  <picture>
+          <source srcset="/static/ce93a7a7c1f39d54db6fbc0dda7f2d9c/a59e9/marksweep2.webp 192w,
+/static/ce93a7a7c1f39d54db6fbc0dda7f2d9c/0ca9f/marksweep2.webp 384w,
+/static/ce93a7a7c1f39d54db6fbc0dda7f2d9c/49ace/marksweep2.webp 490w" sizes="(max-width: 490px) 100vw, 490px" type="image/webp">
+          <source srcset="/static/ce93a7a7c1f39d54db6fbc0dda7f2d9c/3b721/marksweep2.png 192w,
+/static/ce93a7a7c1f39d54db6fbc0dda7f2d9c/66595/marksweep2.png 384w,
+/static/ce93a7a7c1f39d54db6fbc0dda7f2d9c/ce5c5/marksweep2.png 490w" sizes="(max-width: 490px) 100vw, 490px" type="image/png">
+          <img class="gatsby-resp-image-image" src="/static/ce93a7a7c1f39d54db6fbc0dda7f2d9c/ce5c5/marksweep2.png" alt="객체 참조 해제" title="객체 참조 해제" loading="lazy" decoding="async" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;">
+        </picture>
+  </a>
+    </span>
+  <figcaption style="text-align: center; font-size: 12px; color: #808080"></figcaption></figure>
+<p>&#x3C;출처 : <a href="https://ko.javascript.info/garbage-collection" target="_blank" rel="nofollow">모던 JavaScript Tutorial</a>></p>
+  </figcaption>
+</figure>
+<p>도달할 수 없었던 객체는 메모리에서 삭제됩니다.</p>
+<figure style="display: block; text-align: center;">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 488px; ">
+      <a class="gatsby-resp-image-link" href="/static/c3bc06fbbd2188f0b025ecc16b7167ae/4cd97/marksweep3.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 50.52083333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABJ0AAASdAHeZh94AAABxUlEQVQoz3WSS3LUMBCGfUTOwAm4ARdgzY4th2EBq5BHJTOTeEaWbfkhS7Jk2dZHeQbCpAr+qq5Wq1W/+vFnKSVSWtmQWAndnr68Q8s7BnnDEu0ll9LZ7969R376TACc1Vg3YKzGh5HtRcZvJDuwmo55VDh1wPdHgj6yup5rHD98pP7yFT9orChwZYktClxRsLiRTNU7vFXMSoI1LEW+fc1aiTPBoiSTeGbrYWl7YqVIPhA2ov0tLn9i0Zalapiej2RK3hP6grLaUcufOJXT1Aec3LMaTZffUeQ/8E4R64Z1uIwgtpLRNQSvWYfmcleUl5ZT1xBsh3ctwRuq4harT0xKsIyG0AjioFh6g5eCYBvCywPMM6tucQ/fCUOLf87JtkGmKZCOu8ss+wZUSdI9qW9JRp89MbB0A8P+HqcFo1Yk3TLLHKNLjNxhHx/J/my4qw+01T2+OaGbnNgWNNUBuf+GM9V5g6tzxBdBFBXxJImiPNu8+RfBLOuN8CIH53pML5hGQ7lJRj3hBkVwHeH0+GbTZ6n9jbiOsmuNXWNd1tfzVJ/o6z0xGNZl/kv6D3ut8E2C9EbMIXoqcYNrc+Y48b8itgp/AZdQAENo9PkdAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
+  <picture>
+          <source srcset="/static/c3bc06fbbd2188f0b025ecc16b7167ae/a59e9/marksweep3.webp 192w,
+/static/c3bc06fbbd2188f0b025ecc16b7167ae/0ca9f/marksweep3.webp 384w,
+/static/c3bc06fbbd2188f0b025ecc16b7167ae/a6b86/marksweep3.webp 488w" sizes="(max-width: 488px) 100vw, 488px" type="image/webp">
+          <source srcset="/static/c3bc06fbbd2188f0b025ecc16b7167ae/3b721/marksweep3.png 192w,
+/static/c3bc06fbbd2188f0b025ecc16b7167ae/66595/marksweep3.png 384w,
+/static/c3bc06fbbd2188f0b025ecc16b7167ae/4cd97/marksweep3.png 488w" sizes="(max-width: 488px) 100vw, 488px" type="image/png">
+          <img class="gatsby-resp-image-image" src="/static/c3bc06fbbd2188f0b025ecc16b7167ae/4cd97/marksweep3.png" alt="객체 참조 해제" title="객체 참조 해제" loading="lazy" decoding="async" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;">
+        </picture>
+  </a>
+    </span>
+  <figcaption style="text-align: center; font-size: 12px; color: #808080"></figcaption></figure>
+<p>&#x3C;출처 : <a href="https://ko.javascript.info/garbage-collection" target="_blank" rel="nofollow">모던 JavaScript Tutorial</a>></p>
+  </figcaption>
+</figure>
+<p>이러한 루트로부터의 도달가능성 기준에 의해 Garbage Collection을 수행하면 루트 중 하나인 전역 변수의 경우 브라우저 환경에서 탭을 닫을 때까지 삭제되지 않을 수 있습니다.</p>
+<p>따라서 메모리 관리의 효율측면에서 전역 변수의 사용은 남발하지 않는 것이 좋습니다.</p>
+<h2>최적화 기법</h2>
+<p>JavaScript 엔진은 위에서 설명한 알고리즘에 기반한 Garbage Collection 수행을 더 빠르게 하기 위해 아래와 같은 최적화 기법 사용합니다. 최적화 기법에 대한 자세한 설명은 참조 링크를 통해 살펴볼 수 있습니다.</p>
+<ul>
+<li>
+<p>generational collection</p>
+</li>
+<li>
+<p>incremental collection</p>
+</li>
+<li>
+<p>idle-time collection</p>
+</li>
+</ul>
+<h2>마치며..</h2>
+<p>JavaScript 엔진마다 구체적인 최적화 기법과 Garbage Collection Algorithm이 다를 수 있습니다. 이 이상의 심화학습은 엔진의 발전과 함께 성장하고 싶은게 아니라면 실질적인 효용은 없다고 생각합니다.</p>
+<p>다만 클로저의 개념이해와 더불어 왜 클로저가 Garbage Collection의 대상이 아닌지에 대해 추가학습을 하는 것은 좀 더 폭 넓은 이해를 하는데 도움이 된다고 생각합니다.</p>
+<h2>참조 링크</h2>
+<ul>
+<li><a href="https://ko.javascript.info/garbage-collection" target="_blank" rel="nofollow">모던 JavaScript Tutorial</a></li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management" target="_blank" rel="nofollow">MDN JavaScript의 메모리관리</a></li>
+</ul></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v80">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2021 Developer Hoe, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/JavaScript/0913/Garbage_Collection/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-b103270a4ec311a9029b.js"],"app":["/app-7f1b73a2b5af3ed5e834.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-ba2c39d40dd516412223.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-f9fd52be6a2b0809ada4.js"],"component---src-pages-info-tsx":["/component---src-pages-info-tsx-8253c7febe95d59a3243.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-58d4baf5e84c0cf4684e.js"]};/*]]>*/</script><script src="/polyfill-b103270a4ec311a9029b.js" nomodule=""></script><script src="/component---src-templates-post-template-tsx-58d4baf5e84c0cf4684e.js" async=""></script><script src="/d0dcf9c1039535d44ee74defc829dfbf62dac3c5-ae00d24003731288e2f7.js" async=""></script><script src="/cb1608f2-a2b9d154d9bc2051201f.js" async=""></script><script src="/app-7f1b73a2b5af3ed5e834.js" async=""></script><script src="/framework-75034fa8e3a9e81ff051.js" async=""></script><script src="/webpack-runtime-71879c171e6b236c3340.js" async=""></script></body></html>
