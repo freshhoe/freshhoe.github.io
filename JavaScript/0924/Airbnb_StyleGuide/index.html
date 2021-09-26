@@ -187,7 +187,7 @@
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
 </li>
 <li>
-<p>하나의 문으로 구성된 화살표 함수의 경우 중괄호를 생략하고 암시적 반환을 사용할 수 있습니다. 그 외에는 중괄호를 그대로 두고, <code class="language-text">return</code> 문도 명시적으로 사용합니다. 단, 하나의 문으로 구성된 화살표 함수라도 부수효과를 일으킨다면 중괄호를 사용해줍니다.</p>
+<p>하나의 문으로 구성된 화살표 함수의 경우 중괄호를 생략하고 암시적 반환을 사용할 수 있습니다. 그 외에는 중괄호를 그대로 두고, <code class="language-text">return</code> 문도 명시적으로 사용합니다. 단, 하나의 문으로 구성된 화살표 함수라도 부수효과를 일으킨다면 중괄호를 사용해줍니다. 또한 하나의 문으로 구성된 화살표 함수라도 객체 리터럴을 반환하는 경우에는 리터럴을 소괄호로 감싸거나, 중괄호로 감싼 뒤 <code class="language-text">return</code> 문을 명시적으로 사용해야 합니다.</p>
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// bad</span>
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> nextNumber <span class="token operator">=</span> number <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
