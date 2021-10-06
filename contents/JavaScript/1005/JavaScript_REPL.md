@@ -75,7 +75,7 @@ extension을 사용하면서 느낀 부분은 코드와 결과 피드백 사이�
 아래 그림과 같이 Markdown 파일에 임베드된 자바스크립트 코드도 적용이 가능합니다. 그 외에 TypeScript와 React 등의 개발 환경도 지원합니다.(완벽한 지원을 하는지는 확인이 필요합니다.)
 
 <figure style = "display: block; text-align: center;">
-<img src = "./images/repl_result4.PNG" alt="REPL result">
+<img src = "./images/repl_result4.png" alt="REPL result">
 <figcaption style = "text-align: center; font-size: 12px; color: #808080">
 
 </figcaption>
