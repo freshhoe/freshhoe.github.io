@@ -1,6 +1,6 @@
 ---
 date: '2021-10-05'
-title: '13. JavaScript TIL'
+title: '12. JavaScript TIL'
 categories: ['JavaScript']
 summary: ''
 thumbnail: './JS.png'
