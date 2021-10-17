@@ -14,16 +14,15 @@ thumbnail: './JS.png'
 
 자바스크립트는 기본적으로 싱글 스레드 방식으로 동작합니다. 즉, 하나의 실행 컨텍스트 스택만을 가진다는 것을 의미합니다. 함수는 이 실행 컨텍스트 스택에 쌓이게 되고, 스택의 최상위 요소는 실행 중인 실행 컨텍스트에 해당합니다(실행 컨텍스트에 관한 내용은 별도의 포스트로 작성할 예정입니다.). 스택에 쌓여 실행 대기 중인 함수들을 태스크(task)라고 합니다. 태스크는 스택에 최상위 요소인 실행 중인 실행 컨텍스트가 pop되어 제거되면 스택에 쌓인 순서대로 하나씩 실행됩니다. 이렇게 한 번에 하나의 태스크가 실행되는 방식을 싱글 스레드 방식이라고 합니다. 처리 방식의 측면에서 현재 실행중인 태스크가 종료될 때까지 다음에 실행되는 태스크가 대기되기 때문에 동기처리라고도 합니다. 앞서 실행되는 함수의 처리 완료 시간이 오래걸려 그만큼 뒤에 이어지는 태스크들의 처리가 중단되는 것을 블로킹(blocking)이라고 하며 이는 동긱 처리의 단점 중 하나입니다.
 
-  <figure style = "display: block; text-align: center;">
-    <img src = "./images/JavaScript_engine.png" alt="자바스크립트 엔진">
-    <figcaption style = "text-align: center; font-size: 12px; color: #808080">
-    자바스크립트 엔진
+<figure style = "display: block; text-align: center;">
+  <img src = "./images/JavaScript_engine.png" alt="자바스크립트 엔진">
+  <figcaption style = "text-align: center; font-size: 12px; color: #808080">
+  자바스크립트 엔진
 
 <출처 : [Jewoo.Song님 블로그](https://iamsjy17.github.io/javascript/2019/07/20/how-to-works-js.html)>
 
-</figcaption>
-
-  </figure>
+  </figcaption>
+</figure>
 
 이와 같은 동작 방식은 자바스크립트 엔진의 동작 방식입니다. 반면에 브라우저는 멀티 스레드 방식으로 동작합니다. 현재 실행 중인 태스크가 처리가 완료되지 않은 상태에서도 다음 태스크를 실행하는 방식을 말하며, 이를 비동기 처리라고 합니다.
 
@@ -31,16 +30,15 @@ thumbnail: './JS.png'
 
 브라우저의 비동기 처리를 가능하게 하는 것은 브라우저에 내장된 기능 중 하나인 이벤트 루프입니다.
 
-  <figure style = "display: block; text-align: center;">
-    <img src = "./images/JavaScript_event_loop.png" alt="자바스크립트 이벤트 루프">
-    <figcaption style = "text-align: center; font-size: 12px; color: #808080">
-    JavaScript 이벤트 루프
+<figure style = "display: block; text-align: center;">
+  <img src = "./images/JavaScript_event_loop.png" alt="자바스크립트 이벤트 루프">
+  <figcaption style = "text-align: center; font-size: 12px; color: #808080">
+  JavaScript 이벤트 루프
 
 <출처 : [Jewoo.Song님 블로그](https://iamsjy17.github.io/javascript/2019/07/20/how-to-works-js.html)>
 
-</figcaption>
-
-  </figure>
+  </figcaption>
+</figure>
 
 브라우저는 태스크 큐를 통해 자바스크립트 엔진과 이벤트 루프를 형성하며 이를 통해 비동기 처리를 수행합니다(이와 관련해서는 별도의 포스트로 작성할 예정입니다.). 브라우저가 제공하는 Web API는 이러한 비동기 처리를 수행할 수 있는 다양한 함수를 제공합니다. 그 중에서도 HTTP 요청과 관련된 비동기 처리를 가능하게 하는 Web API를 알아보겠습니다.
 
@@ -48,16 +46,15 @@ thumbnail: './JS.png'
 
 브라우저가 서버에게 비동기 방식으로 데이터를 요청하고, 이를 통해 서버가 응답한 데이터를 수신해 웹페이지를 동적으로 갱신하는 방식을 Ajax(Asynchronous JavaScript and XML)이라고 합니다. 브라우저가 제공하는 Web API인 XMLHttpRequest 객체를 기반으로 동작하며, XMLHttprequest는 HTTP 비동기 통신을 위한 메서드와 프로퍼티를 제공합니다.
 
-  <figure style = "display: block; text-align: center;">
-    <img src = "./images/Ajax.png" alt="Ajax">
-    <figcaption style = "text-align: center; font-size: 12px; color: #808080">
-    전통적인 웹 애플리케이션 모델과 Ajax를 사용한 애플리케이션의 비교
+<figure style = "display: block; text-align: center;">
+  <img src = "./images/Ajax.png" alt="Ajax">
+  <figcaption style = "text-align: center; font-size: 12px; color: #808080">
+  전통적인 웹 애플리케이션 모델과 Ajax를 사용한 애플리케이션의 비교
 
 <출처 : [Ajax 위키피디아](https://ko.wikipedia.org/wiki/Ajax)>
 
-</figcaption>
-
-  </figure>
+  </figcaption>
+</figure>
 
 전통적인 방식의 웹페이지 렌더링은 변경할 부분이 웹페이지의 일부분이더라도 변경할 필요가 없는 부분까지 포함한 완전한 HTML을 서버로부터 응답받아 렌더링하였습니다. 따라서 불필요한 데이터 통신이 발생하게 되고 서버의 응답이 완료되기 전까지 다음 처리가 블로킹되는 단점이 있었습니다.
 
