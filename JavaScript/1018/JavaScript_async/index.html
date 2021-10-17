@@ -6,7 +6,7 @@
 <h2>1. 비동기 처리</h2>
 <p>자바스크립트는 기본적으로 싱글 스레드 방식으로 동작합니다. 즉, 하나의 실행 컨텍스트 스택만을 가진다는 것을 의미합니다. 함수는 이 실행 컨텍스트 스택에 쌓이게 되고, 스택의 최상위 요소는 실행 중인 실행 컨텍스트에 해당합니다(실행 컨텍스트에 관한 내용은 별도의 포스트로 작성할 예정입니다.). 스택에 쌓여 실행 대기 중인 함수들을 태스크(task)라고 합니다. 태스크는 스택에 최상위 요소인 실행 중인 실행 컨텍스트가 pop되어 제거되면 스택에 쌓인 순서대로 하나씩 실행됩니다. 이렇게 한 번에 하나의 태스크가 실행되는 방식을 싱글 스레드 방식이라고 합니다. 처리 방식의 측면에서 현재 실행중인 태스크가 종료될 때까지 다음에 실행되는 태스크가 대기되기 때문에 동기처리라고도 합니다. 앞서 실행되는 함수의 처리 완료 시간이 오래걸려 그만큼 뒤에 이어지는 태스크들의 처리가 중단되는 것을 블로킹(blocking)이라고 하며 이는 동긱 처리의 단점 중 하나입니다.</p>
 <figure style="display: block; text-align: center;">
-    <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; ">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; ">
       <a class="gatsby-resp-image-link" href="/static/5e94bdaae31bf2cb7fd665d103e867b0/fd891/JavaScript_engine.png" style="display: block" target="_blank" rel="noopener">
     <span class="gatsby-resp-image-background-image" style="padding-bottom: 58.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABlUlEQVQoz52TW2/TQBBG+/9/Cm88IdEHBA9QEpLSBuJA7NiJ79fY3vi+9kFx00itRIIYafStZneOZmY1N72UHB0Ghr5Hyo6+lwxA20k62SP7ftSukwzD8YazvrYbK4iYrVQ+3E35+rjkQd1ihwmFyAiNJcHmJ666INSXBLpCU1eXgWs35Lsd8+b9R95+uhvPmp8g9iFCn7GZ3vLr8zv0b7dk2oymKi4Dd7aLm2Sops1S3WAGMabnk+0TQlMjDywy3xzV266pqvIyMEkSciFomuYUGhAiJ89z6rYbZ9mfcg9leX73V6BhWkw0C9Xxz0EhxAhs25fJZVFcBzqeh6LvcMOIum4QRTnC/hu4tWzmuoNquaxMj/nGIk3TscqmbU8tPyUX/9Ky5/vobkAQ7/GihJ0fkmUZh0NBYBukjkbq6uSujmOsqer6MvBYyWs7xg5FyXb1gPXjC44yxVUmqI8TyuoKMIqi8Zef55bngiSOORQFmrLAWM7YKvfslHt+L+ZU14Bd19G27QuXx3V8Xjc5nPTJr63eHxHFnQQQUOFWAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
   <picture>
@@ -22,16 +22,16 @@
         </picture>
   </a>
     </span>
-    <figcaption style="text-align: center; font-size: 12px; color: #808080">
-    자바스크립트 엔진</figcaption></figure>
+  <figcaption style="text-align: center; font-size: 12px; color: #808080">
+  자바스크립트 엔진</figcaption></figure>
 <p>&#x3C;출처 : <a href="https://iamsjy17.github.io/javascript/2019/07/20/how-to-works-js.html" target="_blank" rel="nofollow">Jewoo.Song님 블로그</a>></p>
-</figcaption>
-  </figure>
+  </figcaption>
+</figure>
 <p>이와 같은 동작 방식은 자바스크립트 엔진의 동작 방식입니다. 반면에 브라우저는 멀티 스레드 방식으로 동작합니다. 현재 실행 중인 태스크가 처리가 완료되지 않은 상태에서도 다음 태스크를 실행하는 방식을 말하며, 이를 비동기 처리라고 합니다.</p>
 <h2>2. 이벤트 루프</h2>
 <p>브라우저의 비동기 처리를 가능하게 하는 것은 브라우저에 내장된 기능 중 하나인 이벤트 루프입니다.</p>
 <figure style="display: block; text-align: center;">
-    <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; ">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; ">
       <a class="gatsby-resp-image-link" href="/static/743c0ce56f6884db8d990fd4bbfa5aef/5fbd7/JavaScript_event_loop.png" style="display: block" target="_blank" rel="noopener">
     <span class="gatsby-resp-image-background-image" style="padding-bottom: 63.020833333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAACQElEQVQ4y42TWW/aUBCF/f//S1U1UfvSphJN1GYPhCWOwXjFhgDeVyB81dyUivSpIx3dq7HnzMyZuVpZlmw2G9q2fQfx1XVNVVWI7fd7DiYx8u0Y4nt9fUVr2w1pmipkWUae52RpSpLEilh+PCaToKIoaJqGqq5UQrkfCtF22y2e6ypMTRPfn2FOLcYTk7pp1c//EjZNSxjOMQwDa2rhez7b7VZ1pdnhAsPxmQYL4rKmySOiwFLIlzOyLH3XspxpmlBWGetoRZJGFGVGUeZvFT7aAaedn3y97uKuM2J/gtv7gfXQYWX2SOLoiHCPHBNrRHd0wVnnlG+dEx4G54ytPk3doAWLF4qqoWk3ZHmusrd1xW7bUhY5cRz/JXwDmNYTdjDg7vGcy7vv6m7aQyWP9mR7hFGigsRRyBD+6CW6JEnCsQmh5RhY3pCb+3MuLs8wnT62Z7wRDk0Ha75kPJuzjGI1tQPhbrdjvV6zWq0IgoAoitRQZBtELyE4rJz4pABttliSFBXzKCHNC9bLBS+2ztp9JnTGakX6gxG/ru/p9voqkayWqTbCx7ZtlUwSiWlpkijm7aalqmrmgY87umGm32HrXaXrx5MvpFnOh0+fVZBU6nkuYRDgeR6+56l9lY40afG4fIH4BOoVVBX+LEQ3pgz1Cbf9Cd3RlMdnB306o6c7TJw5V91nwpcI7fgZvSM68h2sbjbcDkzuhya3gwmPuqUSDAyXq55BuIzR+A87rIzoJJDJi7aipZxFkauhyEv5DUS92IuQ8FrpAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
   <picture>
@@ -49,16 +49,16 @@
         </picture>
   </a>
     </span>
-    <figcaption style="text-align: center; font-size: 12px; color: #808080">
-    JavaScript 이벤트 루프</figcaption></figure>
+  <figcaption style="text-align: center; font-size: 12px; color: #808080">
+  JavaScript 이벤트 루프</figcaption></figure>
 <p>&#x3C;출처 : <a href="https://iamsjy17.github.io/javascript/2019/07/20/how-to-works-js.html" target="_blank" rel="nofollow">Jewoo.Song님 블로그</a>></p>
-</figcaption>
-  </figure>
+  </figcaption>
+</figure>
 <p>브라우저는 태스크 큐를 통해 자바스크립트 엔진과 이벤트 루프를 형성하며 이를 통해 비동기 처리를 수행합니다(이와 관련해서는 별도의 포스트로 작성할 예정입니다.). 브라우저가 제공하는 Web API는 이러한 비동기 처리를 수행할 수 있는 다양한 함수를 제공합니다. 그 중에서도 HTTP 요청과 관련된 비동기 처리를 가능하게 하는 Web API를 알아보겠습니다.</p>
 <h2>3. Ajax</h2>
 <p>브라우저가 서버에게 비동기 방식으로 데이터를 요청하고, 이를 통해 서버가 응답한 데이터를 수신해 웹페이지를 동적으로 갱신하는 방식을 Ajax(Asynchronous JavaScript and XML)이라고 합니다. 브라우저가 제공하는 Web API인 XMLHttpRequest 객체를 기반으로 동작하며, XMLHttprequest는 HTTP 비동기 통신을 위한 메서드와 프로퍼티를 제공합니다.</p>
 <figure style="display: block; text-align: center;">
-    <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 400px; ">
+  <span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 400px; ">
       <a class="gatsby-resp-image-link" href="/static/023dd9840094a78365a4bc4c90cbd176/d9f49/Ajax.png" style="display: block" target="_blank" rel="noopener">
     <span class="gatsby-resp-image-background-image" style="padding-bottom: 98.4375%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFdklEQVQ4y0WUDVDTZRzHv382N9zG5kgaCIoIFWEqiPn+kq4sEN/KM8ozU+os9UzjBDs9QYnuOuuSHXqCCIkI5wkoTGS8TCbjRWQD1ErzrZIw9UDUgcCEfbv/sOu5e+55fr97ns/v9XkQFxcHklCPmSYoZPABPEcDC+SAtwII8wRCFICnj0IGb2AMAIXq3VAE73obk5PfQ1j8AkzZOAuRgVpoPogEkJmZiZaWFonTPFdgKeA8jrFDJ7B66CTeZwFWDuYjti8PU05sASJC5GoAMpb7nBy0Rj0ZuhjbPtjwwd+uWv1j12n5MleJEjh48KCn2WyW8Nwo6VCJF1iq2sW6xXQ1f0JX02q6Lq6iq3xcWV3OCsydv1DjBt5MsT/tvM32m5d4/+418rGdLqv+c7Z+CRw6dGiC0Wj0ZHeahH+kg9f2JPY7XfznCXvbO13PBknyVlrReRKRM/VuD10lyvr7+Tqy3NfpKPJ1dp/0Js+O+JTnRrqBfkajUcbGMCktM0Dz5GSnfTMHL+/g87Z49jTHk5aZFVbTMUyPeFX0UE5TYP2D01M5YJrc/+D01P7u0slkmWI9TVogPT1d0tDQIOEpeLAYYBGWOrLRzHxUDeWh+q4Bdp5C4qV9wLwZr4vAEfzz+9aO32toq8nlnatVZOd5DlnmfsbmtUBeXh7sdru0sKxRIDsEoFECzH4ZWKNhFwCdS8Y9cI9JoYEaIFDZZlCtajqgS31Y4Lf19s8BX9866rODtWp/1gDIyMgQq+xxxLAXu9eH4oclENRyjPLVQLEpxstDJYeSxIshKBVyQcPr490C70wDGQVyOcx7AdM+jSCGLLVarZJ9Kan44svNgtiTwUHjVOQFN0KrUakuVBUJ3t5aUVTKZHINWeix/K0gDUkhLmbMyDXRIV7/mRSLEnD27FnPw4cPi/tRWVlZoQkJCeEGg+EVg8Gg3b1795zMzMxJwcHB4nFFbGxscE5OzoTExMTpubm5IampqRNTUlLmFBYWqoqLi93AwDNnzsjS0tKQlJQkOBwOwdfXVxUfHz8iISFBGh4eri0oKJC8sK/UaDSjxCiCgoLUood6vV4ZHh7uJerEKTa2pqKiQnqi4JRbEbloPZQSKMIAAXAnT/bmiv0Y669zAwGoxXuT/KEGOlCyAZJ4PWRAwLDJI0eOoLW1VdLc8qtQXpThMaxd6cn3xXWbeNAfmyi48/mSzivAV6P961tAhNIuavUvufEY/38ebTab5GrdcWHTBQq8CY+UhQjgAWiL4xCwJBRzvloAtR+AV8cq1cBU1eAxLGhLxmbmYkNzMr6x7ERSxueYaN8JICYmBnabzYPnRktYPR6seHlzZ0lE36PSKe3PK6fcfV4d+ZTlY366nB2B+dMCh99y3cIrDywb+cS6jt21GzhwcR1Z/8ZaNi18UWWjUc5rqyW0fQLWR6cO/XmMnb/ksPPqUfbfySebVhfbmi5glv5jETiSf+xveNTZwRu/2fpv3bjW3/vwCmn7aB1vpbqBY43GUjmtGgmrXgNN45KctdF8VhPVN1Ab3e+sW0ZXeWD+pZ8XY3bEeBHoyeqwxoGGD9lrfud5X+1K52BdNFnms5aVQe4qq6qqKqXsyJbyXi54IyW119FNS32bq9rSxCdPe8jrycVXuoiZUduGPWw/3HK/6xlNlTW0Nl7ms8ftZNv6DbybDmRnZ6OlxS7pr54jpfk1sHLclt7qRQPdVUs6uquiO3rOR/fRFHjgl7x5eGem//AHaw4p6jEv7um1LL3nqFl2b8DytoNl2qU0+QHbt2/HpeZm/FW6BF3JwONEjGAWfHkKOp6Bjsfh1/cdRt5OArbMh+Bulx+hZA78eBw6noSOGdB1bYWH41vgX7IezgxBwIlFAAAAAElFTkSuQmCC'); background-size: cover; display: block;"></span>
   <picture>
@@ -72,11 +72,11 @@
         </picture>
   </a>
     </span>
-    <figcaption style="text-align: center; font-size: 12px; color: #808080">
-    전통적인 웹 애플리케이션 모델과 Ajax를 사용한 애플리케이션의 비교</figcaption></figure>
+  <figcaption style="text-align: center; font-size: 12px; color: #808080">
+  전통적인 웹 애플리케이션 모델과 Ajax를 사용한 애플리케이션의 비교</figcaption></figure>
 <p>&#x3C;출처 : <a href="https://ko.wikipedia.org/wiki/Ajax" target="_blank" rel="nofollow">Ajax 위키피디아</a>></p>
-</figcaption>
-  </figure>
+  </figcaption>
+</figure>
 <p>전통적인 방식의 웹페이지 렌더링은 변경할 부분이 웹페이지의 일부분이더라도 변경할 필요가 없는 부분까지 포함한 완전한 HTML을 서버로부터 응답받아 렌더링하였습니다. 따라서 불필요한 데이터 통신이 발생하게 되고 서버의 응답이 완료되기 전까지 다음 처리가 블로킹되는 단점이 있었습니다.</p>
 <p>반면에 Ajax의 등장으로 서버로부터 웹페이지의 변경이 필요한 부분의 데이터만 비동기 방식으로 응답받아 해당 부분만 한정적으로 렌더링이 가능하게 되었습니다. 불필요한 데이터 통신이 발생하지 않고, 비동기 방식으로 동작하기 때문에 서버에게 요청한 후 블로킹이 발생하지 않습니다.</p>
 <p>이러한 클라이언트와 서버 간의 통신은 JSON(JavaScript Object Notation)을 통해 이루어집니다. JSON은 HTTP 통신을 위한 텍스트 데이터 포맷이며, 자바스크립트 외에 대부분의 프로그래밍 언어에서 사용할 수 있는 데이터 포맷입니다.</p>
