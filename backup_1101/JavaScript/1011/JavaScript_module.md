@@ -1,0 +1,169 @@
+---
+date: '2021-10-11'
+title: 'JavaScript Module History'
+categories: ['JavaScript']
+summary: ''
+thumbnail: './JS.png'
+---
+
+## 글을 쓰게된 이유
+
+도구를 사용할 때, 그 도구가 탄생한 배경에 대해 알아야 본래의 목적에 맞는 도구 활용이 가능할 것입니다. 그런 취지에서 webpack 이라는 모듈 번들러를 사용하는 이유에 대해 알아보면서, 자바스크립트 모듈의 변화과정에 대해 알면 webpack의 핵심 컨셉과 용도에 대해 좀 더 폭 넓은 이해가 가능할 것으로 기대했습니다. 따라서 이 글은 자바스크립트 모듈의 역사에 대해 정리한 글이며, 글의 말미에 웹팩을 사용하는 이유에 대해 간략히 언급하고자 합니다.
+
+## 1. 자바스크립트의 태생적 특징
+
+자바스크립트는 웹페이지의 단순한 보조기능을 처리하기 위한 용도로 탄생했습니다. 따라서 다른 언어와 달리 모듈 시스템을 지원하지 않았습니다. 그러나 AJAX에 등장으로 자바스크립트에 대한 위상이 높아지는 것을 시작으로, JQuery로 AJAX를 쉽게 쓸 수 있게 만들어졌으며, V8 엔진이 등장해 브라우저 이외에도 자바스크립트를 사용할 수 있게 되는 동시에 속도 또한 개선되었습니다. 이러한 양상에 따라 자바스크립트로 할 수 있는 일이 많아졌고, 그에 따라 다양한 라이브러리를 임포트해서 사용해야 하는 필요성이 생겼습니다. 그리고 브라우저 이외에서, 즉 서버사이드에서도 자바스크립트를 사용하기 위한 움직임이 활발해졌고 그 대표적인 그룹으로 CommonJS가 있습니다.
+
+## 2. 모듈의 필요성
+
+자바스크립트가 브라우저 뿐만아니라 서버사이드에서도 범용적으로 쓰이기 위해서는 체계가 필요했는데, 이를 위해 제대로 된 모듈화 시스템이 필요했습니다. 기존의 자바스크립트는 다음과 같은 문제가 있었기 때문입니다.
+
+1. 전역 스코프 공유에 의한 네임스페이스 오염 (IIFE 도입)
+2. 자바스크립트 파일의 의존성 관리의 어려움
+3. 필요한 기능만 뽑아서 사용 불가 (object interface 도입)
+
+이를 해결하기 위해 아래와 같이 즉시실행함수(IIFE)나 이를 이용한 모듈 패턴을 사용해 (1)의 문제를 해결할 수 있었으나, 나머지 다른 문제를 해결할 수는 없었습니다.
+
+```js
+/**
+ * IIFE (immediately-invoked function expression)
+ *  - No globals
+ */
+(function () {
+  var Carrousel = function (elem) {
+    this.init();
+  };
+  Carrousel.prototype = { init: function () {} };
+  new Carrousel($('.carrousel'));
+})();
+
+/**
+ * Module Pattern
+ *  - No globals (the entrypoint code is often wrapped inside an IIFE as well)
+ *  - Import dependencies, synchronously
+ *  - Export module
+ */
+var Carrousel = (function ($) {
+  var Carrousel = function (elem) {
+    this.init();
+  };
+  Carrousel.prototype = { init: function () {} };
+  function privateMethod() {}
+  return Carrousel;
+})(jQuery);
+```
+
+## 3. CommonJS
+
+```js
+/**
+ * CommonJS
+ * Used inside Node.js, where sync is required.
+ *  - No globals (all modules are wrapped inside an anonymous function)
+ *  - Import dependencies synchronously with `require()` function
+ *  - Export module by assigning to `module.exports` variable
+ */
+var $ = require('jQuery');
+var Carrousel = function (elem) {
+  this.init();
+};
+Carrousel.prototype = { init: function () {} };
+function privateMethod() {}
+module.exports = Carrousel;
+```
+
+위의 문제를 모두 해결하기 위한 방법은 결국 모듈화로 귀결될 수 있고, CommonJS가 자바스크립트의 모듈화를 제시하면서 이를 해결할 수 있었습니다. 그러나 CommonJS는 애초에 서버사이드에서 자바스크립트를 사용할 수 있게 하는 것이 목표였고, 따라서 이들이 제시한 모듈화는 서버사이드를 기준으로 한 표준이었기 때문에 브라우저에서 동작하기에는 문제가 있었습니다.
+
+## 4. AMD (Asynchronous Module Definition)
+
+```js
+/**
+ * AMD (Asynchronous Module Definition)
+ * Used inside browsers (via Require.js for example), where async is often required.
+ *  - No globals (all modules are wrapped inside an anonymous function)
+ *  - Import dependencies, asynchronously (http-call)
+ *  - Export module
+ */
+define(['jQuery'], function ($) {
+  var Carrousel = function (elem) {
+    this.init();
+  };
+  Carrousel.prototype = { init: function () {} };
+  function privateMethod() {}
+  return Carrousel;
+});
+```
+
+CommonJS는 기본적으로 모듈의 로드를 동기적으로 진행합니다. 비동기 상황을 고려한 모듈 전송 포맷을 제공하지만 최적화되지는 않았습니다. 이에 따라 AMD(Asynchronous Module Definition) 그룹이 구성되었습니다. 이들 그룹은 모듈을 네트워크를 통해 내려받아야 되는 브라우저와 같은 환경을 고려해 비동기적인 모듈 시스템의 최적화를 추구했습니다.
+
+## 5. Module Bundler
+
+CommonJS와 AMD가 모듈화의 베이스를 만들고 난 뒤, npm이 등장하고 많은 개발자들이 Node.js 에 자신들이 만든 모듈들을 업로드하기 시작했습니다. 이들 모듈 코드들은 CommonJS 형식으로 만들어졌기 때문에 브라우저에서 사용하기 위해서는 AMD 형식에 맞춰 바꿔줘야 했습니다. npm 커뮤니티가 커질수록 이러한 상황은 더욱 빈번해졌습니다. 이를 포함한 문제들을 정리해 보면,
+
+1. CommonJS와 AMD의 호환
+2. 좀 더 편리한 의존성 관리
+3. HTTP 1.1의 단일 요청 및 응답
+
+와 같은 문제들이 있었습니다. 이를 해결하기 위해 Browserify가 출시되었습니다. 이 같은 모듈 번들러를 통해 브라우저 애플리케이션에서 CommonJS 모듈을 사용함으로써 (1)의 문제를 해결할 수 있었고, 종속성 트리를 탐색해 단일 파일로 묶음으로써 (2), (3)의 문제를 해결할 수 있었습니다. 후발주자로 Webpack로 출시 되었습니다.
+
+여기까지가 자바스크립트에서 모듈이 필요성이 대두된 이후 범용적인 모듈 사용을 노력의 과정이었습니다.
+
+## 6. ES6 Module (ESM)
+
+```js
+/**
+ * ES2015 Modules
+ * This syntax is often transpiled to ES5 for systems without support. The transpilation target is either CommonJS or AMD.
+ *  - No globals
+ *  - Specification is syntax-only (doesn't define sync or async behaviour)
+ *  - Syntax reads synchronously
+ *  - Import dependencies with `import` statement
+ *  - Export module with `export` statement
+ */
+import $ from 'jQuery';
+var Carrousel = function (elem) {
+  this.init();
+};
+Carrousel.prototype = { init: function () {} };
+function privateMethod() {}
+export default Carrousel;
+```
+
+2015년에는 ECAMSCript 2015(ES6)에서 위와 같은 노력의 과정이 반영되어 모듈이 표준 사양(ECMAScript Module 이하 ESM)이 되었습니다. 그러나 다음과 같은 이유로 ESM만을 단독으로 사용하지는 않습니다.
+
+1. IE를 포함한 구형 브라우저는 지원되지 않는다.
+2. ESM을 사용하더라도 구형 브라우저를 위한 트랜스파일링이 필요하다.
+3. 번들링이 필요한 것은 변함없다.
+4. ESM이 아직 지원하지 않는 기능과 관련된 이슈가 존재한다.
+
+이를 해결하게 해주는 것이 또 다른 모듈 번들러인 Webpack 입니다.
+
+## 7. Webpack
+
+Webpack의 핵심 컨셉은 자바스크립트의 모듈화와 이를 하나의 파일로 묶어주는 번들링에 있습니다. 기존 번들러가 제공하는 편리한 의존성 관리와 번들링을 통한 성능 향상이 가능합니다. 또한 babel-loader를 통한 트랜스파일링으로 구형 브라우저와 호환이 가능하게 만듭니다. 기타 loader와 plugin을 통해 자바스크립트 파일뿐 아니라 HTML, CSS, Sass, 이미지 등을 로드할 수 있고, 이러한 여러가지 리소스와 관련된 성능최적화도 지원합니다.
+
+## 결론
+
+정리하자면, 자바스크립트를 사용하며
+
+1. 전역 스코프 공유 방지
+2. 의존성 관리
+3. 분리된 파일에서 필요한 기능만 사용(+정보 은닉)
+
+를 도모하기 위해 모듈 시스템을 사용해야 하고, ES6에서 제공하는 표준 모듈 시스템이 있지만,
+
+1. 구형 브라우저 호환을 위한 트랜스파일링
+2. 좀 더 편리한 의존성 관리
+3. 성능 최적화
+
+와 같은 다양한 장점을 누리기 위해 모듈 번들러인 Webpack을 사용해야 한다는 결론에 이르게 됩니다.
+
+글의 서두에도 언급했지만, 나름대로 자바스크립트에서 모듈 도입과정에 대해 정리하면서 Webpack을 사용하는 이유에 대한 배경을 알 수 있었습니다. Webpack 이라는 도구를 사용하며 저변 지식으로 도구가 탄생한 배경에 대해 알고 있다면, 도구의 핵심 컨셉과 폭넓은 이해를 바탕으로 본래 목적에 맞는 적절한 사용이 가능하지 않을까 생각됩니다.
+
+## 참고
+
+- [Naver D2 자바스크립트 표준을 위한 움직임](https://d2.naver.com/helloworld/12864)
+
+- [자바스크립트 모듈화 역사 돌아보기](https://medium.com/@chullino/%EC%9B%B9%ED%8C%A9-3-4-js%EB%AA%A8%EB%93%88%ED%99%94-%EC%97%AD%EC%82%AC-%EB%8F%8C%EC%95%84%EB%B3%B4%EA%B8%B0-1-9df997f82002)
+
+- [Brief History of JavaScript Module](https://medium.com/sungthecoder/javascript-module-module-loader-module-bundler-es6-module-confused-yet-6343510e7bde)
